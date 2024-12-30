@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <left>
+            <AnchorPane prefHeight="600.0" prefWidth="309.0" BorderPane.alignment="CENTER" />
+         </left>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="228.0" layoutY="151.0" text="LOGIN">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="120.0" layoutY="223.0" prefHeight="30.0" prefWidth="250.0" promptText="USERNAME">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </TextField>
+                  <PasswordField layoutX="120.0" layoutY="300.0" prefHeight="30.0" prefWidth="250.0" promptText="PASSWORD">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </PasswordField>
+                  <Button alignment="CENTER" layoutX="177.0" layoutY="416.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="159.0" text="Đăng nhập">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <FontAwesomeIconView glyphName="SIGN_IN" layoutX="183.0" layoutY="449.0" size="32" text="" />
+                  <Label layoutX="349.0" layoutY="372.0" text="Quên mật khẩu ?" />
+                  <Label layoutX="65.0" layoutY="380.0" text="Thay đổi mật khẩu" />
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</StackPane>
