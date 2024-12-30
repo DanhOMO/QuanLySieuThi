@@ -14,7 +14,6 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0">
@@ -72,7 +71,7 @@
                         <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtGiaBan" layoutX="131.0" layoutY="167.0" AnchorPane.topAnchor="167.0" />
+                  <TextField fx:id="txtGiaBan" layoutX="131.0" layoutY="167.0" prefHeight="26.0" prefWidth="104.0" AnchorPane.topAnchor="167.0" />
                   <Label layoutX="9.0" layoutY="383.0" text="Thành Tiền:">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
