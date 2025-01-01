@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1530.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <top>
+            <AnchorPane prefHeight="88.0" prefWidth="1530.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane layoutX="186.0" layoutY="-56.0" prefHeight="94.0" prefWidth="750.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="780.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label layoutX="292.0" layoutY="38.0" text="Giờ Đầu Ca:">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="406.0" layoutY="38.0" text="Thời Gian">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="753.0" layoutY="5.0" prefHeight="88.0" prefWidth="770.0">
+                     <children>
+                        <Label layoutX="216.0" layoutY="38.0" text="Giờ Hiện Tại:">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="330.0" layoutY="38.0" text="Thời Gian">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+         </top>
+         <left>
+            <AnchorPane prefHeight="412.0" prefWidth="784.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="103.0" layoutY="35.0" text="Tiền Đầu Ca:">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField disable="true" layoutX="257.0" layoutY="36.0" prefHeight="30.0" prefWidth="200.0" />
+               </children>
+            </AnchorPane>
+         </left>
+         <bottom>
+            <AnchorPane prefHeight="107.0" prefWidth="1530.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="68.0" layoutY="45.0" text="Nhân Viên:">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="179.0" layoutY="45.0" text="Nguyễn Công Danh">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="836.0" layoutY="43.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="KẾT CA">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="CHECK" wrappingWidth="21.3333740234375" />
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="1029.0" layoutY="43.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="236.0" text="KẾT CA VÀ IN PHIẾU">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="PRINT" wrappingWidth="21.3333740234375" />
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="1291.0" layoutY="43.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="THOÁT">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="SIGN_OUT" wrappingWidth="21.3333740234375" />
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </bottom>
+         <center>
+            <AnchorPane prefHeight="499.0" prefWidth="779.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="108.0" layoutY="52.0" text="Tiền Đầu Ca:">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField disable="true" layoutX="262.0" layoutY="53.0" prefHeight="30.0" prefWidth="200.0" />
+                  <Label layoutX="108.0" layoutY="113.0" text="Tiền Đầu Ca:">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField disable="true" layoutX="262.0" layoutY="114.0" prefHeight="30.0" prefWidth="200.0" />
+                  <Label layoutX="108.0" layoutY="184.0" text="Tiền Đầu Ca:">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField disable="true" layoutX="262.0" layoutY="185.0" prefHeight="30.0" prefWidth="200.0" />
+                  <Label layoutX="108.0" layoutY="250.0" text="Tiền Đầu Ca:">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField disable="true" layoutX="262.0" layoutY="251.0" prefHeight="30.0" prefWidth="200.0" />
+                  <Label layoutX="108.0" layoutY="311.0" text="Tiền Đầu Ca:">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField disable="true" layoutX="262.0" layoutY="312.0" prefHeight="30.0" prefWidth="200.0" />
+                  <Label layoutX="108.0" layoutY="388.0" text="Tiền Đầu Ca:">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField disable="true" layoutX="262.0" layoutY="389.0" prefHeight="30.0" prefWidth="200.0" />
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</StackPane>
