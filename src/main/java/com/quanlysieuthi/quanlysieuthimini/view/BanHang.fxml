@@ -71,7 +71,9 @@
                         <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
+
                   <TextField fx:id="txtGiaBan" layoutX="129.0" layoutY="162.0" AnchorPane.topAnchor="162.0" />
+
                   <Label layoutX="9.0" layoutY="383.0" text="Thành Tiền:">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
