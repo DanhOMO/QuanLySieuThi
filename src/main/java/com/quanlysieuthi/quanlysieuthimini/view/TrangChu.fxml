@@ -17,14 +17,14 @@
          <top>
             <AnchorPane prefHeight="93.0" prefWidth="1600.0" BorderPane.alignment="CENTER">
                <children>
-                  <AnchorPane layoutX="332.0" layoutY="-19.0" prefHeight="93.6" prefWidth="1600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane layoutX="332.0" layoutY="-19.0" prefHeight="93.6" prefWidth="1600.0" styleClass="top-form" stylesheets="@../css/TrangChuCss.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label layoutX="1355.0" layoutY="38.0" text="Welcome,">
+                        <Label layoutX="1355.0" layoutY="38.0" text="Welcome," textFill="WHITE">
                            <font>
                               <Font name="Arial" size="15.0" />
                            </font>
                         </Label>
-                        <Label layoutX="1422.0" layoutY="37.0" text="Nguyễn Công Danh">
+                        <Label layoutX="1422.0" layoutY="37.0" text="Nguyễn Công Danh" textFill="WHITE">
                            <font>
                               <Font name="Arial Bold" size="16.0" />
                            </font>
@@ -32,7 +32,7 @@
                               <FontAwesomeIconView glyphName="USER" />
                            </graphic>
                         </Label>
-                        <Label layoutX="59.0" layoutY="30.0" text="HOME">
+                        <Label layoutX="59.0" layoutY="30.0" text="HOME" textFill="WHITE">
                            <font>
                               <Font name="Arial Bold" size="24.0" />
                            </font>
@@ -57,126 +57,129 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <AnchorPane prefHeight="225.0" prefWidth="513.0">
+                        <AnchorPane prefHeight="225.0" prefWidth="513.0" styleClass="panel-banhang" stylesheets="@../css/TrangChuCss.css">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                            <children>
-                              <Label layoutX="197.0" layoutY="127.0" text="BÀN HÀNG">
+                              <Label layoutX="197.0" layoutY="127.0" stylesheets="@../css/TrangChuCss.css" text="BÀN HÀNG" textFill="#f39c12">
                                  <font>
                                     <Font name="System Bold" size="24.0" />
                                  </font>
                               </Label>
-                              <FontAwesomeIconView glyphName="SHOPPING_CART" layoutX="234.0" layoutY="104.0" size="50" />
+                              <FontAwesomeIconView fill="#f39c12" glyphName="SHOPPING_CART" layoutX="234.0" layoutY="104.0" selectionFill="#00ff4b" size="50" styleClass="button-banhang1" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="panel-GiaoCa" stylesheets="@../css/TrangChuCss.css" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                            <children>
-                              <Label layoutX="212.0" layoutY="132.0" text="GIAO CA">
+                              <Label layoutX="212.0" layoutY="132.0" text="GIAO CA" textFill="#3498db">
                                  <font>
                                     <Font name="System Bold" size="24.0" />
                                  </font>
                               </Label>
-                              <FontAwesomeIconView glyphName="USERS" layoutX="233.0" layoutY="109.0" size="50" />
+                              <FontAwesomeIconView fill="#3498db" glyphName="USERS" layoutX="233.0" layoutY="109.0" size="50" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="panel-KhuyenMai" stylesheets="@../css/TrangChuCss.css" GridPane.columnIndex="2">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                            <children>
-                              <Label layoutX="194.0" layoutY="132.0" text="Khuyến Mãi">
+                              <Label layoutX="194.0" layoutY="132.0" text="Khuyến Mãi" textFill="#ec7063">
                                  <font>
                                     <Font name="System Bold" size="24.0" />
                                  </font>
                               </Label>
-                              <FontAwesomeIconView glyphName="TAGS" layoutX="233.0" layoutY="104.0" size="50" />
+                              <FontAwesomeIconView fill="#ec7063" glyphName="TAGS" layoutX="233.0" layoutY="104.0" size="50" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="panel-ThanhToan" stylesheets="@../css/TrangChuCss.css" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                            <children>
-                              <Label layoutX="121.0" layoutY="126.0" text="THANH TOÁN TẠI QUẦY">
+                              <Label layoutX="121.0" layoutY="126.0" text="THANH TOÁN TẠI QUẦY" textFill="#2ecc71">
                                  <font>
                                     <Font name="System Bold" size="24.0" />
                                  </font>
                               </Label>
-                              <FontAwesomeIconView glyphName="CREDIT_CARD" layoutX="234.0" layoutY="104.0" size="50" />
+                              <FontAwesomeIconView fill="#2ecc71" glyphName="CREDIT_CARD" layoutX="234.0" layoutY="104.0" size="50" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="panel-BaoCao" stylesheets="@../css/TrangChuCss.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                            <children>
-                              <Label layoutX="207.0" layoutY="127.0" text="BÁO CÁO">
+                              <Label layoutX="207.0" layoutY="127.0" text="BÁO CÁO" textFill="#9b59b6">
                                  <font>
                                     <Font name="System Bold" size="24.0" />
                                  </font>
                               </Label>
-                              <FontAwesomeIconView glyphName="TABLE" layoutX="233.0" layoutY="104.0" size="50" />
+                              <FontAwesomeIconView fill="#9b59b6" glyphName="TABLE" layoutX="233.0" layoutY="104.0" size="50" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="panel-Kho" stylesheets="@../css/TrangChuCss.css" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                            <children>
-                              <Label layoutX="230.0" layoutY="125.0" text="KHO">
+                              <Label layoutX="230.0" layoutY="125.0" text="KHO" textFill="#34495e">
                                  <font>
                                     <Font name="System Bold" size="24.0" />
                                  </font>
                               </Label>
-                              <FontAwesomeIconView glyphName="CUBES" layoutX="233.0" layoutY="104.0" size="50" />
+                              <FontAwesomeIconView fill="#34495e" glyphName="CUBES" layoutX="233.0" layoutY="104.0" size="50" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="panel-QuanLyThongTin" stylesheets="@../css/TrangChuCss.css" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                            <children>
-                              <Label layoutX="132.0" layoutY="128.0" text="QUẢN LÝ THÔNG TIN">
+                              <Label layoutX="132.0" layoutY="128.0" text="QUẢN LÝ THÔNG TIN" textFill="#e74c3c">
                                  <font>
                                     <Font name="System Bold" size="24.0" />
                                  </font>
                               </Label>
-                              <FontAwesomeIconView glyphName="COG" layoutX="234.0" layoutY="104.0" size="50" />
+                              <FontAwesomeIconView fill="#e74c3c" glyphName="COG" layoutX="234.0" layoutY="104.0" size="50" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="panel-ThongTinCaNhan" stylesheets="@../css/TrangChuCss.css" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                            <children>
-                              <Label layoutX="135.0" layoutY="126.0" text="THÔNG TIN CÁ NHÂN">
+                              <Label layoutX="135.0" layoutY="126.0" text="THÔNG TIN CÁ NHÂN" textFill="#f1c40f">
                                  <font>
                                     <Font name="System Bold" size="24.0" />
                                  </font>
                               </Label>
-                              <FontAwesomeIconView glyphName="ID_CARD" layoutX="233.0" layoutY="104.0" size="50" />
+                              <FontAwesomeIconView fill="#f1c40f" glyphName="ID_CARD" layoutX="233.0" layoutY="104.0" size="50" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="panel-HuongDan" stylesheets="@../css/TrangChuCss.css" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                            <children>
-                              <Label layoutX="188.0" layoutY="137.0" text="HƯỚNG DẪN">
+                              <Label layoutX="188.0" layoutY="137.0" text="HƯỚNG DẪN" textFill="#8e44ad">
                                  <font>
                                     <Font name="System Bold" size="24.0" />
                                  </font>
                               </Label>
-                              <FontAwesomeIconView glyphName="INFO_CIRCLE" layoutX="243.0" layoutY="114.0" size="50" />
+                              <FontAwesomeIconView fill="#8e44ad" glyphName="INFO_CIRCLE" layoutX="243.0" layoutY="114.0" size="50" />
                            </children>
                         </AnchorPane>
                      </children>
                   </GridPane>
-               </children></AnchorPane>
+               </children>
+               <BorderPane.margin>
+                  <Insets top="5.0" />
+               </BorderPane.margin></AnchorPane>
          </center>
       </BorderPane>
    </children>

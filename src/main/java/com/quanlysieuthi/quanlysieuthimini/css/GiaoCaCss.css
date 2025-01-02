@@ -1,0 +1,19 @@
+.top-form {
+    -fx-background-color: linear-gradient(to right, #2511d9, #4dd9db);
+    -fx-text-fill: white;
+}
+.button-form {
+    -fx-background-color: #4dd9db;
+    -fx-text-fill: white;
+}
+.button-form:hover {
+    -fx-background-color: #2511d9;
+    -fx-text-fill: white;
+}
+.button-form:pressed {
+    -fx-background-color: #2511d9;
+    -fx-text-fill: white;
+}
+.icon-form{
+    -fx-background-color: white;
+}
