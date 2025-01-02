@@ -1,0 +1,112 @@
+.top-form{
+    -fx-background-color: linear-gradient(to right, #2511d9, #4dd9db);
+    -fx-text-fill: white;
+}
+.panel-banhang {
+    -fx-border-color: #f39c12; /* Màu cam sáng cho border bán hàng */
+    -fx-border-width: 2px; /* Độ rộng viền */
+    -fx-padding: 10px; /* Padding bên trong panel */
+}
+
+.panel-GiaoCa {
+    -fx-border-color: #3498db; /* Màu xanh dương nhẹ cho border giao ca */
+    -fx-border-width: 2px; /* Độ rộng viền */
+    -fx-padding: 10px; /* Padding bên trong panel */
+}
+
+.panel-ThongTinCaNhan {
+    -fx-border-color: #f1c40f; /* Màu vàng tươi cho border khuyến mãi */
+    -fx-border-width: 2px; /* Độ rộng viền */
+}
+
+.panel-ThanhToan {
+    -fx-border-color: #2ecc71; /* Màu xanh lá cây nhẹ cho border thanh toán */
+    -fx-border-width: 2px; /* Độ rộng viền */
+}
+
+.panel-BaoCao {
+    -fx-border-color: #9b59b6; /* Màu tím nhẹ cho border báo cáo */
+    -fx-border-width: 2px; /* Độ rộng viền */
+}
+
+.panel-Kho {
+    -fx-border-color: #34495e; /* Màu xám đậm cho border kho */
+    -fx-border-width: 2px; /* Độ rộng viền */
+}
+
+.panel-QuanLyThongTin {
+    -fx-border-color: #e74c3c; /* Màu đỏ nhẹ cho border quản lý thông tin */
+    -fx-border-width: 2px; /* Độ rộng viền */
+}
+
+.panel-KhuyenMai {
+    -fx-border-color: #ec7063; /* Màu hồng nhạt cho border thông tin cá nhân */
+    -fx-border-width: 2px; /* Độ rộng viền */
+}
+
+.panel-HuongDan {
+    -fx-border-color: #8e44ad; /* Màu tím nhạt cho border hướng dẫn */
+    -fx-border-width: 2px; /* Độ rộng viền */
+}
+.button-banhang1 {
+    -fx-background-color: transparent; /* Không có màu nền */
+    -fx-text-fill: #f39c12; /* Màu cam cho text */
+    -fx-font-size: 16px; /* Kích thước font */
+    -fx-font-weight: bold; /* Làm đậm chữ */
+}
+
+.button-GiaoCa1 {
+    -fx-background-color: transparent;
+    -fx-text-fill: #3498db; /* Màu xanh dương cho text */
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.button-KhuyenMai1 {
+    -fx-background-color: transparent;
+    -fx-text-fill: #f1c40f; /* Màu vàng cho text */
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.button-ThanhToan1 {
+    -fx-background-color: transparent;
+    -fx-text-fill: #2ecc71; /* Màu xanh lá cho text */
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.button-BaoCao1 {
+    -fx-background-color: transparent;
+    -fx-text-fill: #9b59b6; /* Màu tím cho text */
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.button-Kho1 {
+    -fx-background-color: transparent;
+    -fx-text-fill: #34495e; /* Màu xám cho text */
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.button-QuanLyThongTin1 {
+    -fx-background-color: transparent;
+    -fx-text-fill: #e74c3c; /* Màu đỏ cho text */
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.button-ThongTinCaNhan1 {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ec7063; /* Màu hồng cho text */
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.button-HuongDan1 {
+    -fx-background-color: transparent;
+    -fx-text-fill: #8e44ad; /* Màu tím cho text */
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
