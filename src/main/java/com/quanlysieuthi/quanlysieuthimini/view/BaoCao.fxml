@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <!-- BorderPane as the main container -->
+        <BorderPane prefHeight="200.0" prefWidth="200.0">
+            <top>
+                <!-- Header and Filter options (Optional) -->
+                <!-- Add your filter or header content here if needed -->
+            </top>
+            <center>
+                <!-- Tab Pane inside the BorderPane center -->
+                <TabPane>
+                    <!-- Tab 1 - Tổng quan -->
+                    <Tab text="Tổng quan">
+                        <BorderPane>
+                            <center>
+                                <VBox spacing="20">
+                                    <!-- KPI section: Doanh thu, Hóa đơn, Hàng tồn kho -->
+                                    <HBox spacing="20">
+                                        <VBox style="-fx-background-color: #f0f0f0; -fx-border-radius: 10px; -fx-padding: 10px; -fx-pref-width: 200px; -fx-border-color: #cccccc; -fx-border-width: 2px;">
+                                            <Label text="Doanh thu hôm nay">
+                                    <font>
+                                       <Font size="18.0" />
+                                    </font>
+                                 </Label>
+                                            <Label fx:id="revenueToday" text="0">
+                                    <font>
+                                       <Font size="18.0" />
+                                    </font>
+                                 </Label>
+                                        </VBox>
+                                        <VBox style="-fx-background-color: #f0f0f0; -fx-border-radius: 10px; -fx-padding: 10px; -fx-pref-width: 200px; -fx-border-color: #cccccc; -fx-border-width: 2px;">
+                                            <Label text="Hóa đơn hôm nay">
+                                    <font>
+                                       <Font size="18.0" />
+                                    </font>
+                                 </Label>
+                                            <Label fx:id="invoicesToday" text="0">
+                                    <font>
+                                       <Font size="18.0" />
+                                    </font>
+                                 </Label>
+                                        </VBox>
+                                        <VBox style="-fx-background-color: #f0f0f0; -fx-border-radius: 10px; -fx-padding: 10px; -fx-pref-width: 200px; -fx-border-color: #cccccc; -fx-border-width: 2px;">
+                                            <Label text="Hàng tồn kho">
+                                    <font>
+                                       <Font size="18.0" />
+                                    </font>
+                                 </Label>
+                                            <Label fx:id="inventoryStock" text="0">
+                                    <font>
+                                       <Font size="18.0" />
+                                    </font>
+                                 </Label>
+                                        </VBox>
+                              <VBox.margin>
+                                 <Insets left="20.0" top="10.0" />
+                              </VBox.margin>
+                                    </HBox>
+                                    <GridPane alignment="CENTER" hgap="50.0" prefWidth="1150.0" vgap="20.0">
+                                        <!-- BarChart with Axis -->
+                                        <BarChart fx:id="revenueChart" title="Doanh thu theo thời gian" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                            <xAxis>
+                                                <CategoryAxis label="Thời gian" />
+                                            </xAxis>
+                                            <yAxis>
+                                                <NumberAxis label="Doanh thu" />
+                                            </yAxis>
+                                        </BarChart>
+                                        <!-- PieChart for product sales -->
+                                        <PieChart fx:id="productSalesPie" title="Tỷ lệ sản phẩm bán chạy" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        <!-- BarChart for invoice trend -->
+                                        <BarChart fx:id="invoiceTrendChart" title="Tổng số hóa đơn theo thời gian" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                                            <xAxis>
+                                                <CategoryAxis label="Thời gian" />
+                                            </xAxis>
+                                            <yAxis>
+                                                <NumberAxis label="Số lượng hóa đơn" />
+                                            </yAxis>
+                                        </BarChart>
+
+                                        <!-- BarChart for inventory stock comparison -->
+                                        <BarChart fx:id="inventoryComparisonChart1" title="So sánh số lượng tồn kho" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                            <xAxis>
+                                                <CategoryAxis label="Mặt hàng" />
+                                            </xAxis>
+                                            <yAxis>
+                                                <NumberAxis label="Số lượng tồn kho" />
+                                            </yAxis>
+                                        </BarChart>
+                              <columnConstraints>
+                                 <ColumnConstraints />
+                                 <ColumnConstraints />
+                              </columnConstraints>
+                              <rowConstraints>
+                                 <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+                                 <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+                                 <RowConstraints />
+                                 <RowConstraints />
+                              </rowConstraints>
+                              <VBox.margin>
+                                 <Insets />
+                              </VBox.margin>
+                                    </GridPane>
+                           <BorderPane.margin>
+                              <Insets />
+                           </BorderPane.margin>
+                                </VBox>
+                            </center>
+                        </BorderPane>
+                    </Tab>
+
+                    <!-- Tab 2 - Doanh thu -->
+                    <Tab text="Doanh thu">
+                        <BorderPane>
+                            <center>
+                                <VBox>
+                                    <!-- BarChart with Axis -->
+                                    <BarChart fx:id="revenueByEmployeeChart" title="Doanh thu theo nhân viên">
+                                        <xAxis>
+                                            <CategoryAxis label="Nhân viên" />
+                                        </xAxis>
+                                        <yAxis>
+                                            <NumberAxis label="Doanh thu" />
+                                        </yAxis>
+                                    </BarChart>
+                                    <PieChart fx:id="revenueByProductChart" title="Doanh thu theo sản phẩm" />
+                                </VBox>
+                            </center>
+                        </BorderPane>
+                    </Tab>
+
+                    <!-- Tab 3 - Hóa đơn -->
+                    <Tab text="Hóa đơn">
+                        <BorderPane>
+                            <center>
+                                <VBox>
+                                    <HBox>
+                                        <Label text="Danh sách hóa đơn" />
+                                    </HBox>
+                                    <BarChart fx:id="invoiceChart" title="Số hóa đơn theo thời gian">
+                                        <xAxis>
+                                            <CategoryAxis label="Thời gian" />
+                                        </xAxis>
+                                        <yAxis>
+                                            <NumberAxis label="Số lượng hóa đơn" />
+                                        </yAxis>
+                                    </BarChart>
+                                    <BarChart fx:id="invoiceValueChart" title="Hóa đơn có giá trị cao/thấp">
+                                        <xAxis>
+                                            <CategoryAxis label="Hóa đơn" />
+                                        </xAxis>
+                                        <yAxis>
+                                            <NumberAxis label="Giá trị" />
+                                        </yAxis>
+                                    </BarChart>
+                                </VBox>
+                            </center>
+                        </BorderPane>
+                    </Tab>
+
+                    <!-- Tab 4 - Hàng tồn kho -->
+                    <Tab text="Hàng tồn kho">
+                        <BorderPane>
+                            <center>
+                                <VBox>
+                                    <HBox>
+                                        <Label text="Danh sách hàng tồn kho" />
+                                    </HBox>
+                                    <PieChart fx:id="inventoryStatusChart" title="Tỷ lệ hàng tồn kho theo trạng thái" />
+                                    <BarChart fx:id="inventoryComparisonChart2" title="So sánh số lượng tồn kho">
+                                        <xAxis>
+                                            <CategoryAxis label="Mặt hàng" />
+                                        </xAxis>
+                                        <yAxis>
+                                            <NumberAxis label="Số lượng tồn kho" />
+                                        </yAxis>
+                                    </BarChart>
+                                </VBox>
+                            </center>
+                        </BorderPane>
+                    </Tab>
+
+                    <!-- Tab 5 - Hiệu suất bán hàng -->
+                    <Tab text="Hiệu suất bán hàng">
+                        <BorderPane>
+                            <center>
+                                <VBox>
+                                    <BarChart fx:id="salesPerformanceEmployeeChart" title="Hiệu suất bán hàng theo nhân viên">
+                                        <xAxis>
+                                            <CategoryAxis label="Nhân viên" />
+                                        </xAxis>
+                                        <yAxis>
+                                            <NumberAxis label="Doanh thu" />
+                                        </yAxis>
+                                    </BarChart>
+                                    <BarChart fx:id="salesPerformanceProductChart" title="Hiệu suất bán hàng theo sản phẩm">
+                                        <xAxis>
+                                            <CategoryAxis label="Sản phẩm" />
+                                        </xAxis>
+                                        <yAxis>
+                                            <NumberAxis label="Doanh thu" />
+                                        </yAxis>
+                                    </BarChart>
+                                    <PieChart fx:id="salesPerformancePie" title="Tỷ lệ hiệu suất bán hàng" />
+                                </VBox>
+                            </center>
+                        </BorderPane>
+                    </Tab>
+                </TabPane>
+            </center>
+        </BorderPane>
+    </children>
+</StackPane>
