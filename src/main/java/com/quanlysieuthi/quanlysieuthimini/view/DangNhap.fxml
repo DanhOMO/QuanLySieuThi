@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
+
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0">
@@ -18,24 +24,24 @@
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="120.0" layoutY="223.0" prefHeight="30.0" prefWidth="250.0" promptText="USERNAME">
+                  <TextField layoutX="120.0" layoutY="223.0" prefHeight="30.0" prefWidth="250.0" promptText="USERNAME" stylesheets="@../css/BanHangCss.css">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
                   </TextField>
-                  <PasswordField layoutX="120.0" layoutY="300.0" prefHeight="30.0" prefWidth="250.0" promptText="PASSWORD">
+                  <PasswordField layoutX="120.0" layoutY="300.0" prefHeight="30.0" prefWidth="250.0" promptText="PASSWORD" stylesheets="@../css/BanHangCss.css">
                      <font>
                         <Font name="Arial" size="14.0" />
                      </font>
                   </PasswordField>
-                  <Button alignment="CENTER" layoutX="177.0" layoutY="416.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="159.0" text="Đăng nhập">
+                  <Button alignment="CENTER" layoutX="177.0" layoutY="416.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="159.0" stylesheets="@../css/BanHangCss.css" text="Đăng nhập">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Button>
-                  <FontAwesomeIconView glyphName="SIGN_IN" layoutX="183.0" layoutY="449.0" size="32" text="" />
                   <Label layoutX="349.0" layoutY="372.0" text="Quên mật khẩu ?" />
                   <Label layoutX="65.0" layoutY="380.0" text="Thay đổi mật khẩu" />
+                  <FontAwesomeIconView fill="#00d9d9" glyphName="USER" layoutX="232.0" layoutY="125.0" size="72" />
                </children>
             </AnchorPane>
          </center>

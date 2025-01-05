@@ -1,52 +1,187 @@
 .top-form{
-    -fx-background-color: linear-gradient(to right, #2511d9, #4dd9db);
+    -fx-background-color: linear-gradient(to right, #4dd9db, #34495e);
     -fx-text-fill: white;
 }
 .panel-banhang {
     -fx-border-color: #f39c12; /* Màu cam sáng cho border bán hàng */
     -fx-border-width: 2px; /* Độ rộng viền */
     -fx-padding: 10px; /* Padding bên trong panel */
+    -fx-border-radius: 4px;
 }
-
+.panel-banhang:hover{
+    -fx-background-color: #f39c12;
+    -fx-text-fill: white;
+}
+.panel-banhang:hover .label{
+    -fx-background-color: #f39c12;
+    -fx-text-fill: white;
+    -fx-alignment: CENTER;
+    -fx-font-size: 40px;
+}
+.panel-banhang .label {
+    -fx-text-fill: #f39c12;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
 .panel-GiaoCa {
     -fx-border-color: #3498db; /* Màu xanh dương nhẹ cho border giao ca */
     -fx-border-width: 2px; /* Độ rộng viền */
-    -fx-padding: 10px; /* Padding bên trong panel */
+    -fx-padding: 10px; /* Padding bên trong panel */-fx-border-radius: 4px;
+}
+.panel-GiaoCa:hover {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+}
+.panel-GiaoCa:hover .label {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-alignment: CENTER;
+    -fx-font-size: 40px;
+}
+.panel-GiaoCa .label {
+    -fx-text-fill: #3498db;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
 }
 
 .panel-ThongTinCaNhan {
     -fx-border-color: #f1c40f; /* Màu vàng tươi cho border khuyến mãi */
-    -fx-border-width: 2px; /* Độ rộng viền */
+    -fx-border-width: 2px; /* Độ rộng viền */-fx-border-radius: 4px;
+}
+.panel-ThongTinCaNhan:hover {
+    -fx-background-color: #f1c40f;
+    -fx-text-fill: white;
+}
+.panel-ThongTinCaNhan:hover .label {
+    -fx-background-color: #f1c40f;
+    -fx-text-fill: white;
+    -fx-alignment: CENTER;
+    -fx-font-size: 30px;
+}
+.panel-ThongTinCaNhan .label {
+    -fx-text-fill: #f1c40f;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
 }
 
 .panel-ThanhToan {
     -fx-border-color: #2ecc71; /* Màu xanh lá cây nhẹ cho border thanh toán */
-    -fx-border-width: 2px; /* Độ rộng viền */
+    -fx-border-width: 2px; /* Độ rộng viền */-fx-border-radius: 4px;
+}
+.panel-ThanhToan:hover {
+    -fx-background-color: #2ecc71;
+    -fx-text-fill: white;
+}
+.panel-ThanhToan:hover .label {
+    -fx-background-color: #2ecc71;
+    -fx-text-fill: white;
+    -fx-alignment: CENTER;
+    -fx-font-size: 30px;
+}
+.panel-ThanhToan .label {
+    -fx-text-fill: #2ecc71;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
 }
 
 .panel-BaoCao {
     -fx-border-color: #9b59b6; /* Màu tím nhẹ cho border báo cáo */
-    -fx-border-width: 2px; /* Độ rộng viền */
+    -fx-border-width: 2px; /* Độ rộng viền */-fx-border-radius: 4px;
+}
+.panel-BaoCao:hover {
+    -fx-background-color: #9b59b6;
+    -fx-text-fill: white;
+}
+.panel-BaoCao:hover .label {
+    -fx-background-color: #9b59b6;
+    -fx-text-fill: white;
+    -fx-alignment: CENTER;
+    -fx-font-size: 40px;
+}
+.panel-BaoCao .label {
+    -fx-text-fill: #9b59b6;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
 }
 
 .panel-Kho {
     -fx-border-color: #34495e; /* Màu xám đậm cho border kho */
-    -fx-border-width: 2px; /* Độ rộng viền */
+    -fx-border-width: 2px; /* Độ rộng viền */-fx-border-radius: 4px;
+}
+.panel-Kho:hover {
+    -fx-background-color: #34495e;
+    -fx-text-fill: white;
+}
+.panel-Kho:hover .label {
+    -fx-background-color: #34495e;
+    -fx-text-fill: white;
+    -fx-alignment: CENTER;
+    -fx-font-size: 40px;
+}
+.panel-Kho .label {
+    -fx-text-fill: #34495e;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
 }
 
 .panel-QuanLyThongTin {
     -fx-border-color: #e74c3c; /* Màu đỏ nhẹ cho border quản lý thông tin */
-    -fx-border-width: 2px; /* Độ rộng viền */
+    -fx-border-width: 2px; /* Độ rộng viền */-fx-border-radius: 4px;
+}
+.panel-QuanLyThongTin:hover {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+}
+.panel-QuanLyThongTin:hover .label {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-alignment: CENTER;
+    -fx-font-size: 30px;
+}
+.panel-QuanLyThongTin .label {
+    -fx-text-fill: #e74c3c;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
 }
 
 .panel-KhuyenMai {
     -fx-border-color: #ec7063; /* Màu hồng nhạt cho border thông tin cá nhân */
-    -fx-border-width: 2px; /* Độ rộng viền */
+    -fx-border-width: 2px; /* Độ rộng viền */-fx-border-radius: 4px;
+}
+.panel-KhuyenMai:hover {
+    -fx-background-color: #ec7063;
+    -fx-text-fill: white;
+}
+.panel-KhuyenMai:hover .label {
+    -fx-background-color: #ec7063;
+    -fx-text-fill: white;
+    -fx-alignment: CENTER;
+    -fx-font-size: 40px;
+}
+.panel-KhuyenMai .label {
+    -fx-text-fill: #ec7063;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
 }
 
 .panel-HuongDan {
     -fx-border-color: #8e44ad; /* Màu tím nhạt cho border hướng dẫn */
-    -fx-border-width: 2px; /* Độ rộng viền */
+    -fx-border-width: 2px; /* Độ rộng viền */-fx-border-radius: 4px;
+}
+.panel-HuongDan:hover {
+    -fx-background-color: #8e44ad;
+    -fx-text-fill: white;
+}
+.panel-HuongDan:hover .label {
+    -fx-background-color: #8e44ad;
+    -fx-text-fill: white;
+    -fx-alignment: CENTER;
+    -fx-font-size: 40px;
+}
+.panel-HuongDan .label {
+    -fx-text-fill: #8e44ad;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
 }
 .button-banhang1 {
     -fx-background-color: transparent; /* Không có màu nền */
