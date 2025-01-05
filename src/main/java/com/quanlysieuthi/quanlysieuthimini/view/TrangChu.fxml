@@ -15,9 +15,9 @@
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0">
          <top>
-            <AnchorPane prefHeight="93.0" prefWidth="1600.0" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="71.0" prefWidth="1600.0" BorderPane.alignment="CENTER">
                <children>
-                  <AnchorPane layoutX="332.0" layoutY="-19.0" prefHeight="93.6" prefWidth="1600.0" styleClass="top-form" stylesheets="@../css/TrangChuCss.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane layoutX="332.0" layoutY="-19.0" prefHeight="76.0" prefWidth="1600.0" styleClass="top-form" stylesheets="@../css/TrangChuCss.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Label layoutX="1355.0" layoutY="38.0" text="Welcome," textFill="WHITE">
                            <font>
@@ -29,10 +29,10 @@
                               <Font name="Arial Bold" size="16.0" />
                            </font>
                            <graphic>
-                              <FontAwesomeIconView glyphName="USER" />
+                              <FontAwesomeIconView fill="WHITE" glyphName="USER" />
                            </graphic>
                         </Label>
-                        <Label layoutX="59.0" layoutY="30.0" text="HOME" textFill="WHITE">
+                        <Label layoutX="55.0" layoutY="22.0" text="HOME" textFill="WHITE">
                            <font>
                               <Font name="Arial Bold" size="24.0" />
                            </font>
@@ -181,6 +181,9 @@
                   <Insets top="5.0" />
                </BorderPane.margin></AnchorPane>
          </center>
+         <bottom>
+            <AnchorPane prefHeight="13.0" prefWidth="1600.0" styleClass="top-form" stylesheets="@../css/BanHangCss.css" BorderPane.alignment="CENTER" />
+         </bottom>
       </BorderPane>
    </children>
 </StackPane>
