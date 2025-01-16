@@ -1,7 +1,7 @@
 package com.quanlysieuthi.quanlysieuthimini.enumClass
 
 public enum class GioiTinh {
-    NAM, NU
+    NAM, NU;
 
     public fun getGioiTinh(): String {
         return when(this) {
