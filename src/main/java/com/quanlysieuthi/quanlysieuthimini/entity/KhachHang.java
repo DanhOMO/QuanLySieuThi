@@ -1,6 +1,8 @@
 package com.quanlysieuthi.quanlysieuthimini.entity;
 
 import com.quanlysieuthi.quanlysieuthimini.enumClass.GioiTinh;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 

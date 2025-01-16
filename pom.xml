@@ -157,13 +157,16 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok-maven-plugin -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.36</version>
+            <version>1.18.30</version>
             <scope>provided</scope>
         </dependency>
+
+
         <!-- https://mvnrepository.com/artifact/org.eclipse.parsson/parsson -->
         <dependency>
             <groupId>org.eclipse.parsson</groupId>
