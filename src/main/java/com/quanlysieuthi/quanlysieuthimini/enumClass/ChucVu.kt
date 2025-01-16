@@ -1,7 +1,7 @@
 package com.quanlysieuthi.quanlysieuthimini.enumClass
 
 public enum class ChucVu {
-    QUAN_LY, NHAN_VIEN, NHAN_VIEN_KHO
+    QUAN_LY, NHAN_VIEN, NHAN_VIEN_KHO;
 
     public fun getChucVu(): String {
         return when(this) {

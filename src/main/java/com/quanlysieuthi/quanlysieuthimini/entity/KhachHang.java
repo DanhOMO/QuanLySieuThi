@@ -1,8 +1,12 @@
 package com.quanlysieuthi.quanlysieuthimini.entity;
 
 import com.quanlysieuthi.quanlysieuthimini.enumClass.GioiTinh;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
+@Setter
+@Getter
 @Entity
 public class KhachHang {
     @Id

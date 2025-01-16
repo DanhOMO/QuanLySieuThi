@@ -1,7 +1,7 @@
 package com.quanlysieuthi.quanlysieuthimini.enumClass
 
 public enum class TrangThaiNhanVien {
-    DANG_LAM, NGHI_VIEC
+    DANG_LAM, NGHI_VIEC;
 
     public fun getTrangThaiNhanVien(): String {
         return when(this) {

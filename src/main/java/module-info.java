@@ -13,6 +13,8 @@ module com.quanlysieuthi.quanlysieuthimini {
 
 
     requires com.almasb.fxgl.all;
+    requires lombok;
+    requires kotlin.stdlib;
 
     opens com.quanlysieuthi.quanlysieuthimini to javafx.fxml;
     exports com.quanlysieuthi.quanlysieuthimini.main;
