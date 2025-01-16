@@ -1,0 +1,28 @@
+/* Áp dụng cho tất cả RadioButton */
+.radio-button {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333; /* Màu chữ */
+    -fx-mark-color: #4dd9db; /* Màu của dấu chọn */
+}
+
+/* Áp dụng khi RadioButton được chọn */
+.radio-button:selected {
+    -fx-background-color: #4dd9db; /* Màu nền khi chọn */
+    -fx-border-width: 2px;
+}
+.radio-button:hover{
+    -fx-border-width: 2px;
+}
+
+/* Áp dụng cho tất cả CheckBox */
+.check-box {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333; /* Màu chữ */
+    -fx-mark-color: #2196F3; /* Màu của dấu chọn */
+}
+
+/* Áp dụng khi CheckBox được chọn */
+.check-box:selected {
+    -fx-background-color: #E3F2FD; /* Màu nền khi chọn */
+    -fx-border-width: 2px;
+}
