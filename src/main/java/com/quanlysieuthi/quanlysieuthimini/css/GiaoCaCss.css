@@ -1,9 +1,9 @@
 .top-form {
-    -fx-background-color: linear-gradient(to right, #2511d9, #4dd9db);
+    -fx-background-color: linear-gradient(to right, #f39c12 , #ffd597);
     -fx-text-fill: white;
 }
 .button-form {
-    -fx-background-color: #4dd9db;
+    -fx-background-color: #f39c12;
     -fx-text-fill: white;
 }
 .button-form:hover {

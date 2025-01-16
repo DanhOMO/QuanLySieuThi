@@ -1,0 +1,8 @@
+.top-form{
+    -fx-background-color: linear-gradient(to right, #f39c12 , #ffd597);
+}
+.top-form .label{
+    -fx-text-fill: white;
+    -fx-font-size: 24px;
+    -fx-font-weight:bold;
+}
