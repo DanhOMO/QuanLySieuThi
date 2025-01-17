@@ -1,19 +1,20 @@
 package com.quanlysieuthi.quanlysieuthimini.entity;
 
 import java.math.BigDecimal;
-import java.util.Set;
-import lombok.*;
+import java.time.LocalDate;
+import java.util.List;
 
+import lombok.*;
 @Setter
 @Getter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class ChiTietHoaDon {
-    private String maChiTietHoaDon;
+public class KhoHang {
+    private String maKhoHang;
+    private BigDecimal giaNhap;
+    private BigDecimal giaBan;
     private int soLuong;
-    private BigDecimal tongTien;
-    private HoaDon hoaDon;
     private SanPham sanPham;
-    private LoHang loHang;
+
 }

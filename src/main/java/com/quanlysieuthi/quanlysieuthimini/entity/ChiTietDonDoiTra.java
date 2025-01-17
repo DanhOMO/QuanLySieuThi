@@ -8,5 +8,5 @@ public class ChiTietDonDoiTra {
     private DonDoiTra maDonDoiTra;
 
     private SanPham sanPham;
-    private LoHang loHang;
+    private KhoHang loHang;
 }

@@ -1,7 +1,10 @@
 package com.quanlysieuthi.quanlysieuthimini.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
+
+import jakarta.persistence.ManyToOne;
 import lombok.*;
 @Setter
 @Getter
@@ -12,6 +15,8 @@ public class DonHuyHang {
     private  String maDonHuyHang;
     private LocalDate ngayHuy;
     private int soLuong;
-    private Set<LoHang> loHang;
+    @ManyToOne
+    private List<LoHang> loHang;
     private NhanVien nhanVien;
 }
+    
