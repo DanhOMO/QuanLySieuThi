@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 public class ChiTietHoaDon {
     @Id
     private String maChiTietHoaDon;
+    
     private int soLuong;
     private BigDecimal tongTien;
 
