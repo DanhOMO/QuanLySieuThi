@@ -2,7 +2,6 @@ package com.quanlysieuthi.quanlysieuthimini.entity;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 public class HoaDon {
@@ -13,6 +12,6 @@ public class HoaDon {
     private NhanVien nhanVien;
     private KhuyenMai khuyenMai;
     private KhachHang khachHang;
-    private List<ChiTietHoaDon> dsChiTietHoaDon;
+    private List<LoHang> dsChiTietHoaDon;
 
 }

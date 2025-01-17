@@ -1,21 +1,24 @@
 package com.quanlysieuthi.quanlysieuthimini.entity;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.util.List;
-import java.util.Set;
+
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.*;
+
 @Setter
 @Getter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
+@Table(name = "LoHang")
 public class LoHang {
-    private String maLo;
-    private LocalDate ngaySanXuat;
-    private BigDecimal giaNhap;
+    @ManyToOne
+    private KhoHang khoHang;
+    @ManyToOne
+    private DonNhapHang donNhapHang;
     private int soLuong;
-    private String viTri;
-    private List<SanPham> sanPham;
-
+    private BigDecimal giaNhap;
+    private SanPham sanPham;
 }
