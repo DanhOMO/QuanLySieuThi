@@ -22,5 +22,6 @@ module com.quanlysieuthi.quanlysieuthimini {
     requires lombok;
     exports com.quanlysieuthi.quanlysieuthimini.main;
     exports com.quanlysieuthi.quanlysieuthimini.entity;
+    opens com.quanlysieuthi.quanlysieuthimini.util to javafx.fxml;
     uses net.datafaker.idnumbers.IdNumberGenerator;
 }
