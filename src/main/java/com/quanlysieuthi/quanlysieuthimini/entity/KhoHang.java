@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import lombok.*;
 @Setter
 @Getter
@@ -15,6 +17,8 @@ public class KhoHang {
     private BigDecimal giaNhap;
     private BigDecimal giaBan;
     private int soLuong;
+    @OneToOne
+    @JoinColumn(name = "maSanPham", nullable = false)
     private SanPham sanPham;
 
 }

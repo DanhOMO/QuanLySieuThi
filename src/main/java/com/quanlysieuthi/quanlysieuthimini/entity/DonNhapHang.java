@@ -3,10 +3,7 @@ package com.quanlysieuthi.quanlysieuthimini.entity;
 import java.time.LocalDate;
 import java.util.Set;
 
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 @Setter
 @Getter
@@ -20,7 +17,9 @@ public class DonNhapHang {
     private String maDonNhap;
     private LocalDate ngayNhap;
     @ManyToOne
+    @JoinColumn( name = "maNhanVien", nullable = false)
     private NhanVien nhanVien;
     @ManyToOne
+    @JoinColumn( name = "maNhaCungCap", nullable = false)
     private NhaCungCap nhaCungCap;
 }
