@@ -12,7 +12,7 @@ import lombok.ToString;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class TaiKhoan {
     @Id
-    @Column(name = "maTaiKhoan", columnDefinition = "nvarchar(45)", unique = true, nullable = false)
+    @Column(name = "maTaiKhoan", columnDefinition = "nvarchar(45)")
     @EqualsAndHashCode.Include
     private String maTaiKhoan;
 
@@ -30,4 +30,7 @@ public class TaiKhoan {
     @OneToOne
     @JoinColumn(name = "maNhanVien", referencedColumnName = "maNhanVien", nullable = false)
     private NhanVien nhanVien;
+
+// Tương tự cho các trường khác
+
 }
