@@ -10,11 +10,11 @@ module com.quanlysieuthi.quanlysieuthimini {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
 
-
+    requires net.datafaker;
 
     requires com.almasb.fxgl.all;
-    requires lombok;
     requires kotlin.stdlib;
     requires jakarta.persistence;
+    requires lombok;
     exports com.quanlysieuthi.quanlysieuthimini.main;
 }

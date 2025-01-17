@@ -4,6 +4,7 @@ import com.quanlysieuthi.quanlysieuthimini.enumClass.TrangThaiSanPham;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -15,8 +16,8 @@ public class SanPham {
     @Column(name = "maSanPham", nullable = false, unique = true)
     private String maSanPham;
     private String tenSanPham;
-    private Date ngaySanXuat;
-    private Date hanSuDung;
+    private LocalDate ngaySanXuat;
+    private LocalDate hanSuDung;
     private TrangThaiSanPham trangThai;
     private String moTa;
     private double thue;
