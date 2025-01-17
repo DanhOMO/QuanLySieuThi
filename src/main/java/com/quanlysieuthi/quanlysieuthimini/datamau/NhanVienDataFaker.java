@@ -1,5 +1,6 @@
-package com.quanlysieuthi.quanlysieuthimini.entity;
+package com.quanlysieuthi.quanlysieuthimini.datamau;
 
+import com.quanlysieuthi.quanlysieuthimini.entity.NhanVien;
 import com.quanlysieuthi.quanlysieuthimini.enumClass.ChucVu;
 import com.quanlysieuthi.quanlysieuthimini.enumClass.GioiTinh;
 import com.quanlysieuthi.quanlysieuthimini.enumClass.TrangThaiNhanVien;
