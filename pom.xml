@@ -188,6 +188,11 @@
             <artifactId>datafaker</artifactId>
             <version>2.4.2</version>
         </dependency>
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>12.9.0.jre11-preview</version>
+        </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client -->
         <dependency>

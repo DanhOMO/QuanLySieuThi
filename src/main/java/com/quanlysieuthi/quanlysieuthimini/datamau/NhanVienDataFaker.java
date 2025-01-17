@@ -21,7 +21,7 @@ public class NhanVienDataFaker {
             nhanVien.setSdt(faker.phoneNumber().cellPhone());
             nhanVien.setDiaChi(faker.address().fullAddress());
             nhanVien.setCccd(faker.number().digits(12));
-            nhanVien.setNgaySinh(faker.date().birthday(18, 60).toString());
+            nhanVien.setNgaySinh(faker.timeAndDate().birthday());
             nhanVien.setGioiTinh(faker.options().option(GioiTinh.values()));
             nhanVien.setChucVu(faker.options().option(ChucVu.values()));
             nhanVien.setTrangThai(faker.options().option(TrangThaiNhanVien.values()));

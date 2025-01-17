@@ -6,11 +6,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
 
-
-
 @Data
 @Entity
-
 public class ChiTietDonDoiTra {
     @Id
     private String maChiTietDonDoiTra;
@@ -19,11 +16,9 @@ public class ChiTietDonDoiTra {
 
     @ManyToOne
     @JoinColumn(name = "maDonDoiTra")
-    private DonDoiTra maDonDoiTra;
+    private DonDoiTra donDoiTra;  // Đảm bảo tên trường này là "donDoiTra" (chứ không phải maDonDoiTra)
 
     @ManyToOne
     @JoinColumn(name = "maSanPham")
     private SanPham sanPham;
-
-
 }

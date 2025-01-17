@@ -13,7 +13,6 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.*;
 
-
 @Data
 @Entity
 public class DonDoiTra {
@@ -35,10 +34,9 @@ public class DonDoiTra {
     private KhachHang khachHang;
 
     @OneToOne
-    @JoinColumn(name = "maHoaDon", unique = true )
+    @JoinColumn(name = "maHoaDon", unique = true)
     private HoaDon hoaDon;
 
-    @OneToMany(mappedBy = "donDoiTra", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "donDoiTra", cascade = CascadeType.ALL) // mappedBy phải trỏ tới "donDoiTra"
     private List<ChiTietDonDoiTra> dsChiTietDonDoiTra;
-
 }
