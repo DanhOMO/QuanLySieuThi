@@ -4,6 +4,8 @@ import com.quanlysieuthi.quanlysieuthimini.enumClass.GioiTinh;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.time.LocalDate;
 @Setter
 @Getter

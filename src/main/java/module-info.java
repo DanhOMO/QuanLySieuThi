@@ -10,7 +10,7 @@ module com.quanlysieuthi.quanlysieuthimini {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
 
-
+    requires java.persistence;
 
     requires com.almasb.fxgl.all;
     requires lombok;
