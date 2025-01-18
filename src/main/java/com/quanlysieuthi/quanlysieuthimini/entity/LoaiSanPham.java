@@ -10,11 +10,8 @@ import java.util.Set;
 @Table(name = "LoaiSanPham")
 public class LoaiSanPham {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "maLoai", nullable = false, unique = true)
     private String maLoai;
-    private String tenLoai;
 
-    @OneToMany(mappedBy = "loaiSanPham")
-    private Set<SanPham> sanPhams;
+    private String tenLoai;
 }

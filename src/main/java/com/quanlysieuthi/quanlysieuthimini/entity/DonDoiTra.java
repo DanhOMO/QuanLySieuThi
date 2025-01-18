@@ -15,6 +15,9 @@ import lombok.*;
 
 @Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class DonDoiTra {
     @Id
     private String maDonDoiTra;
