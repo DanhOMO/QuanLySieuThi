@@ -19,7 +19,7 @@ public class KhachHangDataFaker {
             KhachHang khachHang = new KhachHang();
             khachHang.setMaKhachHang("KH" + (i + 1));
             khachHang.setHoTen(faker.name().fullName());
-            khachHang.setSdt(faker.phoneNumber().cellPhone());
+            khachHang.setSdt(generateFakePhoneNumber());  // Sử dụng phương thức tạo số điện thoại giả
             khachHang.setDiaChi(faker.address().fullAddress());
             khachHang.setCccd(String.valueOf(100000000 + random.nextInt(900000000))); // Random CCCD
             khachHang.setGioiTinh(random.nextBoolean() ? GioiTinh.NAM : GioiTinh.NU);
@@ -29,6 +29,16 @@ public class KhachHangDataFaker {
         }
 
         return khachHangList;
+    }
+
+    // Phương thức tạo số điện thoại giả
+    public static String generateFakePhoneNumber() {
+        Random random = new Random();
+        StringBuilder phoneNumber = new StringBuilder("0");
+        for (int i = 0; i < 9; i++) {
+            phoneNumber.append(random.nextInt(10));  // Thêm số ngẫu nhiên vào
+        }
+        return phoneNumber.toString();
     }
 
     public static void main(String[] args) {

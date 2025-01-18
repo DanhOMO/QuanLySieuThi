@@ -19,9 +19,10 @@ module com.quanlysieuthi.quanlysieuthimini {
 
     requires kotlin.stdlib;
     requires jakarta.persistence;
-    requires lombok;
+    requires static lombok;
     exports com.quanlysieuthi.quanlysieuthimini.main;
     exports com.quanlysieuthi.quanlysieuthimini.entity;
     opens com.quanlysieuthi.quanlysieuthimini.utils to javafx.fxml;
     uses net.datafaker.idnumbers.IdNumberGenerator;
+
 }
