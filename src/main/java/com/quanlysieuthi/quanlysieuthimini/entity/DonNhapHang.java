@@ -1,25 +1,31 @@
 package com.quanlysieuthi.quanlysieuthimini.entity;
 
 import java.time.LocalDate;
-import java.util.Set;
 
 import jakarta.persistence.*;
 import lombok.*;
-@Setter
+
+@Entity // Đánh dấu là entity
+@Table(name = "DonNhapHang") // Tên bảng trong cơ sở dữ liệu
 @Getter
-@ToString
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
-@Table(name = "DonNhapHang")
+@ToString
 public class DonNhapHang {
+
     @Id
-    private String maDonNhap;
+    @Column(name = "maDonNhap", nullable = false) // Khóa chính
+    private String maDonNhap; // Quản lý thủ công (không tự động tăng)
+
+    @Column(name = "ngayNhap", nullable = false)
     private LocalDate ngayNhap;
+
     @ManyToOne
-    @JoinColumn( name = "maNhanVien", nullable = false)
+    @JoinColumn(name = "maNhanVien", nullable = false) // Khóa ngoại tới bảng NhanVien
     private NhanVien nhanVien;
+
     @ManyToOne
-    @JoinColumn( name = "maNhaCungCap", nullable = false)
+    @JoinColumn(name = "maNhaCungCap", nullable = false) // Khóa ngoại tới bảng NhaCungCap
     private NhaCungCap nhaCungCap;
 }

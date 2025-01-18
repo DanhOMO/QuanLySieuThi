@@ -2,14 +2,14 @@ package com.quanlysieuthi.quanlysieuthimini.entity;
 
 import java.math.BigDecimal;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "ChiTietHoaDon")
 public class ChiTietHoaDon {
     @Id
     private String maChiTietHoaDon;

@@ -1,7 +1,7 @@
 package com.quanlysieuthi.quanlysieuthimini.dao;
 
 import com.quanlysieuthi.quanlysieuthimini.entity.KhoHang;
-import com.quanlysieuthi.quanlysieuthimini.util.EntityManagerUtil;
+import com.quanlysieuthi.quanlysieuthimini.utils.EntityManagerUtil;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 
@@ -26,33 +26,33 @@ public class KhoHangDAO {
             }
         }
     }
-    public static List<KhoHang> findAll() {
-        EntityManager em = EntityManagerUtil.getEntityManager();
-        try  {
-
-            TypedQuery<KhoHang> query = em.createQuery("select a from KhoHang a", KhoHang.class);
-            return query.getResultList();
-
-        }  catch (Exception resourceException) {
-
-            resourceException.printStackTrace();
-            return Collections.emptyList();
-
-        }
-    }
-    public static KhoHang findById(String id) {
-        EntityManager em = EntityManagerUtil.getEntityManager();
-        try {
-
-            return em.find(KhoHang.class, sanPham.maSanPham);
-
-        }  catch (Exception resourceException) {
-
-            resourceException.printStackTrace();
-            return null;
-
-        }
-    }
+//    public static List<KhoHang> findAll() {
+//        EntityManager em = EntityManagerUtil.getEntityManager();
+//        try  {
+//
+//            TypedQuery<KhoHang> query = em.createQuery("select a from KhoHang a", KhoHang.class);
+//            return query.getResultList();
+//
+//        }  catch (Exception resourceException) {
+//
+//            resourceException.printStackTrace();
+//            return Collections.emptyList();
+//
+//        }
+//    }
+//    public static KhoHang findById(String id) {
+//        EntityManager em = EntityManagerUtil.getEntityManager();
+//        try {
+//
+//            return em.find(KhoHang.class, sanPham.maSanPham);
+//
+//        }  catch (Exception resourceException) {
+//
+//            resourceException.printStackTrace();
+//            return null;
+//
+//        }
+//    }
     public static void update(KhoHang account) {
         EntityManager em = EntityManagerUtil.getEntityManager();
         try  {

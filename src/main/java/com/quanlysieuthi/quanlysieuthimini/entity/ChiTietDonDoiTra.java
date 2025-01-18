@@ -1,13 +1,17 @@
 package com.quanlysieuthi.quanlysieuthimini.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @Entity
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "ChiTietDonDoiTra")
 public class ChiTietDonDoiTra {
     @Id
     private String maChiTietDonDoiTra;

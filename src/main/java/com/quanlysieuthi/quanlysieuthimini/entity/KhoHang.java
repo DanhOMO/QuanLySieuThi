@@ -1,24 +1,30 @@
 package com.quanlysieuthi.quanlysieuthimini.entity;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.util.List;
-
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.*;
-@Setter
-@Getter
+
+@Entity // Đánh dấu đây là một entity
+@Table(name = "KhoHang") // Liên kết với bảng KhoHang
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 public class KhoHang {
+    @Id
+    @Column(name = "maKhoHang", nullable = false)
     private String maKhoHang;
+
+    @Column(name = "giaNhap", nullable = false)
     private BigDecimal giaNhap;
+
+    @Column(name = "giaBan", nullable = false)
     private BigDecimal giaBan;
+
+    @Column(name = "soLuong", nullable = false)
     private int soLuong;
-    @OneToOne
+
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "maSanPham", nullable = false)
     private SanPham sanPham;
-
 }

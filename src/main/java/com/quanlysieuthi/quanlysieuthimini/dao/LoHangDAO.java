@@ -2,7 +2,7 @@ package com.quanlysieuthi.quanlysieuthimini.dao;
 
 import com.quanlysieuthi.quanlysieuthimini.entity.KhoHang;
 import com.quanlysieuthi.quanlysieuthimini.entity.LoHang;
-import com.quanlysieuthi.quanlysieuthimini.util.EntityManagerUtil;
+import com.quanlysieuthi.quanlysieuthimini.utils.EntityManagerUtil;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 

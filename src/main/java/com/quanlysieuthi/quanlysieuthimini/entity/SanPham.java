@@ -5,28 +5,31 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Data
 @Entity
 @Table(name = "SanPham")
 public class SanPham {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "maSanPham", nullable = false, unique = true)
-    private String maSanPham;
+    private String maSanPham; // Đảm bảo kiểu dữ liệu đúng
+
     private String tenSanPham;
-    private LocalDate ngaySanXuat;
+    private LocalDate ngaySanXuat; // Dùng LocalDate
     private LocalDate hanSuDung;
-    private TrangThaiSanPham trangThai;
     private String moTa;
     private double thue;
+
+    @Enumerated(EnumType.STRING) // Hoặc EnumType.ORDINAL tùy vào cách bạn muốn lưu enum
+    private TrangThaiSanPham trangThai;
 
     @ManyToOne
     @JoinColumn(name = "maLoai", nullable = false)
     private LoaiSanPham loaiSanPham;
 
+
     @ManyToOne
     @JoinColumn(name = "maNhaCungCap", nullable = false)
     private NhaCungCap nhaCungCap;
 }
+

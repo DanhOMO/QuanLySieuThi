@@ -4,20 +4,30 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
 
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.*;
-@Setter
+
+@Entity
+@Table(name = "DonHuyHang")
 @Getter
+@Setter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class DonHuyHang {
-    private  String maDonHuyHang;
+    @Id
+    @Column(name = "maDonHuyHang", nullable = false, unique = true)
+    private String maDonHuyHang; // Nếu cần UUID, tự tạo giá trị cho trường này.
+
+    @Column(name = "ngayHuy", nullable = false)
     private LocalDate ngayHuy;
+
+    @Column(name = "soLuong", nullable = false)
     private int soLuong;
-    @ManyToOne
+
+    @OneToMany(mappedBy = "donHuyHang", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<LoHang> loHang;
+    @ManyToOne
+    @JoinColumn(name = "maNhanVien")
     private NhanVien nhanVien;
 }
-    
