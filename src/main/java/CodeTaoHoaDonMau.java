@@ -1,20 +1,20 @@
 
 import BUS.BusAccessor.CTHoaDonBUS;
-import BUS.BusAccessor.GiamGiaSPBUS;
 import BUS.BusAccessor.HoaDonBUS;
 import BUS.BusAccessor.KhachHangBUS;
 import BUS.BusAccessor.NhanVienBUS;
 import BUS.BusAccessor.SanPhamBUS;
 import BUS.BusAccessor.VoucherBUS;
 import DAL.DataAcessObject.GiamGiaSPDAO;
-import DTO.ChiTietHoaDon;
-import DTO.ChucVu;
-import DTO.GiamGiaSP;
-import DTO.HoaDon;
-import DTO.KhachHang;
-import DTO.NhanVien;
-import DTO.SanPham;
-import DTO.Voucher;
+import DAL.DataAcessObject.HoaDonDAO;
+import Entity.ChiTietHoaDon;
+import Entity.ChucVu;
+import Entity.GiamGiaSP;
+import Entity.HoaDon;
+import Entity.KhachHang;
+import Entity.NhanVien;
+import Entity.SanPham;
+import Entity.Voucher;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -78,7 +78,7 @@ public class CodeTaoHoaDonMau {
                 }
             }
             NhanVien nv = listNV.get(random(0, listNV.size()-1));
-            while (nv.getMaChucVu() != ChucVu.NHANVIENBANHANG){
+            while (nv.getChucVu().getMaChucVu() != ChucVu.NHANVIENBANHANG){
                 nv = listNV.get(random(0, listNV.size()-1));
             }
             int maKH = listKH.get(random(0,listKH.size()-1)).getMaKH();
@@ -86,7 +86,7 @@ public class CodeTaoHoaDonMau {
             Long value = (long) (generator.nextDouble() * ((1653708571665L - 1650000000000L) + 1)) + 1650000000000L;
 
             //             HoaDon(int maHD, Timestamp ngayHD, String hinhThuc, long tongTien, long tienGiam, int maKH, int maNV, int soKM, boolean isDeleted)
-            HoaDon hd = new HoaDon(0, new Timestamp(value), "Tien mat", tongTien, tienGiam, maKH, nv.getMaNV(), voucher == null ? 1:voucher.getSoVoucher(), false);
+            HoaDon hd = new HoaDon(0, new Timestamp(value), "Tien mat", tongTien, tienGiam, maKH, nv.getMaNV(), String.valueOf(voucher == null ? 1:voucher.getMaVoucher()), false);
             hdBus.add(hd);
             int maHD = hdBus.getNewest().getMaHD();
             thayDoiMaHoaDon(listCTHD, maHD);
@@ -97,8 +97,9 @@ public class CodeTaoHoaDonMau {
     }
     
     public static void thayDoiMaHoaDon(List<ChiTietHoaDon> list, int maHD){
+        HoaDonDAO hdDao = new HoaDonDAO();
         for (ChiTietHoaDon i : list){
-            i.setMaHD(maHD);
+           i.setHoaDon(hdDao.select(maHD));
         }
     }
     

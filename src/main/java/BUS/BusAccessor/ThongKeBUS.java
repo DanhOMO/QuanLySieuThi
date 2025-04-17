@@ -6,16 +6,15 @@ package BUS.BusAccessor;
 
 import java.util.List;
 
-import DAL.DataAcessObject.HoaDonDAO;
-import DTO.ChiTietHoaDon;
-import DTO.ChiTietPhieuHuy;
-import DTO.ChiTietPhieuNhap;
-import DTO.HoaDon;
-import DTO.KhachHang;
-import DTO.NhanVien;
-import DTO.PhieuHuy;
-import DTO.PhieuNhap;
-import DTO.SanPham;
+import Entity.ChiTietHoaDon;
+import Entity.ChiTietPhieuHuy;
+import Entity.ChiTietPhieuNhap;
+import Entity.HoaDon;
+import Entity.KhachHang;
+import Entity.NhanVien;
+import Entity.PhieuHuy;
+import Entity.PhieuNhap;
+import Entity.SanPham;
 
 /**
  *
@@ -53,7 +52,7 @@ public class ThongKeBUS {
         for (NhanVien n : listNV) {
             int count = 0;
             for (HoaDon hd : listHD) {
-                if (hd.getMaNV() == n.getMaNV())
+                if (hd.getNhanVien().getMaNV() == n.getMaNV())
                     count++;
             }
             if (count > max) {
@@ -73,7 +72,7 @@ public class ThongKeBUS {
         for (NhanVien n : listNV) {
             Long doanhThu = 0L;
             for (HoaDon hd : listHD) {
-                if (hd.getMaNV() == n.getMaNV())
+                if (hd.getNhanVien().getMaNV() == n.getMaNV())
                     doanhThu += hd.getTongTien();
             }
             if (doanhThu > max) {
@@ -102,7 +101,7 @@ public class ThongKeBUS {
         for (KhachHang k : listKH) {
             int count = 0;
             for (HoaDon hd : listHD) {
-                if (hd.getMaKH() == k.getMaKH())
+                if (hd.getKhachHang().getMaKH() == k.getMaKH())
                     count++;
             }
             if (count > max) {
@@ -122,7 +121,7 @@ public class ThongKeBUS {
         for (KhachHang k : listKH) {
             Long doanhThu = 0L;
             for (HoaDon hd : listHD) {
-                if (hd.getMaKH() == k.getMaKH())
+                if (hd.getKhachHang().getMaKH() == k.getMaKH())
                     doanhThu += (hd.getTongTien() - hd.getTienGiam());
             }
             if (doanhThu > max) {
@@ -215,7 +214,7 @@ public class ThongKeBUS {
             for (PhieuHuy ph : list) {
                 List<ChiTietPhieuHuy> listCT = ctPhieuHuyBus.getByKey1(ph.getMaPhieu());
                 for (ChiTietPhieuHuy ctph : listCT) {
-                    if (sanpham.getMaSP() == ctph.getMaSP())
+                    if (sanpham.getMaSP() == ctph.getSanPham().getMaSP())
                         count++;
                 }
             }
@@ -238,7 +237,7 @@ public class ThongKeBUS {
             for (PhieuNhap ph : list) {
                 List<ChiTietPhieuNhap> listCT = ctPhieuNhapBus.getByKey1(ph.getMaPhieu());
                 for (ChiTietPhieuNhap ctph : listCT) {
-                    if (sanpham.getMaSP() == ctph.getMaSP())
+                    if (sanpham.getMaSP() == ctph.getSanPham().getMaSP())
                         count++;
                 }
             }

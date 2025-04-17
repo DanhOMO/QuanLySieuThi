@@ -1,6 +1,6 @@
 package DAL.DataAcessObject;
 
-import DTO.NhanVien;
+import Entity.NhanVien;
 
 import java.util.List;
 
@@ -9,10 +9,11 @@ public class NhanVienDAO extends AbtractAccessDatabase<NhanVien> implements ISim
         setClazz(NhanVien.class);
     }
 
+
     @Override
     public boolean insert(NhanVien nhanVien) {
         return executeUpdate("INSERT INTO NHANVIEN(TENNV,GIOITINH,CMND,NGAYSINH,SODIENTHOAI,EMAIL,DIACHI,NGAYTHAMGIA,MACHUCVU,IS_DELETED) VALUES(?,?,?,?,?,?,?,?,?,?)",
-                nhanVien.getTenNV(),nhanVien.isGioiTinh(),nhanVien.getCmnd(),nhanVien.getNgaySinh(),nhanVien.getSoDienThoai(),nhanVien.getEmail(),nhanVien.getDiaChi(),nhanVien.getNgayThamGia(),nhanVien.getMaChucVu(),nhanVien.isDeleted());
+                nhanVien.getTenNV(),nhanVien.isGioiTinh(),nhanVien.getCmnd(),nhanVien.getNgaySinh(),nhanVien.getSoDienThoai(),nhanVien.getEmail(),nhanVien.getDiaChi(),nhanVien.getNgayThamGia(),nhanVien.getChucVu().getMaChucVu(),nhanVien.isDeleted());
     }
 
     @Override
@@ -23,7 +24,7 @@ public class NhanVienDAO extends AbtractAccessDatabase<NhanVien> implements ISim
     @Override
     public boolean update(Integer maNhanVien, NhanVien nhanVien) {
         return executeUpdate("UPDATE NHANVIEN SET TENNV = ?, GIOITINH = ?, CMND = ?, NGAYSINH = ?, SODIENTHOAI = ?, EMAIL = ?, DIACHI = ?, NGAYTHAMGIA = ?, MACHUCVU = ?, IS_DELETED = ? WHERE MANV = ?",
-                nhanVien.getTenNV(),nhanVien.isGioiTinh(),nhanVien.getCmnd(),nhanVien.getNgaySinh(),nhanVien.getSoDienThoai(),nhanVien.getEmail(),nhanVien.getDiaChi(),nhanVien.getNgayThamGia(),nhanVien.getMaChucVu(),nhanVien.isDeleted(),maNhanVien);
+                nhanVien.getTenNV(),nhanVien.isGioiTinh(),nhanVien.getCmnd(),nhanVien.getNgaySinh(),nhanVien.getSoDienThoai(),nhanVien.getEmail(),nhanVien.getDiaChi(),nhanVien.getNgayThamGia(),nhanVien.getChucVu().getMaChucVu(),nhanVien.isDeleted(),maNhanVien);
     }
 
     @Override

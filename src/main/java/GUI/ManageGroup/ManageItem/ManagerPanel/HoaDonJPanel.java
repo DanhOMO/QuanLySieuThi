@@ -10,13 +10,13 @@ import BUS.BusAccessor.NhanVienBUS;
 import BUS.BusAccessor.SanPhamBUS;
 import BUS.SaleServices.Money;
 import DAL.DataAcessObject.ChiTietHoaDonDAO;
-import DTO.ChiTietHoaDon;
-import DTO.HoaDon;
-import DTO.KhachHang;
-import DTO.NhanVien;
-import DTO.SanPham;
+import Entity.ChiTietHoaDon;
+import Entity.HoaDon;
+import Entity.KhachHang;
+import Entity.NhanVien;
+import Entity.SanPham;
 import GUI.ManageGroup.Theme.NhapXuatTheme;
-import com.raven.datechooser.DateChooser;
+
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -28,10 +28,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-import javax.swing.JPopupMenu;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import  java.text.ParseException;
 import javax.swing.JFrame;
 
 /**
@@ -95,9 +93,9 @@ public class HoaDonJPanel extends javax.swing.JPanel {
             return;
         for(HoaDon hd:hdList){
             hd=hdList.get(i);
-            NhanVien nv= nhanVienBUS.get(hd.getMaNV());
-            KhachHang kh= khachHangBUS.get(hd.getMaKH());
-            modelJTABLE2.addRow(new Object[]{hd.getMaHD(),hd.getMaKH(),kh.getTenKH(),hd.getMaNV(),nv.getTenNV(),hd.getNgayHD()});
+            NhanVien nv= nhanVienBUS.get(hd.getNhanVien().getMaNV());
+            KhachHang kh= khachHangBUS.get(hd.getKhachHang().getMaKH());
+            modelJTABLE2.addRow(new Object[]{hd.getMaHD(),hd.getKhachHang().getMaKH(),kh.getTenKH(),hd.getNhanVien().getMaNV(),nv.getTenNV(),hd.getNgayHD()});
             i++;
         }
         jTable2.setModel(modelJTABLE2);
@@ -381,9 +379,9 @@ public class HoaDonJPanel extends javax.swing.JPanel {
         HoaDon hd= hoaDonBUS.get(Integer.parseInt(i));
         List<ChiTietHoaDon> listChiTiet = cthoaDonDAO.selectAllById1(hd.getMaHD());
         for (ChiTietHoaDon cthd : listChiTiet) {
-            SanPham sp = sanPhamBUS.get(cthd.getMaSP());
+            SanPham sp = sanPhamBUS.get(cthd.getSanPham().getMaSP());
             soluong+=cthd.getSoLuong();
-            modelJTABLE1.addRow(new Object[]{cthd.getMaSP(),sp.getTenSP(),cthd.getSoLuong(),cthd.getGiaTien()});
+            modelJTABLE1.addRow(new Object[]{cthd.getSanPham().getMaSP(),sp.getTenSP(),cthd.getSoLuong(),cthd.getGiaTien()});
             jLabel1.setText(Money.format(hd.getTongTien()));
             jLabel5.setText(Money.format(hd.getTienGiam()));
             jLabel2.setText(String.valueOf(soluong));
@@ -412,9 +410,9 @@ public class HoaDonJPanel extends javax.swing.JPanel {
                 if(jTextField9.getText().equals(String.valueOf(hd.getMaHD())) ){
                     jTable2.setModel(new DefaultTableModel(null,new String[]{"Mã hóa đơn","Mã khách hàng","Tên khách hàng","Mã nhân viên","Tên nhân viên","Ngày hóa đơn"}));
                     modelJTABLE2= (DefaultTableModel) jTable2.getModel();
-                    NhanVien nv= nhanVienBUS.get(hd.getMaNV());
-                    KhachHang kh= khachHangBUS.get(hd.getMaKH());
-                    modelJTABLE2.addRow(new Object[]{hd.getMaHD(),hd.getMaKH(),kh.getTenKH(),hd.getMaNV(),nv.getTenNV(),hd.getNgayHD()});
+                    NhanVien nv= nhanVienBUS.get(hd.getNhanVien().getMaNV());
+                    KhachHang kh= khachHangBUS.get(hd.getKhachHang().getMaKH());
+                    modelJTABLE2.addRow(new Object[]{hd.getMaHD(),hd.getKhachHang().getMaKH(),kh.getTenKH(),hd.getNhanVien().getMaNV(),nv.getTenNV(),hd.getNgayHD()});
                     test=true;
                 }
             }
@@ -449,9 +447,9 @@ public class HoaDonJPanel extends javax.swing.JPanel {
                     Date requiredDate = sdf.parse(reDate);
                     if (requiredDate.compareTo(sDate) >= 0 && requiredDate.compareTo(eDate) <= 0) {
 
-                        NhanVien nv = nhanVienBUS.get(hd.getMaNV());
-                        KhachHang kh = khachHangBUS.get(hd.getMaKH());
-                        modelJTABLE2.addRow(new Object[]{hd.getMaHD(), hd.getMaKH(), kh.getTenKH(), hd.getMaNV(), nv.getTenNV(), hd.getNgayHD()});
+                        NhanVien nv = nhanVienBUS.get(hd.getNhanVien().getMaNV());
+                        KhachHang kh = khachHangBUS.get(hd.getKhachHang().getMaKH());
+                        modelJTABLE2.addRow(new Object[]{hd.getMaHD(), hd.getKhachHang().getMaKH(), kh.getTenKH(), hd.getNhanVien().getMaNV(), nv.getTenNV(), hd.getNgayHD()});
 
                     }
                 }
@@ -461,9 +459,9 @@ public class HoaDonJPanel extends javax.swing.JPanel {
                 for (HoaDon hd : hdList) {
                     String reDate = sdf.format(hd.getNgayHD());
                     Date requiredDate = sdf.parse(reDate);
-                    if (hd.getMaKH() == kh.getMaKH() && requiredDate.compareTo(sDate) >= 0 && requiredDate.compareTo(eDate) <= 0) {
-                        NhanVien nv = nhanVienBUS.get(hd.getMaNV());
-                        modelJTABLE2.addRow(new Object[]{hd.getMaHD(), hd.getMaKH(), kh.getTenKH(), hd.getMaNV(), nv.getTenNV(), hd.getNgayHD()});
+                    if (hd.getKhachHang().getMaKH() == kh.getMaKH() && requiredDate.compareTo(sDate) >= 0 && requiredDate.compareTo(eDate) <= 0) {
+                        NhanVien nv = nhanVienBUS.get(hd.getNhanVien().getMaNV());
+                        modelJTABLE2.addRow(new Object[]{hd.getMaHD(), hd.getKhachHang().getMaKH(), kh.getTenKH(), hd.getNhanVien().getMaNV(), nv.getTenNV(), hd.getNgayHD()});
 
                     }
                 }
@@ -473,9 +471,9 @@ public class HoaDonJPanel extends javax.swing.JPanel {
                 for (HoaDon hd : hdList) {
                     String reDate = sdf.format(hd.getNgayHD());
                     Date requiredDate = sdf.parse(reDate);
-                    if (hd.getMaNV()== nv.getMaNV()&& requiredDate.compareTo(sDate) >= 0 && requiredDate.compareTo(eDate) <= 0) {
-                        KhachHang kh= khachHangBUS.get(hd.getMaKH());
-                        modelJTABLE2.addRow(new Object[]{hd.getMaHD(), hd.getMaKH(), kh.getTenKH(), hd.getMaNV(), nv.getTenNV(), hd.getNgayHD()});
+                    if (hd.getNhanVien().getMaNV()== nv.getMaNV()&& requiredDate.compareTo(sDate) >= 0 && requiredDate.compareTo(eDate) <= 0) {
+                        KhachHang kh= khachHangBUS.get(hd.getKhachHang().getMaKH());
+                        modelJTABLE2.addRow(new Object[]{hd.getMaHD(), hd.getKhachHang().getMaKH(), kh.getTenKH(), hd.getNhanVien().getMaNV(), nv.getTenNV(), hd.getNgayHD()});
                     }
                 }
             }//loc theo ma nv
@@ -485,8 +483,8 @@ public class HoaDonJPanel extends javax.swing.JPanel {
                 for (HoaDon hd : hdList) {
                     String reDate = sdf.format(hd.getNgayHD());
                     Date requiredDate = sdf.parse(reDate);
-                    if (hd.getMaKH() == kh.getMaKH() && hd.getMaNV()== nv.getMaNV() &&requiredDate.compareTo(sDate) >= 0 && requiredDate.compareTo(eDate) <= 0) {
-                        modelJTABLE2.addRow(new Object[]{hd.getMaHD(), hd.getMaKH(), kh.getTenKH(), hd.getMaNV(), nv.getTenNV(), hd.getNgayHD()});
+                    if (hd.getKhachHang().getMaKH() == kh.getMaKH() && hd.getNhanVien().getMaNV()== nv.getMaNV() &&requiredDate.compareTo(sDate) >= 0 && requiredDate.compareTo(eDate) <= 0) {
+                        modelJTABLE2.addRow(new Object[]{hd.getMaHD(), hd.getKhachHang().getMaKH(), kh.getTenKH(), hd.getNhanVien().getMaNV(), nv.getTenNV(), hd.getNgayHD()});
 
                     }
                 }

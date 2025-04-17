@@ -5,14 +5,12 @@
 package GUI.SaleGroup.SellerGUI.BasicHandle;
 
 import BUS.BusAccessor.SanPhamBUS;
-import DTO.LoaiSanPham;
-import DTO.SanPham;
+import Entity.SanPham;
 import GUI.SaleGroup.SellerGUI.Component.MenuPanel;
 import GUI.SaleGroup.SellerGUI.Component.MyLoaiSPComboBox;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
-import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 /**

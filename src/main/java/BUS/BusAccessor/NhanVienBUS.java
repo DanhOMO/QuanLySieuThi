@@ -5,8 +5,8 @@
 package BUS.BusAccessor;
 
 import DAL.DataAcessObject.NhanVienDAO;
-import DTO.HoaDon;
-import DTO.NhanVien;
+import Entity.HoaDon;
+import Entity.NhanVien;
 import java.util.List;
 
 /**
@@ -25,7 +25,7 @@ public class NhanVienBUS implements IBussAccess<NhanVien, Integer>{
             return 0;
         }
         for (HoaDon hoadon : listHoadon) {
-            if (hoadon.getMaNV() == manhanvien) {
+            if (hoadon.getNhanVien().getMaNV() == manhanvien) {
                 count++;
             }
         }
@@ -41,7 +41,7 @@ public class NhanVienBUS implements IBussAccess<NhanVien, Integer>{
             
         }
          for (HoaDon hoadon : listHoadon) {
-            if (hoadon.getMaNV() == manhanvien) {
+            if (hoadon.getNhanVien().getMaNV() == manhanvien) {
                count += hoadon.getTongTien() - hoadon.getTienGiam();
             }
         }

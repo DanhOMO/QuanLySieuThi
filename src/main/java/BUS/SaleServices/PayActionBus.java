@@ -4,18 +4,13 @@
  */
 package BUS.SaleServices;
 
-import DAL.DataAcessObject.ChiTietHoaDonDAO;
-import DAL.DataAcessObject.GiamGiaSPDAO;
-import DAL.DataAcessObject.HoaDonDAO;
-import DAL.DataAcessObject.KhachHangDAO;
-import DAL.DataAcessObject.SanPhamDAO;
-import DAL.DataAcessObject.VoucherDAO;
-import DTO.ChiTietHoaDon;
-import DTO.GiamGiaSP;
-import DTO.HoaDon;
-import DTO.KhachHang;
-import DTO.SanPham;
-import DTO.Voucher;
+import DAL.DataAcessObject.*;
+import Entity.ChiTietHoaDon;
+import Entity.GiamGiaSP;
+import Entity.HoaDon;
+import Entity.KhachHang;
+import Entity.SanPham;
+import Entity.Voucher;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -93,7 +88,7 @@ public class PayActionBus {
     public long totalBill(List<ChiTietHoaDon> orderList){
         total = 0;
         for(ChiTietHoaDon item : orderList){
-            total += discountProductPrice(item.getMaSP()) * item.getSoLuong();
+            total += discountProductPrice(item.getSanPham().getMaSP()) * item.getSoLuong();
         }
         return total;
     }
@@ -142,9 +137,11 @@ public class PayActionBus {
         }    
         
         maKH = khachHang == null ? 0 : khachHang.getMaKH();
-
+        KhachHangDAO khachHangDAO = new KhachHangDAO();
+        NhanVienDAO nhanVienDAO = new NhanVienDAO();
+        VoucherDAO voucherDAO = new VoucherDAO();
         hoaDon = new HoaDon(0,new Timestamp(System.currentTimeMillis()),hinhthuc,
-                total, disVoucher + disPoint, maKH, maNV, this.soVoucher,false);
+                total, disVoucher + disPoint, nhanVienDAO.select(maNV), khachHangDAO.select(maNV),voucherDAO.select(maVoucher) ,false);
         
         
         if(hoaDonDAO.insert(hoaDon)){
@@ -168,12 +165,13 @@ public class PayActionBus {
         for(ChiTietHoaDon item : orderList){
             
             //Thay đổi số lượng sản phẩm trong kho
-            SanPham sanPham = sanPhamDAO.select(item.getMaSP());
+            SanPham sanPham = sanPhamDAO.select(item.getSanPham().getMaSP());
             sanPham.setSoLuong(sanPham.getSoLuong() - item.getSoLuong());
             sanPhamDAO.update(sanPham.getMaSP(), sanPham);
             
-            item.setGiaTien((long)discountProductPrice(item.getMaSP()) * item.getSoLuong());
-            item.setMaHD(maHD);
+            item.setGiaTien((long)discountProductPrice(item.getSanPham().getMaSP()) * item.getSoLuong());
+            HoaDonDAO hoaDonDAO = new HoaDonDAO();
+            item.setHoaDon(hoaDonDAO.select(maHD));
             flag = CTHoaDonDAO.insert(item);
         }
         return flag;

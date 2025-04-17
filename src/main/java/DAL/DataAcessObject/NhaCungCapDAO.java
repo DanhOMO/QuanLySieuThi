@@ -1,6 +1,6 @@
 package DAL.DataAcessObject;
 
-import DTO.NhaCungCap;
+import Entity.NhaCungCap;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ public class NhaCungCapDAO extends AbtractAccessDatabase<NhaCungCap> implements 
     @Override
     public boolean insert(NhaCungCap nhaCungCap) {
         return executeUpdate("INSERT INTO nhacungcap(TENNCC,DIACHI,SDT,EMAIL,IS_DELETED) VALUES(?,?,?,?,?)",
-                nhaCungCap.getTenNCC(),nhaCungCap.getDiaChi(),nhaCungCap.getSdt(),nhaCungCap.getEmail(),nhaCungCap.getIsDeleted());
+                nhaCungCap.getTenNCC(),nhaCungCap.getDiaChi(),nhaCungCap.getSdt(),nhaCungCap.getEmail(),nhaCungCap.isDeleted());
     }
 
     @Override
@@ -25,7 +25,7 @@ public class NhaCungCapDAO extends AbtractAccessDatabase<NhaCungCap> implements 
     @Override
     public boolean update(Integer maNhaCungCap, NhaCungCap nhaCungCap) {
         return executeUpdate("UPDATE nhacungcap SET TENNCC = ?, DIACHI = ?, SDT = ?, EMAIL = ?, IS_DELETED = ? WHERE MANCC = ?",
-                nhaCungCap.getTenNCC(),nhaCungCap.getDiaChi(),nhaCungCap.getSdt(),nhaCungCap.getEmail(),nhaCungCap.getIsDeleted(),maNhaCungCap);
+                nhaCungCap.getTenNCC(),nhaCungCap.getDiaChi(),nhaCungCap.getSdt(),nhaCungCap.getEmail(),nhaCungCap.isDeleted(),maNhaCungCap);
     }
 
     @Override

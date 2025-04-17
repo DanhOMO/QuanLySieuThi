@@ -1,6 +1,6 @@
 package DAL.DataAcessObject;
 
-import DTO.LoaiSanPham;
+import Entity.LoaiSanPham;
 
 import java.util.List;
 

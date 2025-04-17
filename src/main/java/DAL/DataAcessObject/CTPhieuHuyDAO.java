@@ -1,6 +1,6 @@
 package DAL.DataAcessObject;
 
-import DTO.ChiTietPhieuHuy;
+import Entity.ChiTietPhieuHuy;
 
 import java.util.List;
 
@@ -17,13 +17,13 @@ public class CTPhieuHuyDAO extends AbtractAccessDatabase<ChiTietPhieuHuy> implem
     @Override
     public boolean insert(ChiTietPhieuHuy chiTietPhieuHuy) {
         return executeUpdate("INSERT INTO CTPhieuHuy(MAPHIEU,MASP,SOLUONG) VALUES(?,?,?)",
-                chiTietPhieuHuy.getMaPhieu(),chiTietPhieuHuy.getMaSP(),chiTietPhieuHuy.getSoLuong());
+                chiTietPhieuHuy.getPhieu().getMaPhieu(),chiTietPhieuHuy.getSanPham().getMaSP(),chiTietPhieuHuy.getSoLuong());
     }
 
     @Override
     public boolean update(Integer maPhieu, Integer maSP, ChiTietPhieuHuy chiTietPhieuHuy) {
         return executeUpdate("UPDATE CTPhieuHuy SET MAPHIEU = ?, MASP = ?, SOLUONG = ? WHERE MAPHIEU = ? AND MASP = ?",
-                chiTietPhieuHuy.getMaPhieu(),chiTietPhieuHuy.getMaSP(),chiTietPhieuHuy.getSoLuong(),maPhieu,maSP);
+                chiTietPhieuHuy.getPhieu().getMaPhieu(),chiTietPhieuHuy.getSanPham().getMaSP(),chiTietPhieuHuy.getSoLuong(),maPhieu,maSP);
     }
 
     @Override

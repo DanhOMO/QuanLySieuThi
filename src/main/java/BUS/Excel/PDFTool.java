@@ -4,17 +4,16 @@ import BUS.BusAccessor.CTHoaDonBUS;
 import BUS.BusAccessor.HoaDonBUS;
 import BUS.BusAccessor.KhachHangBUS;
 import BUS.BusAccessor.NhanVienBUS;
-import DTO.ChiTietHoaDon;
-import DTO.HoaDon;
-import DTO.KhachHang;
-import DTO.NhanVien;
+import Entity.ChiTietHoaDon;
+import Entity.HoaDon;
+import Entity.KhachHang;
+import Entity.NhanVien;
 import com.itextpdf.html2pdf.HtmlConverter;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.util.List;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -34,7 +33,7 @@ public class PDFTool {
         HoaDon hd = hdBus.get(maHoaDon);
         if (hd == null)
             return;
-        NhanVien nv = nvBus.get(hd.getMaNV());
+        NhanVien nv = nvBus.get(hd.getNhanVien().getMaNV());
         if (nv == null)
             return;
         List<ChiTietHoaDon> listChiTiet = ctHdBus.getByKey1(maHoaDon);
@@ -82,10 +81,10 @@ public class PDFTool {
         HoaDon hd = hdBus.get(maHoaDon);
         if (hd == null)
             return;
-        NhanVien nv = nvBus.get(hd.getMaNV());
+        NhanVien nv = nvBus.get(hd.getNhanVien().getMaNV());
         if (nv == null)
             return;
-        KhachHang kh = khBUS.get(hd.getMaKH());
+        KhachHang kh = khBUS.get(hd.getKhachHang().getMaKH());
         String tenKH = "";
         if (kh != null)
             tenKH = kh.getTenKH();

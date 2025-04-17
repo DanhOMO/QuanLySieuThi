@@ -5,17 +5,16 @@
 package BUS.Excel;
 
 import BUS.BusAccessor.SanPhamBUS;
+import DAL.DataAcessObject.LoaiSanPhamDAO;
+import DAL.DataAcessObject.NhaCungCapDAO;
+import Entity.LoaiSanPham;
 import GUI.ManageGroup.Handle.SanPhamHandle.SanPhamValidate;
 import DAL.DataAcessObject.SanPhamDAO;
-import DTO.GiamGiaSP;
-import DTO.SanPham;
+import Entity.SanPham;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.OutputStream;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.poi.ss.usermodel.Cell;
@@ -114,18 +113,21 @@ public class sanphamexcel {
                 if (row.getCell(6) != null) {
                     Cell cell = row.getCell(6);
                     if (cell != null) {
+                        LoaiSanPhamDAO loaiSPDAO = new LoaiSanPhamDAO();
+
                         String value = fmt.formatCellValue(cell);
                         if (!value.trim().isEmpty()) {
-                            sp1.setMaLoai(Integer.parseInt(value));
+                            sp1.setLoaiSanPham(loaiSPDAO.select(Integer.parseInt(value)));
                         }
                     }
                 }
                 if (row.getCell(7) != null) {
                     Cell cell = row.getCell(7);
                     if (cell != null) {
+                        NhaCungCapDAO nccDAO = new NhaCungCapDAO();
                         String value = fmt.formatCellValue(cell);
                         if (!value.trim().isEmpty()) {
-                            sp1.setMaNCC(Integer.parseInt(value));
+                            sp1.setNhaCungCap(nccDAO.select(Integer.parseInt(value)));
                         }
                     }
                 }
@@ -187,9 +189,9 @@ public class sanphamexcel {
                 cell = row.createCell(5);
                 cell.setCellValue(sp.getGiaTien());
                 cell = row.createCell(6);
-                cell.setCellValue(sp.getMaLoai());
+                cell.setCellValue(sp.getLoaiSanPham().getMaLoai());
                 cell = row.createCell(7);
-                cell.setCellValue(sp.getMaNCC());
+                cell.setCellValue(sp.getNhaCungCap().getMaNCC());
 
                 rowIndex++;
 

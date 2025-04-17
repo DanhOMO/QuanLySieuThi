@@ -5,29 +5,26 @@
 package GUI.ManageGroup.ManageItem.FrameAdd.FrameAdd;
 
 import BUS.BusAccessor.CTPhieuHuyBUS;
-import BUS.BusAccessor.CTPhieuHuyBUS;
 import BUS.BusAccessor.NhanVienBUS;
 import BUS.BusAccessor.PhieuHuyBUS;
-import BUS.BusAccessor.PhieuNhapBUS;
 import BUS.BusAccessor.SanPhamBUS;
-import DTO.ChiTietPhieuHuy;
-import DTO.ChiTietPhieuNhap;
-import DTO.PhieuHuy;
-import DTO.PhieuNhap;
-import DTO.SanPham;
+import DAL.DataAcessObject.NhanVienDAO;
+import DAL.DataAcessObject.PhieuHuyDAO;
+import DAL.DataAcessObject.PhieuNhapDAO;
+import DAL.DataAcessObject.SanPhamDAO;
+import Entity.ChiTietPhieuHuy;
+import Entity.PhieuHuy;
+import Entity.SanPham;
 import GUI.ManageGroup.Theme.NhapXuatTheme;
-import com.formdev.flatlaf.FlatLightLaf;
+
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import javax.swing.DefaultCellEditor;
-import javax.swing.JLabel;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
@@ -35,9 +32,7 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.Timer;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellEditor;
 
 /**
  *
@@ -50,6 +45,9 @@ public class HuyHangSanPham extends javax.swing.JFrame {
     private final boolean isAdd;
     private int maPhieuHuy;
     private final int maNhanVien;
+    private SanPhamDAO sanPhamDAO;
+    private NhanVienDAO nhanVienDAO;
+
     /**
      * Creates new form NhapHangSanPham
      */
@@ -163,17 +161,19 @@ public class HuyHangSanPham extends javax.swing.JFrame {
         if (ctpn == null)
             return;
         for (ChiTietPhieuHuy ct : ctpn){
-            model.addRow(new Object[]{ct.getMaSP(), sanPhambus.get(ct.getMaSP()).getTenSP(), ct.getSoLuong()});
+            model.addRow(new Object[]{ct.getSanPham().getMaSP(), sanPhambus.get(ct.getSanPham().getMaSP()).getTenSP(), ct.getSoLuong()});
         }
     }
     
     public void addToDatabase(int maSP, int soLuong) {
-        ChiTietPhieuHuy ctpn = new ChiTietPhieuHuy(this.maPhieuHuy, maSP, soLuong);
+        PhieuHuyDAO phieuHuyDAO = new PhieuHuyDAO();
+        ChiTietPhieuHuy ctpn = new ChiTietPhieuHuy(phieuHuyDAO.select(this.maPhieuHuy), sanPhamDAO.select(maSP), soLuong);
         ctPhieuHuyBus.add(ctpn);
     }
     
     public void updateToDatabase(int maSP, int soLuong){
-        ChiTietPhieuHuy ctpn = new ChiTietPhieuHuy(this.maPhieuHuy, maSP, soLuong);
+        PhieuHuyDAO phieuHuyDAO = new PhieuHuyDAO();
+        ChiTietPhieuHuy ctpn = new ChiTietPhieuHuy(phieuHuyDAO.select(this.maPhieuHuy), sanPhamDAO.select(maSP), soLuong);
         ctPhieuHuyBus.edit(maPhieuHuy, maSP, ctpn);
     }
     
@@ -202,8 +202,9 @@ public class HuyHangSanPham extends javax.swing.JFrame {
                     return null;
                 }
             }
-            
-            listNhap.add(new ChiTietPhieuHuy(this.maPhieuHuy, maSP, soLuong));
+            PhieuHuyDAO phieuHuyDAO = new PhieuHuyDAO();
+            ChiTietPhieuHuy ctpn1 = new ChiTietPhieuHuy(phieuHuyDAO.select(this.maPhieuHuy), sanPhamDAO.select(maSP), soLuong);
+            listNhap.add(ctpn1);
         }
         return listNhap;
     }
@@ -667,11 +668,11 @@ public class HuyHangSanPham extends javax.swing.JFrame {
             List<ChiTietPhieuHuy> convertedList = convertToList();
             if (convertedList != null && !convertedList.isEmpty()){
                 PhieuHuyBUS huyBUS = new PhieuHuyBUS();
-                PhieuHuy ph = new PhieuHuy(0, new Timestamp(System.currentTimeMillis()), this.maNhanVien, false);
+                PhieuHuy ph = new PhieuHuy(0, new Timestamp(System.currentTimeMillis()), nhanVienDAO.select(maNhanVien), false);
                 huyBUS.add(ph);
                 this.maPhieuHuy = huyBUS.getNewest().getMaPhieu();
                 for (ChiTietPhieuHuy ct : convertedList) {
-                    addToDatabase(ct.getMaSP(), ct.getSoLuong());
+                    addToDatabase(ct.getSanPham().getMaSP(), ct.getSoLuong());
                 }
                 this.setVisible(false);
                 this.dispose();
@@ -683,8 +684,8 @@ public class HuyHangSanPham extends javax.swing.JFrame {
        if (null != ctpn && convertedList != null){
            for (int i = ctpn.size()-1; i>=0 ;i--){
                for (int j = convertedList.size()-1;j>=0;j--){
-                   if (ctpn.get(i).getMaSP() == convertedList.get(j).getMaSP()){
-                       updateToDatabase(convertedList.get(j).getMaSP(), convertedList.get(j).getSoLuong());
+                   if (ctpn.get(i).getSanPham().getMaSP() == convertedList.get(j).getSanPham().getMaSP()){
+                       updateToDatabase(convertedList.get(j).getSanPham().getMaSP(), convertedList.get(j).getSoLuong());
                        ctpn.remove(i);
                        convertedList.remove(j);
                        j--;
@@ -693,10 +694,10 @@ public class HuyHangSanPham extends javax.swing.JFrame {
                }
            }
            for (ChiTietPhieuHuy ct: ctpn)
-               removeFromDatabase(ct.getMaSP());
+               removeFromDatabase(ct.getSanPham().getMaSP());
            
            for (ChiTietPhieuHuy ct: convertedList)
-               addToDatabase(ct.getMaSP(), ct.getSoLuong());
+               addToDatabase(ct.getSanPham().getMaSP(), ct.getSoLuong());
             this.setVisible(false);
             this.dispose();
        }

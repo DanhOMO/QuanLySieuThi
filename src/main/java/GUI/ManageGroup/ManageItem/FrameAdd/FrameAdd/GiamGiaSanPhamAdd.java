@@ -7,9 +7,10 @@ package GUI.ManageGroup.ManageItem.FrameAdd.FrameAdd;
 import BUS.BusAccessor.GiamGiaSPBUS;
 import BUS.BusAccessor.SanPhamBUS;
 import BUS.SaleServices.CheckInfoSale;
-import DTO.GiamGiaSP;
-import DTO.SanPham;
-import GUI.ManageGroup.Theme.NhapXuatTheme;
+import DAL.DataAcessObject.SanPhamDAO;
+import Entity.GiamGiaSP;
+import Entity.SanPham;
+
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -205,13 +206,13 @@ public class GiamGiaSanPhamAdd extends javax.swing.JFrame {
         if(check){
             if(isInsert){
                 giamGiaSP.setSoPhieu(0);
-                giamGiaSP.setIsDeleted(false);
+                giamGiaSP.setDeleted(false);
                 giamGiaSPBUS.add(giamGiaSP);
                 JOptionPane.showConfirmDialog(this, "Inserted successfully!!!", "Thông báo", JOptionPane.CLOSED_OPTION);
                 
             }else{
                 giamGiaSP.setSoPhieu(maKM);
-                giamGiaSP.setIsDeleted(false);
+                giamGiaSP.setDeleted(false);
                 giamGiaSPBUS.edit(maKM, giamGiaSP);
                 JOptionPane.showConfirmDialog(this, "Updated successfully!!!", "Thông báo", JOptionPane.CLOSED_OPTION);
             }
@@ -313,8 +314,8 @@ public class GiamGiaSanPhamAdd extends javax.swing.JFrame {
             JOptionPane.showConfirmDialog(this, "Sản phẩm chưa tồn tại!!!", "Chú ý!", JOptionPane.CLOSED_OPTION);
             return false;
         }
-        
-        giamGiaSP.setMaSP(id);
+        SanPhamDAO sanPhamDAO = new SanPhamDAO();
+        giamGiaSP.setSanPham(sanPhamDAO.select(id));
         return true;
     }
     
@@ -362,8 +363,8 @@ public class GiamGiaSanPhamAdd extends javax.swing.JFrame {
             this.txtNgayBD.setText(df.format(giamGiaSP.getNgayBD()));
             this.txtNgayKT.setText(df.format(giamGiaSP.getNgayKT()));
             this.txtPtGiam.setText(giamGiaSP.getPtGiam()+"");
-            this.txtMaSP.setText(giamGiaSP.getMaSP()+"");
-            this.imagePanel1.setPath(sanPhamBus.get(giamGiaSP.getMaSP()).getHinhAnh());
+            this.txtMaSP.setText(giamGiaSP.getSanPham().getMaSP()+"");
+            this.imagePanel1.setPath(sanPhamBus.get(giamGiaSP.getSanPham().getMaSP()).getHinhAnh());
         }
     }
     

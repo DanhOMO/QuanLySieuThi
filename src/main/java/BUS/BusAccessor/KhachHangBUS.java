@@ -5,7 +5,7 @@
 package BUS.BusAccessor;
 
 import DAL.DataAcessObject.KhachHangDAO;
-import DTO.KhachHang;
+import Entity.KhachHang;
 import java.util.List;
 
 /**

@@ -5,25 +5,15 @@
 package GUI.ManageGroup.ManageItem.FrameAdd.FrameAdd;
 
 import BUS.BusAccessor.NhanVienBUS;
-import GUI.ManageGroup.Handle.NhanVienHandle.NhanVienToData;
 import GUI.ManageGroup.Handle.NhanVienHandle.NhanVienValidate;
-import DTO.NhanVien;
-import GUI.ManageGroup.ManageItem.ManagerPanel.NhanVienPanel;
-import GUI.ManageGroup.Theme.NhanVienAddTheme;
+import Entity.NhanVien;
 import GUI.ManageGroup.Theme.NhapHuyPanel;
-import com.formdev.flatlaf.FlatLightLaf;
 import com.raven.datechooser.DateChooser;
-import com.raven.datechooser.Dates;
 import com.raven.datechooser.SelectedDate;
 import java.awt.Color;
 import java.sql.Date;
 import java.sql.Timestamp;
-import java.text.ParseException;
-import java.time.LocalDate;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -74,7 +64,7 @@ public class NhanVienAdd extends javax.swing.JFrame {
      dateChooserNhapNgayThamGia.setSelectedDate(nv.getNgayThamGia());
      jTextField5.setText(nv.getEmail());
      jTextField6.setText(nv.getDiaChi());
-     if(nv.getMaChucVu() == 1){
+     if(nv.getChucVu().getMaChucVu() == 1){
          jComboBox2.setSelectedIndex(0);
      }else{
          jComboBox2.setSelectedIndex(1);

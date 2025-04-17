@@ -4,6 +4,7 @@ import java.util.List;
 
 //Interface dùng cho các bản ghi có trong database
 public interface ISimpleAccess<T, Id> {
+
     //Insert datatype T into database by common SQL command: INSERT INTO
     boolean insert(T t);
 

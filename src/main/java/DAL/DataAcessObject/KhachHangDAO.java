@@ -1,6 +1,6 @@
 package DAL.DataAcessObject;
 
-import DTO.KhachHang;
+import Entity.KhachHang;
 
 import java.util.List;
 

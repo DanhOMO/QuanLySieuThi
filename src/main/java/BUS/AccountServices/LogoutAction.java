@@ -1,7 +1,7 @@
 package BUS.AccountServices;
 
 import DAL.DataAcessObject.LoginDetailDAO;
-import DTO.LoginDetail;
+import Entity.LoginDetail;
 import java.sql.Timestamp;
 
 public class LogoutAction {

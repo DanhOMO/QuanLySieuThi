@@ -4,10 +4,9 @@
  */
 package GUI.SaleGroup.SellerGUI.BasicHandle;
 
-import BUS.SaleServices.Money;
 import BUS.SaleServices.PayActionBus;
-import DTO.ChiTietHoaDon;
-import GUI.SaleGroup.SellerGUI.SellerMainFrame;
+import Entity.ChiTietHoaDon;
+
 import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JTextField;

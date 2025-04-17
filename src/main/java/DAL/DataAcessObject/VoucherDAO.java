@@ -1,6 +1,6 @@
 package DAL.DataAcessObject;
 
-import DTO.Voucher;
+import Entity.Voucher;
 
 import java.util.List;
 
@@ -8,6 +8,7 @@ public class VoucherDAO extends AbtractAccessDatabase<Voucher> implements ISimpl
     {
         setClazz(Voucher.class);
     }
+
 
     @Override
     public boolean insert(Voucher vouvher) {

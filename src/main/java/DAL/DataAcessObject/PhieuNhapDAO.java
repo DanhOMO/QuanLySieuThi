@@ -1,6 +1,6 @@
 package DAL.DataAcessObject;
 
-import DTO.PhieuNhap;
+import Entity.PhieuNhap;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ public class PhieuNhapDAO extends AbtractAccessDatabase<PhieuNhap> implements IS
     @Override
     public boolean insert(PhieuNhap phieuNhap) {
         return executeUpdate("INSERT INTO PHIEUNHAP(NGAYLAP,MANV,IS_DELETED) VALUES(?,?,?)",
-                phieuNhap.getNgayLap(),phieuNhap.getMaNV(),phieuNhap.isDeleted());
+                phieuNhap.getNgayLap(),phieuNhap.getNhanVien().getMaNV(),phieuNhap.isDeleted());
     }
 
     @Override
@@ -23,7 +23,7 @@ public class PhieuNhapDAO extends AbtractAccessDatabase<PhieuNhap> implements IS
     @Override
     public boolean update(Integer maPhieuNhap, PhieuNhap phieuNhap) {
         return executeUpdate("UPDATE PHIEUNHAP SET NGAYLAP = ?, MANV = ?, IS_DELETED = ? WHERE MAPHIEU = ?",
-                phieuNhap.getNgayLap(),phieuNhap.getMaNV(),phieuNhap.isDeleted(),maPhieuNhap);
+                phieuNhap.getNgayLap(),phieuNhap.getNhanVien().getMaNV(),phieuNhap.isDeleted(),maPhieuNhap);
     }
 
     @Override

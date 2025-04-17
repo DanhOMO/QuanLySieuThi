@@ -5,7 +5,7 @@
 package GUI.ManageGroup.ComponentPanel;
 
 import BUS.BusAccessor.NhaCungCapBUS;
-import DTO.SanPham;
+import Entity.SanPham;
 
 /**
  *
@@ -40,12 +40,12 @@ public class ProductDetailPanel extends PanelAdd {
     }
     
     private void initInfo(){
-        String tenNhaCC = nhaccBus.get(sanpham.getMaNCC()).getTenNCC();
+        String tenNhaCC = nhaccBus.get(sanpham.getNhaCungCap().getMaNCC()).getTenNCC();
         imagePanel.setImagePath(sanpham.getHinhAnh());
         lbName.setText("<html>"+sanpham.getTenSP());
         lbMaSp.setText(Integer.toString(sanpham.getMaSP()));
         lbDonGia.setText(Long.toString(sanpham.getGiaTien()));
-        lbLoai.setText(sanpham.getMaLoai()+"");
+        lbLoai.setText(sanpham.getLoaiSanPham().getMaLoai()+"");
         lbSoLuong.setText(sanpham.getSoLuong()+"");
         lbNhaCC.setText(tenNhaCC);
         String mota = sanpham.getMoTa();

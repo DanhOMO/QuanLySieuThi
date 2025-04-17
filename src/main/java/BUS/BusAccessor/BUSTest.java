@@ -4,8 +4,7 @@
  */
 package BUS.BusAccessor;
 
-import DTO.ChiTietPhieuHuy;
-import DTO.SanPham;
+import Entity.SanPham;
 import java.util.List;
 
 /**

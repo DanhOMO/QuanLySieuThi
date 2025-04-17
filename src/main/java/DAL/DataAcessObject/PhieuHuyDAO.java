@@ -1,6 +1,6 @@
 package DAL.DataAcessObject;
 
-import DTO.PhieuHuy;
+import Entity.PhieuHuy;
 import java.util.List;
 
 public class PhieuHuyDAO extends AbtractAccessDatabase<PhieuHuy> implements ISimpleAccess<PhieuHuy,Integer> {
@@ -11,7 +11,7 @@ public class PhieuHuyDAO extends AbtractAccessDatabase<PhieuHuy> implements ISim
     @Override
     public boolean insert(PhieuHuy PhieuHuy) {
         return executeUpdate("INSERT INTO PhieuHuy(NGAYLAP,MANV,IS_DELETED) VALUES(?,?,?)",
-                PhieuHuy.getNgayLap(),PhieuHuy.getMaNV(),PhieuHuy.isDeleted());
+                PhieuHuy.getNgayLap(),PhieuHuy.getNhanVien().getMaNV(),PhieuHuy.isDeleted());
     }
 
     @Override
@@ -22,7 +22,7 @@ public class PhieuHuyDAO extends AbtractAccessDatabase<PhieuHuy> implements ISim
     @Override
     public boolean update(Integer maPhieuHuy, PhieuHuy PhieuHuy) {
         return executeUpdate("UPDATE PhieuHuy SET NGAYLAP = ?, MANV = ?, IS_DELETED = ? WHERE MAPHIEU = ?",
-                PhieuHuy.getNgayLap(),PhieuHuy.getMaNV(),PhieuHuy.isDeleted(),maPhieuHuy);
+                PhieuHuy.getNgayLap(),PhieuHuy.getNhanVien().getMaNV(),PhieuHuy.isDeleted(),maPhieuHuy);
     }
 
     @Override

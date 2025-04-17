@@ -1,6 +1,6 @@
 package DAL.DataAcessObject;
 
-import DTO.SanPham;
+import Entity.SanPham;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ public class SanPhamDAO extends AbtractAccessDatabase<SanPham> implements ISimpl
     @Override
     public boolean insert(SanPham sanPham) {
         return executeUpdate("INSERT INTO SanPham(TENSP, MOTA, SOLUONG, HINHANH, GIATIEN, MALOAI, MANCC, IS_DELETED) VALUES(?,?,?,?,?,?,?,?)",
-                sanPham.getTenSP(), sanPham.getMoTa(), sanPham.getSoLuong(), sanPham.getHinhAnh(), sanPham.getGiaTien(), sanPham.getMaLoai(), sanPham.getMaNCC(), sanPham.isDeleted());
+                sanPham.getTenSP(), sanPham.getMoTa(), sanPham.getSoLuong(), sanPham.getHinhAnh(), sanPham.getGiaTien(), sanPham.getLoaiSanPham().getMaLoai(), sanPham.getNhaCungCap().getMaNCC(), sanPham.isDeleted());
 
     }
 
@@ -25,7 +25,7 @@ public class SanPhamDAO extends AbtractAccessDatabase<SanPham> implements ISimpl
     @Override
     public boolean update(Integer maSanPham, SanPham sanPham) {
         return executeUpdate("UPDATE SanPham SET TENSP = ?, MOTA = ?, SOLUONG = ?, HINHANH = ?, GIATIEN = ?, MALOAI = ?, MANCC = ?, IS_DELETED = ? WHERE MASP = ?",
-                sanPham.getTenSP(), sanPham.getMoTa(), sanPham.getSoLuong(), sanPham.getHinhAnh(), sanPham.getGiaTien(), sanPham.getMaLoai(), sanPham.getMaNCC(), sanPham.isDeleted(), maSanPham);
+                sanPham.getTenSP(), sanPham.getMoTa(), sanPham.getSoLuong(), sanPham.getHinhAnh(), sanPham.getGiaTien(), sanPham.getLoaiSanPham().getMaLoai(), sanPham.getNhaCungCap().getMaNCC(), sanPham.isDeleted(), maSanPham);
     }
 
     @Override

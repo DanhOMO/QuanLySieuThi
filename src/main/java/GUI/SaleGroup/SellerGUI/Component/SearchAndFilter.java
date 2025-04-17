@@ -5,12 +5,10 @@
 package GUI.SaleGroup.SellerGUI.Component;
 
 import BUS.BusAccessor.SanPhamBUS;
-import DTO.SanPham;
+import Entity.SanPham;
 import GUI.ManageGroup.Theme.TimKiemNangCaoTheme;
-import com.formdev.flatlaf.FlatLightLaf;
+
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.List;

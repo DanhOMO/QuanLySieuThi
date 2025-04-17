@@ -5,12 +5,11 @@
 package GUI.ManageGroup.Handle.NhanVienHandle;
 
 import BUS.BusAccessor.NhanVienBUS;
+import DAL.DataAcessObject.ChucVuDAO;
 import DAL.DataAcessObject.NhanVienDAO;
-import DTO.NhanVien;
+import Entity.NhanVien;
 import java.sql.Date;
-import java.sql.Timestamp;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 /**
  *
@@ -18,6 +17,7 @@ import java.text.SimpleDateFormat;
  */
 public class NhanVienToData {
     NhanVienBUS nhanvienBUS = new NhanVienBUS();
+    ChucVuDAO chucvuDAO = new ChucVuDAO();
     private Date ngaythamgia;
     
     public boolean AddNhanVien(String tenNhanVien, String soDienThoai, String cmnd, int gioiTinh, Date ngaySinh, String email, String diachi, Date ngayThamGia, int maChucVu) throws ParseException {
@@ -33,7 +33,8 @@ public class NhanVienToData {
          nhanVien.setDiaChi(diachi);
          nhanVien.setNgaySinh(ngaySinh);
          nhanVien.setNgayThamGia(ngayThamGia);
-          nhanVien.setMaChucVu(maChucVu);
+
+          nhanVien.setChucVu(chucvuDAO.select(maChucVu));
           System.out.println(nhanVien.toString());
         return nhanvienBUS.add(nhanVien);
     }

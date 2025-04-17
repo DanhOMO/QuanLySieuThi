@@ -8,23 +8,19 @@ import BUS.BusAccessor.CTPhieuNhapBUS;
 import BUS.BusAccessor.NhanVienBUS;
 import BUS.BusAccessor.PhieuNhapBUS;
 import BUS.BusAccessor.SanPhamBUS;
-import DTO.ChiTietPhieuNhap;
-import DTO.PhieuNhap;
-import DTO.SanPham;
-import GUI.ManageGroup.ManageItem.FrameAdd.FrameAdd.NhapHangSanPham;
+import Entity.ChiTietPhieuNhap;
+import Entity.PhieuNhap;
+import Entity.SanPham;
 import GUI.ManageGroup.Theme.NhapXuatTheme;
-import com.formdev.flatlaf.FlatLightLaf;
+
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import javax.swing.DefaultCellEditor;
-import javax.swing.JLabel;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
@@ -32,9 +28,7 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.Timer;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellEditor;
 
 /**
  *
@@ -160,7 +154,7 @@ public class NhapHangSanPham extends javax.swing.JFrame {
         if (ctpn == null)
             return;
         for (ChiTietPhieuNhap ct : ctpn){
-            model.addRow(new Object[]{ct.getMaSP(), sanPhambus.get(ct.getMaSP()).getTenSP(), ct.getSoLuong()});
+            model.addRow(new Object[]{ct.getSanPham().getMaSP(), sanPhambus.get(ct.getSanPham().getMaSP()).getTenSP(), ct.getSoLuong()});
         }
     }
     
@@ -649,7 +643,7 @@ public class NhapHangSanPham extends javax.swing.JFrame {
                nhapBus.add(pn);
                this.maPhieuNhap = nhapBus.getNewest().getMaPhieu();
                for (ChiTietPhieuNhap ct : convertedList) {
-                   addToDatabase(ct.getMaSP(), ct.getSoLuong());
+                   addToDatabase(ct.getSanPham().getMaSP(), ct.getSoLuong());
                }
                this.setVisible(false);
                this.dispose();
@@ -661,8 +655,8 @@ public class NhapHangSanPham extends javax.swing.JFrame {
        if (null != ctpn && convertedList != null){
            for (int i = ctpn.size()-1; i>=0 ;i--){
                for (int j = convertedList.size()-1;j>=0;j--){
-                   if (ctpn.get(i).getMaSP() == convertedList.get(j).getMaSP()){
-                       updateToDatabase(convertedList.get(j).getMaSP(), convertedList.get(j).getSoLuong());
+                   if (ctpn.get(i).getSanPham().getMaSP() == convertedList.get(j).getSanPham().getMaSP()){
+                       updateToDatabase(convertedList.get(j).getSanPham().getMaSP(), convertedList.get(j).getSoLuong());
                        ctpn.remove(i);
                        convertedList.remove(j);
                        j--;
@@ -671,10 +665,10 @@ public class NhapHangSanPham extends javax.swing.JFrame {
                }
            }
            for (ChiTietPhieuNhap ct: ctpn)
-               removeFromDatabase(ct.getMaSP());
+               removeFromDatabase(ct.getSanPham().getMaSP());
            
            for (ChiTietPhieuNhap ct: convertedList)
-               addToDatabase(ct.getMaSP(), ct.getSoLuong());
+               addToDatabase(ct.getSanPham().getMaSP(), ct.getSoLuong());
             this.setVisible(false);
             this.dispose();
        }

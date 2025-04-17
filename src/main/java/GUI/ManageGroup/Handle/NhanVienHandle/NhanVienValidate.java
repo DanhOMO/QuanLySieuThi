@@ -5,7 +5,7 @@
 package GUI.ManageGroup.Handle.NhanVienHandle;
 
 import GUI.SaleGroup.SellerGUI.BasicHandle.EmailExampleTest;
-import DTO.NhanVien;
+import Entity.NhanVien;
 
 /**
  *

@@ -8,15 +8,15 @@ import BUS.BusAccessor.GiamGiaSPBUS;
 import BUS.SaleServices.CheckInfoSale;
 import BUS.SaleServices.Money;
 import BUS.SaleServices.PayActionBus;
-import DTO.ChiTietHoaDon;
-import DTO.SanPham;
+import DAL.DataAcessObject.HoaDonDAO;
+import Entity.ChiTietHoaDon;
+import Entity.SanPham;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 import javax.swing.JSpinner.DefaultEditor;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
-import javax.swing.SwingUtilities;
 
 /**
  *
@@ -72,7 +72,8 @@ public class OrderItem extends RoundPanel{
     
     //Truyen ma hoa don bang ham
     public ChiTietHoaDon getChiTietHoaDon(int maHD){
-        CTHD.setMaHD(maHD);
+        HoaDonDAO hd = new HoaDonDAO();
+        CTHD.setHoaDon(hd.select(maHD));
         return CTHD;
     }
 
@@ -204,7 +205,7 @@ public class OrderItem extends RoundPanel{
     }
     
     public void showUpdateTotalPrice(){
-        if(check.isEnoughAmountProduct(CTHD.getMaSP(), (int)getQuantity())){
+        if(check.isEnoughAmountProduct(CTHD.getSanPham().getMaSP(), (int)getQuantity())){
             this.productOrderTotal.setText(Money.format(this.sp.getGiaTien()*getQuantity()));
             this.CTHD.setSoLuong((int)getQuantity());
         }else{ 

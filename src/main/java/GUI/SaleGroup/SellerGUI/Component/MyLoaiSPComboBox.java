@@ -5,13 +5,10 @@
 package GUI.SaleGroup.SellerGUI.Component;
 
 import BUS.BusAccessor.LoaiSanPhamBUS;
-import DAL.DataAcessObject.LoaiSanPhamDAO;
-import DTO.LoaiSanPham;
-import GUI.SaleGroup.SellerGUI.BasicHandle.ComboBoxLoaiSPAction;
+import Entity.LoaiSanPham;
 import GUI.SaleGroup.SellerGUI.BasicHandle.ComboboxLoaiSanPhamRender;
 import java.util.List;
 import javax.swing.JComboBox;
-import javax.swing.JTextField;
 
 /**
  *

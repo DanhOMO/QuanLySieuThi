@@ -1,10 +1,8 @@
 package BUS.BusAccessor;
 
-import DAL.DataAcessObject.NhanVienDAO;
 import DAL.DataAcessObject.SanPhamDAO;
-import DTO.ChiTietHoaDon;
-import DTO.NhanVien;
-import DTO.SanPham;
+import Entity.ChiTietHoaDon;
+import Entity.SanPham;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -82,7 +80,7 @@ public  class SanPhamBUS implements IBussAccess<SanPham, Integer>{
     }
     
     public String getTenLoai(int maSP){
-        return loaiSPBus.get(this.get(maSP).getMaLoai()).getTenLoai();
+        return loaiSPBus.get(this.get(maSP).getLoaiSanPham().getMaLoai()).getTenLoai();
     }
     
     public int getSoLuongDaBan(int maSP){

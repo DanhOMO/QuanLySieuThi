@@ -3,10 +3,10 @@ package BUS.AccountServices;
 import DAL.DataAcessObject.LoginDetailDAO;
 import DAL.DataAcessObject.NhanVienDAO;
 import DAL.DataAcessObject.TaiKhoanDAO;
-import DTO.ChucVu;
-import DTO.LoginDetail;
-import DTO.NhanVien;
-import DTO.TaiKhoan;
+import Entity.ChucVu;
+import Entity.LoginDetail;
+import Entity.NhanVien;
+import Entity.TaiKhoan;
 import GUI.ManageGroup.ManageItem.ManageFrame.ManageFrame;
 import GUI.ManageGroup.ManageItem.ManagerPanel.NhapXuatPanel;
 import GUI.SaleGroup.LoginGui.LoginFrame.LoginGui;
@@ -14,7 +14,6 @@ import GUI.SaleGroup.SellerGUI.SellerMainFrame;
 //import com.formdev.flatlaf.FlatLightLaf;
 
 import java.sql.Timestamp;
-import javax.swing.JOptionPane;
 
 public class LoginAction{
     private final TaiKhoanDAO taiKhoanDAO;
@@ -76,7 +75,7 @@ public class LoginAction{
         //Dòng này để tăng thời gian hết hạn sau khi vào lại chương trình
         loginDetail.setLogoutTime(new Timestamp(System.currentTimeMillis() + AUTH_KEY_EXPIRE_TIME));
 //        System.out.println("Logout Time: " + loginDetail);
-        soTK = loginDetail.getSoTK();
+        soTK = loginDetail.getTaiKhoan().getSoTK();
         loginDetailDAO.update(loginDetail.getLoginId(), loginDetail);
         
         return true;
@@ -85,8 +84,8 @@ public class LoginAction{
     //Lấy chức vụ ng dùng từ số tài khoản
     public int getChucVuNguoiDung(int soTK) {
         TaiKhoan taiKhoan = taiKhoanDAO.select(soTK);
-        NhanVien nhanVien = nhanVienDAO.select(taiKhoan.getMaNV());
-        return nhanVien.getMaChucVu();
+        NhanVien nhanVien = nhanVienDAO.select(taiKhoan.getNhanVien().getMaNV());
+        return nhanVien.getChucVu().getMaChucVu();
     }
 
     //Khởi tạo frame khi login thành công
@@ -95,7 +94,7 @@ public class LoginAction{
         if (maChucVu == ChucVu.NHANVIENBANHANG){
             System.out.println("Khoi tao frame nhan vien ban hang");
 //            JOptionPane.showMessageDialog(null,"Hiểm thị form nhân viên bán hàng","Auto login success",JOptionPane.CLOSED_OPTION);
-            SellerMainFrame.maNV = taiKhoanDAO.select(soTK).getMaNV();
+            SellerMainFrame.maNV = taiKhoanDAO.select(soTK).getNhanVien().getMaNV();
             sell.setVisible(true);
         }
 
@@ -103,7 +102,7 @@ public class LoginAction{
         else if (maChucVu == ChucVu.NHANVIENQUANLY){
             System.out.println("Khoi tao frame nhan vien quan ly");
 //            JOptionPane.showMessageDialog(null, "Hiển thị form nhân viên quản lý", "Auto login success", JOptionPane.CLOSED_OPTION);
-            ManageFrame.maNV = taiKhoanDAO.select(soTK).getMaNV();
+            ManageFrame.maNV = taiKhoanDAO.select(soTK).getNhanVien().getMaNV();
             NhapXuatPanel.maNhanVien = ManageFrame.maNV;
             manager.setVisible(true);
         }
@@ -120,7 +119,9 @@ public class LoginAction{
 //    }
     
     protected void storeLoginAuth(boolean remember){
-        
+            TaiKhoanDAO taiKhoanDAO = new TaiKhoanDAO();
+            TaiKhoan taiKhoan = taiKhoanDAO.select(soTK);
+
         if(remember){
             //Generate auth key and store it to file
             LoginFile loginFile = new LoginFile();
@@ -128,9 +129,9 @@ public class LoginAction{
             System.out.println("AuthKey: " + authKey);
             loginFile.setAuthKey(authKey);
             loginFile.writeToFile();
-            loginDetail = new LoginDetail(0,authKey,"192.168.1.1","None_MAC", new Timestamp(System.currentTimeMillis()), new Timestamp(System.currentTimeMillis()+AUTH_KEY_EXPIRE_TIME),soTK);
+            loginDetail = new LoginDetail(0,authKey,"192.168.1.1","None_MAC", new Timestamp(System.currentTimeMillis()), new Timestamp(System.currentTimeMillis()+AUTH_KEY_EXPIRE_TIME),taiKhoan);
         }else{ 
-            loginDetail = new LoginDetail(0,null,"192.168.1.1","None_MAC", new Timestamp(System.currentTimeMillis()), new Timestamp(System.currentTimeMillis()),soTK);
+            loginDetail = new LoginDetail(0,null,"192.168.1.1","None_MAC", new Timestamp(System.currentTimeMillis()), new Timestamp(System.currentTimeMillis()),taiKhoan);
         }
         //Store to database
         loginDetailDAO.insert(loginDetail);

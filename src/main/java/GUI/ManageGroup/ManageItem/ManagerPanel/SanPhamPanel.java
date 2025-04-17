@@ -7,18 +7,15 @@ package GUI.ManageGroup.ManageItem.ManagerPanel;
 import BUS.BusAccessor.CTHoaDonBUS;
 import BUS.BusAccessor.LoaiSanPhamBUS;
 import BUS.BusAccessor.SanPhamBUS;
-import DTO.LoaiSanPham;
-import DTO.SanPham;
+import Entity.LoaiSanPham;
+import Entity.SanPham;
 import BUS.Excel.sanphamexcel;
-import GUI.ManageGroup.ComponentPanel.ProductDetailPanel;
 import GUI.ManageGroup.ManageItem.FrameAdd.FrameAdd.SanPhamAdd;
 import GUI.ManageGroup.ManageItem.FrameAdd.FrameSua.SanPhamSua;
-import java.awt.Dimension;
+
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.util.List;
-import java.util.Vector;
-import javax.swing.BorderFactory;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
@@ -80,6 +77,7 @@ public class SanPhamPanel extends javax.swing.JPanel {
     } 
     // Get tên loại
     public String GetLoai(int maLoai){
+
         return  maloaiBUS.get(maLoai).getTenLoai();
     }
 
@@ -94,7 +92,7 @@ public class SanPhamPanel extends javax.swing.JPanel {
         if (sp == null || sp.isEmpty()) return;
         for( int i = 0 ; i < sp.size();i++)
         {
-         Object[] sanpham ={sp.get(i).getMaSP(),sp.get(i).getTenSP(),sp.get(i).getSoLuong(),sp.get(i).getGiaTien(),GetLoai(sp.get(i).getMaLoai()),spBUS.getSoLuongDaBan(sp.get(i).getMaSP())};
+         Object[] sanpham ={sp.get(i).getMaSP(),sp.get(i).getTenSP(),sp.get(i).getSoLuong(),sp.get(i).getGiaTien(),GetLoai(sp.get(i).getLoaiSanPham().getMaLoai()),spBUS.getSoLuongDaBan(sp.get(i).getMaSP())};
          tableModel.addRow(sanpham);
         }
      
@@ -118,7 +116,9 @@ public class SanPhamPanel extends javax.swing.JPanel {
         if (sp == null || sp.isEmpty()) return;
         for( int i = 0 ; i < sp.size();i++)
         {
-         Object[] sanpham ={sp.get(i).getMaSP(),sp.get(i).getTenSP(),sp.get(i).getSoLuong(),sp.get(i).getGiaTien(),GetLoai(sp.get(i).getMaLoai()),spBUS.getSoLuongDaBan(sp.get(i).getMaSP())};
+
+
+            Object[] sanpham ={sp.get(i).getMaSP(),sp.get(i).getTenSP(),sp.get(i).getSoLuong(),sp.get(i).getGiaTien(),(sp.get(i).getLoaiSanPham().getTenLoai()),spBUS.getSoLuongDaBan(sp.get(i).getMaSP())};
          tableModel.addRow(sanpham);
         }
      
@@ -366,7 +366,7 @@ public class SanPhamPanel extends javax.swing.JPanel {
         if (sp == null || sp.isEmpty()) return;
         for( int i = 0 ; i < sp.size();i++)
         {
-         Object[] sanpham ={sp.get(i).getMaSP(),sp.get(i).getTenSP(),sp.get(i).getSoLuong(),sp.get(i).getGiaTien(),GetLoai(sp.get(i).getMaLoai()),spBUS.getSoLuongDaBan(sp.get(i).getMaSP())};
+         Object[] sanpham ={sp.get(i).getMaSP(),sp.get(i).getTenSP(),sp.get(i).getSoLuong(),sp.get(i).getGiaTien(),GetLoai(sp.get(i).getLoaiSanPham().getMaLoai()),spBUS.getSoLuongDaBan(sp.get(i).getMaSP())};
          tableModel.addRow(sanpham);
         }
      
@@ -390,7 +390,7 @@ public class SanPhamPanel extends javax.swing.JPanel {
         if (sp == null || sp.isEmpty()) return;
         for( int i = 0 ; i < sp.size();i++)
         {
-         Object[] sanpham ={sp.get(i).getMaSP(),sp.get(i).getTenSP(),sp.get(i).getSoLuong(),sp.get(i).getGiaTien(),GetLoai(sp.get(i).getMaLoai()),spBUS.getSoLuongDaBan(sp.get(i).getMaSP())};
+         Object[] sanpham ={sp.get(i).getMaSP(),sp.get(i).getTenSP(),sp.get(i).getSoLuong(),sp.get(i).getGiaTien(),GetLoai(sp.get(i).getLoaiSanPham().getMaLoai()),spBUS.getSoLuongDaBan(sp.get(i).getMaSP())};
          tableModel.addRow(sanpham);
         }
      

@@ -7,9 +7,9 @@ package BUS.Excel;
 import BUS.BusAccessor.CTHoaDonBUS;
 import BUS.BusAccessor.SanPhamBUS;
 import BUS.SaleServices.Money;
-import DTO.ChiTietHoaDon;
-import DTO.SanPham;
-import java.util.ArrayList;
+import Entity.ChiTietHoaDon;
+import Entity.SanPham;
+
 import java.util.List;
 
 /**
@@ -182,7 +182,7 @@ public class HTMLTemplate {
         String content = "";
         int i = 1;
         for (ChiTietHoaDon cthd:list){
-            SanPham sp = spBus.get(cthd.getMaSP());
+            SanPham sp = spBus.get(cthd.getSanPham().getMaSP());
             content += """
                       <tr>
                         <td>%d</td>
@@ -190,7 +190,7 @@ public class HTMLTemplate {
                         <td>%s</td>
                         <td>%d</td>
                         <td>%s</td>
-                      </tr>""".formatted(i, sp.getTenSP(), Money.format(cthd.getGiaTien()), cthd.getSoLuong(), Money.format(cthd.getGiaTien()*cthd.getSoLuong()));
+                      </tr>""".formatted(i, sp.getTenSP(), Money.format( cthd.getGiaTien()), cthd.getSoLuong(), Money.format(cthd.getGiaTien()*cthd.getSoLuong()));
             i++;
         }
         return content;

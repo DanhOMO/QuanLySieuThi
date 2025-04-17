@@ -5,7 +5,7 @@
 package BUS.BusAccessor;
 
 import DAL.DataAcessObject.GiamGiaSPDAO;
-import DTO.GiamGiaSP;
+import Entity.GiamGiaSP;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,7 +56,7 @@ public class GiamGiaSPBUS implements IBussAccess<GiamGiaSP, Integer>{
         for(GiamGiaSP giamGia : lsGiamGiaSP){
             data.clear();
             data.add(giamGia.getSoPhieu()+"");
-            data.add(giamGia.getMaSP()+"");
+            data.add(giamGia.getSanPham().getMaSP()+"");
             data.add(giamGia.getPtGiam()+"%");
             datas[i] = data.toArray(String[] :: new);
             i++;

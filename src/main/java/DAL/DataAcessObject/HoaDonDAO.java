@@ -1,6 +1,9 @@
 package DAL.DataAcessObject;
 
-import DTO.HoaDon;
+import Entity.HoaDon;
+import Entity.KhachHang;
+import Entity.NhanVien;
+
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -15,7 +18,7 @@ public class HoaDonDAO extends AbtractAccessDatabase<HoaDon> implements ISimpleA
         return executeUpdate("INSERT INTO HOADON (NGAYHD, HINHTHUC, TONGTIEN, TIENGIAM, MANV, MAKH, SOVOUCHER, IS_DELETED) " +
                         "VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
                 hoaDon.getNgayHD(), hoaDon.getHinhThuc(), hoaDon.getTongTien(), hoaDon.getTienGiam(),
-                hoaDon.getMaNV(), hoaDon.getMaKH(), hoaDon.getSoVoucher(), hoaDon.isDeleted());
+                hoaDon.getNhanVien().getMaNV(), hoaDon.getKhachHang().getMaKH(), hoaDon.getSoVoucher(), hoaDon.isDeleted());
     }
 
     @Override
@@ -28,7 +31,7 @@ public class HoaDonDAO extends AbtractAccessDatabase<HoaDon> implements ISimpleA
         return executeUpdate("UPDATE HOADON SET NGAYHD = ?, HINHTHUC = ?, TONGTIEN = ?, TIENGIAM = ?, " +
                         "MANV = ?, MAKH = ?, SOVOUCHER = ?, IS_DELETED = ? WHERE MAHD = ?",
                 hoaDon.getNgayHD(), hoaDon.getHinhThuc(), hoaDon.getTongTien(), hoaDon.getTienGiam(),
-                hoaDon.getMaNV(), hoaDon.getMaKH(), hoaDon.getSoVoucher(), hoaDon.isDeleted(), maHoaDon);
+                hoaDon.getNhanVien().getMaNV(), hoaDon.getKhachHang().getMaKH(), hoaDon.getSoVoucher(), hoaDon.isDeleted(), maHoaDon);
     }
 
     @Override
@@ -50,12 +53,5 @@ public class HoaDonDAO extends AbtractAccessDatabase<HoaDon> implements ISimpleA
         return executeQueryList("SELECT * FROM HOADON WHERE NGAYHD BETWEEN ? AND ?", startDay, endDay);
     }
 
-    public static void main(String[] argv){
-        HoaDonDAO hoaDonDAO = new HoaDonDAO();
-        HoaDon hoaDon = new HoaDon(7, new Timestamp(System.currentTimeMillis()), "Momo", 550000, 55000, 1, 1, 1, false);
-        System.out.println(hoaDon);
-        hoaDonDAO.insert(hoaDon);
-        HoaDon hoaDon1 = hoaDonDAO.selectNewestBill();
-        System.out.println(hoaDon1);
-    }
+
 }

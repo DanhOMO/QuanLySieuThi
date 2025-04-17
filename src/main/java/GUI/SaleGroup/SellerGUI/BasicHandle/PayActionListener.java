@@ -6,7 +6,7 @@ package GUI.SaleGroup.SellerGUI.BasicHandle;
 
 import BUS.SaleServices.Money;
 import BUS.SaleServices.PayActionBus;
-import DTO.ChiTietHoaDon;
+import Entity.ChiTietHoaDon;
 import BUS.Excel.PDFTool;
 import GUI.SaleGroup.SellerGUI.Component.OptionPaneBill;
 import GUI.SaleGroup.SellerGUI.Component.OrderPanel;
@@ -71,7 +71,7 @@ public class PayActionListener implements java.awt.event.ActionListener{
                 int i = 0;
                 for(ChiTietHoaDon item : orderPanel.getListChiTietHoaDon(pay.getMaHD())){
                     data.clear();
-                    data.add(pay.getNameSPFromID(item.getMaSP()));
+                    data.add(pay.getNameSPFromID(item.getSanPham().getMaSP()));
                     data.add(String.valueOf(item.getSoLuong()));
                     data.add(Money.format(item.getGiaTien()));
                     datas[i] = data.toArray(String[]::new);

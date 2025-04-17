@@ -7,27 +7,20 @@ import DAL.DataAcessObject.ChiTietHoaDonDAO;
 import  DAL.DataAcessObject.HoaDonDAO;
 import DAL.DataAcessObject.NhanVienDAO;
 import DAL.DataAcessObject.SanPhamDAO;
-import com.itextpdf.text.Font;
 
-import DTO.ChiTietHoaDon;
-import DTO.HoaDon;
-import DTO.NhanVien;
-import DTO.SanPham;
+import Entity.ChiTietHoaDon;
+import Entity.HoaDon;
+import Entity.NhanVien;
+import Entity.SanPham;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -94,7 +87,7 @@ public class PdfTest {
         if (hoadon == null){
             return;
         }
-        NhanVien nv = nhanVienDAO.select(hoadon.getMaNV());
+        NhanVien nv = nhanVienDAO.select(hoadon.getNhanVien().getMaNV());
         if (nv == null){
             return;
         }
@@ -118,8 +111,8 @@ public class PdfTest {
         int intstt = 0;// so thu tu trong 
         for (ChiTietHoaDon cthd : listChiTiet) {
             String stt = String.valueOf(++intstt);
-            SanPham sp = sanPhamDAO.select(cthd.getMaSP());
-            String tensp = String.valueOf(cthd.getMaSP()) + "." + sp.getTenSP();
+            SanPham sp = sanPhamDAO.select(cthd.getSanPham().getMaSP());
+            String tensp = String.valueOf(cthd.getSanPham().getMaSP()) + "." + sp.getTenSP();
             String soluong = String.valueOf(cthd.getSoLuong());
             String giatien = String.valueOf(cthd.getGiaTien());
             tb1.addCell(stt);

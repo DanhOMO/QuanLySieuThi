@@ -5,7 +5,7 @@
 package GUI.ManageGroup.Handle.VoucherHandle;
 
 import BUS.SaleServices.CheckInfoSale;
-import DTO.Voucher;
+import Entity.Voucher;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 

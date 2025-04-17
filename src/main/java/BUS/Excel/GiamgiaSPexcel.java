@@ -3,22 +3,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package BUS.Excel;
-import  BUS.Excel.sanphamexcel;
-import  DTO.GiamGiaSP;
-import DTO.SanPham;
+import DAL.DataAcessObject.SanPhamDAO;
+import  Entity.GiamGiaSP;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.Timestamp;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.DataFormatter;
-import org.apache.poi.ss.usermodel.FormulaEvaluator;
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;/**
@@ -86,7 +82,8 @@ public class GiamgiaSPexcel {
                  if(cell!=null) {
                     String value = fmt.formatCellValue(cell);
                     if (! value.trim().isEmpty()) {
-                        test1.setMaSP(Integer.parseInt(value));
+                        SanPhamDAO spdao= new SanPhamDAO();
+                        test1.setSanPham(spdao.select(Integer.parseInt(value)));
                     }
                  }
              }
@@ -95,7 +92,7 @@ public class GiamgiaSPexcel {
                  if(cell!=null) {
                     String value = fmt.formatCellValue(cell);
                     if (! value.trim().isEmpty()) {
-                        test1.setIsDeleted(Boolean.getBoolean(value));
+                        test1.setDeleted(Boolean.getBoolean(value));
                     }
                  }
              }

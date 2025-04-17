@@ -4,11 +4,7 @@
  */
 package GUI.ManageGroup.Handle.SanPhamHandle;
 
-import BUS.BusAccessor.LoaiSanPhamBUS;
-import BUS.BusAccessor.NhaCungCapBUS;
-import DTO.SanPham;
-import DTO.Voucher;
-import javax.swing.JOptionPane;
+import Entity.SanPham;
 
 
 public class SanPhamValidate {

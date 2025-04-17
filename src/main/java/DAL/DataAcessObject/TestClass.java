@@ -1,10 +1,10 @@
 package DAL.DataAcessObject;
 
-import DTO.NhaCungCap;
-import DTO.HoaDon;
-import DTO.Voucher;
-import DTO.GiamGiaSP;
-import DTO.LoaiSanPham;
+import Entity.NhaCungCap;
+import Entity.HoaDon;
+import Entity.Voucher;
+import Entity.GiamGiaSP;
+import Entity.LoaiSanPham;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -165,36 +165,6 @@ public class TestClass {
             System.out.println(nhaCungCap);
         }
     }
-    
-    public static void testGiamGiaSP(){
-        GiamGiaSPDAO giamGiaSPDAO = new GiamGiaSPDAO();
-        GiamGiaSP giamGiaSP = new GiamGiaSP(0, new Timestamp(System.currentTimeMillis()), new Timestamp(System.currentTimeMillis()),10,1,false);
-        
-        if(giamGiaSPDAO.insert(giamGiaSP))
-            System.out.println("Insert success!");
-        
-        giamGiaSP.setPtGiam(20);
-        if (giamGiaSPDAO.update(1,giamGiaSP)){
-            System.out.println("Update success");
-        } else {
-            System.out.println("Update fail");
-        }
-        
-        if (giamGiaSPDAO.delete(7)){
-            System.out.println("Delete success");
-        } else {
-            System.out.println("Delete fail");
-        }
-        
-        if (giamGiaSPDAO.select(7) != null){
-            System.out.println("Selected!");
-            System.out.println(giamGiaSPDAO.select(7));
-        }else { System.out.println("Can't find!");}
-        
-        
-        List<GiamGiaSP> list = giamGiaSPDAO.selectAll();
-        for (GiamGiaSP gg : list){
-            System.out.println(gg);
-        }
-    }
+
+
 }

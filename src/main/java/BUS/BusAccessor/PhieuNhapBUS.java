@@ -5,10 +5,9 @@
 package BUS.BusAccessor;
 
 import DAL.DataAcessObject.PhieuNhapDAO;
-import DTO.ChiTietPhieuHuy;
-import DTO.ChiTietPhieuNhap;
-import DTO.PhieuNhap;
-import java.sql.Timestamp;
+import Entity.ChiTietPhieuNhap;
+import Entity.PhieuNhap;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -39,7 +38,7 @@ public class PhieuNhapBUS extends AbstractBUSAccessor<PhieuNhap, Integer, PhieuN
         SanPhamBUS spBus = new SanPhamBUS();
         if (list != null && !list.isEmpty()){
             for (ChiTietPhieuNhap ph: list){
-               int maSP = ph.getMaSP();
+               int maSP = ph.getSanPham().getMaSP();
                spBus.thayDoiSoLuong(maSP, -ph.getSoLuong());
             }
         }
@@ -65,7 +64,7 @@ public class PhieuNhapBUS extends AbstractBUSAccessor<PhieuNhap, Integer, PhieuN
             if (tempList.isEmpty()) tempList = list;
             List<PhieuNhap> storeTemp = new ArrayList<>();
             for (PhieuNhap ph: tempList){
-                if (ph.getMaNV() == maNV)
+                if (ph.getNhanVien().getMaNV() == maNV)
                     storeTemp.add(ph);
             }
             if (storeTemp.isEmpty()) return null;

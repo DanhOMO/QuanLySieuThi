@@ -4,13 +4,10 @@
  */
 package GUI.SaleGroup.SellerGUI.BasicHandle;
 
-import DTO.ChiTietHoaDon;
-import DTO.SanPham;
 import GUI.SaleGroup.SellerGUI.Component.OrderItem;
 import GUI.SaleGroup.SellerGUI.Component.OrderPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 
 /**
  *

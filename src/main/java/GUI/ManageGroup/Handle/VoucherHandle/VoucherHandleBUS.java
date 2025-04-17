@@ -5,7 +5,7 @@
 package GUI.ManageGroup.Handle.VoucherHandle;
 
 import DAL.DataAcessObject.VoucherDAO;
-import DTO.Voucher;
+import Entity.Voucher;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

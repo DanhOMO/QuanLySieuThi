@@ -1,6 +1,6 @@
 package DAL.DataAcessObject;
 
-import DTO.ChiTietHoaDon;
+import Entity.ChiTietHoaDon;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ public class ChiTietHoaDonDAO extends AbtractAccessDatabase<ChiTietHoaDon> imple
 
     @Override
     public boolean insert(ChiTietHoaDon chiTietHoaDon) {
-        return executeUpdate("INSERT INTO CTHOADON(MAHD,MASP,SOLUONG,GIATIEN) VALUES(?,?,?,?)",chiTietHoaDon.getMaHD(),chiTietHoaDon.getMaSP(),chiTietHoaDon.getSoLuong(),chiTietHoaDon.getGiaTien());
+        return executeUpdate("INSERT INTO CTHOADON(MAHD,MASP,SOLUONG,GIATIEN) VALUES(?,?,?,?)",chiTietHoaDon.getHoaDon().getMaHD(),chiTietHoaDon.getSanPham().getMaSP(),chiTietHoaDon.getSoLuong(),chiTietHoaDon.getGiaTien());
     }
 
     @Override

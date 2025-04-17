@@ -8,11 +8,9 @@ import BUS.BusAccessor.LoaiSanPhamBUS;
 import BUS.BusAccessor.NhaCungCapBUS;
 import BUS.BusAccessor.SanPhamBUS;
 import GUI.ManageGroup.Handle.SanPhamHandle.SanPhamValidate;
-import DTO.NhaCungCap;
-import DTO.SanPham;
+import Entity.SanPham;
 import java.awt.Color;
 import java.io.File;
-import java.util.List;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -51,12 +49,12 @@ public class SanPhamSua extends javax.swing.JFrame {
         return  maloaiBUS.get(maLoai).getTenLoai();
     }
 public  void Sua(SanPham sp){
-        System.out.println(String.valueOf(GetLoai(sp.getMaLoai())));
+        System.out.println(String.valueOf(GetLoai(sp.getLoaiSanPham().getMaLoai())));
         tfMaSanPham.setText(String.valueOf(sp.getMaSP()));
 //        cbNCC1.setSelectedItem(String.valueOf(GetNcc(sp.getMaNCC())));
-        nhaCungCapComboBox1.setSelectedItem(sp.getMaNCC());
+        nhaCungCapComboBox1.setSelectedItem(sp.getNhaCungCap().getMaNCC());
         tfSanPham.setText(sp.getTenSP());
-        cbLoai.setSelectedLoai(sp.getMaLoai());
+        cbLoai.setSelectedLoai(sp.getLoaiSanPham().getMaLoai());
         tfGia.setText(String.valueOf(sp.getGiaTien()));
         tfMoTa.setText(String.valueOf(sp.getMoTa()));
         imagePanel2.setImagePath(sp.getHinhAnh());

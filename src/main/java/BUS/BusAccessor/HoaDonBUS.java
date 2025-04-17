@@ -5,7 +5,7 @@
 package BUS.BusAccessor;
 
 import DAL.DataAcessObject.HoaDonDAO;
-import DTO.HoaDon;
+import Entity.HoaDon;
 import java.util.List;
 
 /**

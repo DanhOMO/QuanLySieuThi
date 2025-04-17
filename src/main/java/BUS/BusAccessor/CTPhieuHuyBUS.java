@@ -5,7 +5,7 @@
 package BUS.BusAccessor;
 
 import DAL.DataAcessObject.CTPhieuHuyDAO;
-import DTO.ChiTietPhieuHuy;
+import Entity.ChiTietPhieuHuy;
 import java.util.List;
 
 /**
@@ -38,7 +38,7 @@ public class CTPhieuHuyBUS implements IBusAccessDetail<ChiTietPhieuHuy>{
 
     @Override
     public boolean add(ChiTietPhieuHuy data) {
-        spBUS.thayDoiSoLuong(data.getMaSP(), -data.getSoLuong());
+        spBUS.thayDoiSoLuong(data.getSanPham().getMaSP(), -data.getSoLuong());
         return dao.insert(data);
     }
 

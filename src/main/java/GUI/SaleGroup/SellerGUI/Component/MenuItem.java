@@ -5,7 +5,7 @@
 package GUI.SaleGroup.SellerGUI.Component;
 
 import BUS.SaleServices.Money;
-import DTO.SanPham;
+import Entity.SanPham;
 import javax.swing.JButton;
 
 /**

@@ -5,7 +5,7 @@
 package GUI.SaleGroup.SellerGUI.BasicHandle;
 
 import DAL.DataAcessObject.KhachHangDAO;
-import DTO.KhachHang;
+import Entity.KhachHang;
 
 /**
  *

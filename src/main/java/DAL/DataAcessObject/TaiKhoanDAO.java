@@ -1,6 +1,6 @@
 package DAL.DataAcessObject;
 
-import DTO.TaiKhoan;
+import Entity.TaiKhoan;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ public class TaiKhoanDAO extends AbtractAccessDatabase<TaiKhoan> implements ISim
     @Override
     public boolean insert(TaiKhoan taiKhoan) {
         return executeUpdate("INSERT INTO TAIKHOAN(TENTK,MATKHAU,MANV,SOLANSAI,NGAYTAO,IS_DELETED) VALUES(?,?,?,?,?,?)",
-                taiKhoan.getTenTK(),taiKhoan.getMatKhau(),taiKhoan.getMaNV(),taiKhoan.getSoLanSai(),taiKhoan.getNgayTao(),taiKhoan.isDeleted());
+                taiKhoan.getTenTK(),taiKhoan.getMatKhau(),taiKhoan.getNhanVien().getMaNV(),taiKhoan.getSoLanSai(),taiKhoan.getNgayTao(),taiKhoan.isDeleted());
     }
 
     @Override
@@ -23,7 +23,7 @@ public class TaiKhoanDAO extends AbtractAccessDatabase<TaiKhoan> implements ISim
     @Override
     public boolean update(Integer soTaiKhoan, TaiKhoan taiKhoan) {
         return executeUpdate("UPDATE TAIKHOAN SET TENTK = ?, MATKHAU = ?, MANV = ?, SOLANSAI = ?, NGAYTAO = ?, IS_DELETED = ? WHERE SOTK = ?",
-                taiKhoan.getTenTK(),taiKhoan.getMatKhau(),taiKhoan.getMaNV(),taiKhoan.getSoLanSai(),taiKhoan.getNgayTao(),taiKhoan.isDeleted(),soTaiKhoan);
+                taiKhoan.getTenTK(),taiKhoan.getMatKhau(),taiKhoan.getNhanVien().getMaNV(),taiKhoan.getSoLanSai(),taiKhoan.getNgayTao(),taiKhoan.isDeleted(),soTaiKhoan);
     }
 
     @Override

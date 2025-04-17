@@ -4,10 +4,9 @@
  */
 package BUS.BusAccessor;
 
-import DAL.DataAcessObject.ISimpleAccess;
 import DAL.DataAcessObject.PhieuHuyDAO;
-import DTO.ChiTietPhieuHuy;
-import DTO.PhieuHuy;
+import Entity.ChiTietPhieuHuy;
+import Entity.PhieuHuy;
 import java.util.List;
 
 /**
@@ -34,7 +33,7 @@ public class PhieuHuyBUS extends AbstractBUSAccessor<PhieuHuy, Integer, PhieuHuy
         SanPhamBUS spBus = new SanPhamBUS();
         if (list != null && !list.isEmpty()){
             for (ChiTietPhieuHuy ph: list){
-               int maSP = ph.getMaSP();
+               int maSP = ph.getSanPham().getMaSP();
                spBus.thayDoiSoLuong(maSP, ph.getSoLuong());
             }
         }

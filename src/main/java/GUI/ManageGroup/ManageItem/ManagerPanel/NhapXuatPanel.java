@@ -7,17 +7,15 @@ package GUI.ManageGroup.ManageItem.ManagerPanel;
 import BUS.BusAccessor.NhanVienBUS;
 import BUS.BusAccessor.PhieuHuyBUS;
 import BUS.BusAccessor.PhieuNhapBUS;
-import DTO.PhieuHuy;
-import DTO.PhieuNhap;
+import Entity.PhieuHuy;
+import Entity.PhieuNhap;
 import GUI.ManageGroup.ManageItem.FrameAdd.FrameAdd.HuyHangSanPham;
 import GUI.ManageGroup.ManageItem.FrameAdd.FrameAdd.NhapHangSanPham;
-import GUI.ManageGroup.ManageItem.ManageFrame.ManageFrame;
 import GUI.ManageGroup.Theme.NhapHuyPanel;
 import com.raven.datechooser.DateChooser;
 import com.raven.datechooser.SelectedDate;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.sql.Timestamp;
 import java.util.List;
 import javax.swing.JMenuItem;
@@ -147,7 +145,7 @@ public class NhapXuatPanel extends javax.swing.JPanel {
         if (list == null || list.isEmpty()) return;
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         for (PhieuNhap item: list){
-            model.addRow(new Object[]{item.getMaPhieu(),item.getMaNV(),nvBus.get(item.getMaNV()).getTenNV(),item.getNgayLap()});
+            model.addRow(new Object[]{item.getMaPhieu(),item.getNhanVien().getMaNV(),nvBus.get(item.getNhanVien().getMaNV()).getTenNV(),item.getNgayLap()});
         }
     }
     
@@ -157,7 +155,7 @@ public class NhapXuatPanel extends javax.swing.JPanel {
         if (list == null || list.isEmpty()) return;
         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
         for (PhieuHuy item: list){
-            model.addRow(new Object[]{item.getMaPhieu(),item.getMaNV(),nvBus.get(item.getMaNV()).getTenNV(),item.getNgayLap()});
+            model.addRow(new Object[]{item.getMaPhieu(),item.getNhanVien().getMaNV(),nvBus.get(item.getNhanVien().getMaNV()).getTenNV(),item.getNgayLap()});
         }
     }
 
@@ -530,7 +528,7 @@ public class NhapXuatPanel extends javax.swing.JPanel {
         if (list == null || list.isEmpty()) 
             return;
         for (PhieuNhap item: list){
-            nhapModel.addRow(new Object[]{item.getMaPhieu(),item.getMaNV(),nvBus.get(item.getMaNV()).getTenNV(),item.getNgayLap()});
+            nhapModel.addRow(new Object[]{item.getMaPhieu(),item.getNhanVien().getMaNV(),nvBus.get(item.getNhanVien().getMaNV()).getTenNV(),item.getNgayLap()});
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -567,7 +565,7 @@ public class NhapXuatPanel extends javax.swing.JPanel {
         if (list == null || list.isEmpty()) 
             return;
         for (PhieuHuy item: list){
-            huyModel.addRow(new Object[]{item.getMaPhieu(),item.getMaNV(),nvBus.get(item.getMaNV()).getTenNV(),item.getNgayLap()});
+            huyModel.addRow(new Object[]{item.getMaPhieu(),item.getNhanVien().getMaNV(),nvBus.get(item.getNhanVien().getMaNV()).getTenNV(),item.getNgayLap()});
         }
     }//GEN-LAST:event_jButton8ActionPerformed
 

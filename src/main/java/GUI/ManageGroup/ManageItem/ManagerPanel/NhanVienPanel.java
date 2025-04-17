@@ -5,13 +5,10 @@
 package GUI.ManageGroup.ManageItem.ManagerPanel;
 import BUS.BusAccessor.ChucVuBUS;
 import BUS.BusAccessor.NhanVienBUS;
-import DTO.ChucVu;
-import DTO.NhanVien;
+import Entity.ChucVu;
+import Entity.NhanVien;
 import GUI.ManageGroup.ManageItem.FrameAdd.FrameAdd.NhanVienAdd;
-import GUI.ManageGroup.ManageItem.FrameAdd.FrameAdd.SanPhamAdd;
-import java.awt.PopupMenu;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 import java.awt.event.MouseEvent;
 import java.util.List;
 import java.util.regex.PatternSyntaxException;
@@ -46,7 +43,7 @@ private void LoadTable(){
      
        System.out.println(nhanvienList.size());
        for (int i = 0; i < nhanvienList.size(); i++) {
-           ChucVu chucVu = chucvuBUS.get(nhanvienList.get(i).getMaChucVu());
+           ChucVu chucVu = chucvuBUS.get(nhanvienList.get(i).getChucVu().getMaChucVu());
 
 //           Object[] obj = {nhanvienList.get(i).getMaNV(), nhanvienList.get(i).getTenNV(), chucVu.getTenChucVu(), nhanvienList.get(i).getSoDienThoai(), nhanvienBUS.getSoLuongHoaDon(nhanvienList.get(i).getMaNV()), nhanvienBUS.getDoanhThu(nhanvienList.get(i).getMaNV())};
 //
@@ -381,7 +378,7 @@ private void LoadTable(){
         int maNhanVien = (int) jTable1.getValueAt(row, 0);
         NhanVien nhanvien = nhanvienBUS.get(maNhanVien);
         jLabel91.setText(nhanvien.getTenNV());
-        ChucVu chucVu = chucvuBUS.get(nhanvien.getMaChucVu());
+        ChucVu chucVu = chucvuBUS.get(nhanvien.getChucVu().getMaChucVu());
         jLabel100.setText(chucVu.getTenChucVu());
         jLabel1.setText(nhanvien.isGioiTinh() == false ? "Nam":"Nữ");
         jLabel2.setText(nhanvien.getCmnd());

@@ -5,7 +5,7 @@
 package BUS.BusAccessor;
 
 import DAL.DataAcessObject.ChucVuDAO;
-import DTO.ChucVu;
+import Entity.ChucVu;
 
 /**
  *

@@ -4,9 +4,8 @@
  */
 package BUS.BusAccessor;
 
-import DAL.DataAcessObject.ISimpleAccess;
 import DAL.DataAcessObject.LoaiSanPhamDAO;
-import DTO.LoaiSanPham;
+import Entity.LoaiSanPham;
 
 /**
  *
