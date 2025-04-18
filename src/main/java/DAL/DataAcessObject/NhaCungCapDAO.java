@@ -1,7 +1,6 @@
 package DAL.DataAcessObject;
 
 import Entity.NhaCungCap;
-import Entity.SanPham;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 
