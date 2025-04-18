@@ -44,6 +44,8 @@ public class PhieuHuyBUS extends AbstractBUSAccessor<PhieuHuy, Integer, PhieuHuy
     public PhieuHuy get(Integer maPhieuHuy) {
         return dao.select(maPhieuHuy);
     }
+
+    @Override
     public List<PhieuHuy> getAll(){
         return dao.selectAll();
     }

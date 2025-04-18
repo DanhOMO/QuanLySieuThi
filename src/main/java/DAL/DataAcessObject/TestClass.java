@@ -1,10 +1,6 @@
 package DAL.DataAcessObject;
 
-import Entity.NhaCungCap;
-import Entity.HoaDon;
-import Entity.Voucher;
-import Entity.GiamGiaSP;
-import Entity.LoaiSanPham;
+import Entity.*;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -20,7 +16,7 @@ public class TestClass {
 //        for (SanPham mysp:list){
 //            System.out.println(mysp);
 //        }
-        PhieuNhapDAO nhapDAO = new PhieuNhapDAO();
+        PhieuNhapDAO nhapDAO = new PhieuNhapDAO(PhieuNhap.class);
 //        List<PhieuNhap> list = nhapDAO.selectAndFilter("2", "", "2022/05/16", "2022/05/18");
 //        for (PhieuNhap nhap:list){
 //            System.out.println(nhap);

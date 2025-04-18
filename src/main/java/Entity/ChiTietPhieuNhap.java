@@ -29,7 +29,7 @@ public class ChiTietPhieuNhap extends ChiTietPhieu {
     }
     public ChiTietPhieuNhap(int maPhieuNhap, int maSP, int soLuong) {
         this.soLuong = soLuong;
-        PhieuNhapDAO phieuNhapDAO = new PhieuNhapDAO();
+        PhieuNhapDAO phieuNhapDAO = new PhieuNhapDAO(PhieuNhap.class);
         SanPhamDAO sanPhamDAO = new SanPhamDAO(SanPham.class);
         this.phieu  = phieuNhapDAO.select(maPhieuNhap);
         this.sanPham = sanPhamDAO.select(maSP);
