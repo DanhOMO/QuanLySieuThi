@@ -37,7 +37,7 @@ public class ChiTietPhieuHuy extends ChiTietPhieu {
         this.soLuong = soLuong;
         PhieuNhapDAO phieuNhapDAO = new PhieuNhapDAO();
         SanPhamDAO sanPhamDAO = new SanPhamDAO(SanPham.class    );
-        this.phieu  = new PhieuHuyDAO().select(maPhieuNhap);
+        this.phieu  = new PhieuHuyDAO(PhieuHuy.class).select(maPhieuNhap);
         this.sanPham = sanPhamDAO.select(maSP);
         this.chiTietPhieuId = new ChiTietPhieuId(phieu.getMaPhieu(), sanPham.getMaSP());
     }
