@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public  class SanPhamBUS implements IBussAccess<SanPham, Integer>{
-    private final SanPhamDAO sanPhamDAO =new  SanPhamDAO();
+    private final SanPhamDAO sanPhamDAO =new  SanPhamDAO(SanPham.class);
     private final LoaiSanPhamBUS loaiSPBus = new LoaiSanPhamBUS();
     private final CTHoaDonBUS ctHoaoDonBus = new CTHoaDonBUS();
     

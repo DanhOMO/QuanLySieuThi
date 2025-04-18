@@ -21,7 +21,7 @@ public abstract class GenericDao<T> {
     }
 
     public GenericDao(Class<T> clazz) {
-        this.em = em;
+        this.em = JPAUtils.getEntityManager();
         this.clazz = clazz;
     }
 

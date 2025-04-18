@@ -14,7 +14,7 @@ import java.util.List;
  * @author tiend
  */
 public class VoucherBUS implements IBussAccess<Voucher,String>{
-    private final VoucherDAO voucherDAO =new VoucherDAO();
+    private final VoucherDAO voucherDAO =new VoucherDAO(Voucher.class);
     @Override
     public Voucher get(String maVoucher) {
         return voucherDAO.select(maVoucher);

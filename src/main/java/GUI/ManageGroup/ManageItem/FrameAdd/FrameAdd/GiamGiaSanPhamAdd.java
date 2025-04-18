@@ -314,7 +314,7 @@ public class GiamGiaSanPhamAdd extends javax.swing.JFrame {
             JOptionPane.showConfirmDialog(this, "Sản phẩm chưa tồn tại!!!", "Chú ý!", JOptionPane.CLOSED_OPTION);
             return false;
         }
-        SanPhamDAO sanPhamDAO = new SanPhamDAO();
+        SanPhamDAO sanPhamDAO = new SanPhamDAO(SanPham.class);
         giamGiaSP.setSanPham(sanPhamDAO.select(id));
         return true;
     }

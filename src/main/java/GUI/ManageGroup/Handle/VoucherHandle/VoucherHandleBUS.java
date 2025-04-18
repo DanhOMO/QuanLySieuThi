@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  * @author MY ACER
  */
 public class VoucherHandleBUS {
-    VoucherDAO voucherDao = new VoucherDAO();
+    VoucherDAO voucherDao = new VoucherDAO(Voucher.class);
     
     public boolean AddVoucher(String maVoucher, String minimizeVoucher, String maxmizeVoucher,String startDay, String endDay, String percent, String numberUse, String describe){
         Voucher voucher = new Voucher();

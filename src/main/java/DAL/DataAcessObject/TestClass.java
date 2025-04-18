@@ -57,7 +57,7 @@ public class TestClass {
     }
 
     public static void testMaKhuyenMai(){
-        VoucherDAO maKhuyenMaiDAO = new VoucherDAO();
+        VoucherDAO maKhuyenMaiDAO = new VoucherDAO(Voucher.class);
         Voucher mkm = new Voucher(
                 1,"GIAMGIA","MOTA",2,new Timestamp(System.currentTimeMillis()),new Timestamp(System.currentTimeMillis()),
                 10000,0,5000,10,200,false);
