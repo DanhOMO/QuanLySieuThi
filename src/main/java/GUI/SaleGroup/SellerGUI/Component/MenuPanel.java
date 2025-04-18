@@ -17,7 +17,7 @@ import java.util.List;
  * @author huykh
  */
 public class MenuPanel extends ScrollPanel{
-    private final SanPhamDAO spDAO = new SanPhamDAO();
+    private final SanPhamDAO spDAO = new SanPhamDAO(SanPham.class);
     private final SanPhamBUS spbus = new SanPhamBUS();
     private List<SanPham> listData;
     private final OrderPanel orderpanel;

@@ -37,7 +37,7 @@ public class CodeTaoHoaDonMau {
         KhachHangBUS khBus = new KhachHangBUS();
         NhanVienBUS nvBus = new NhanVienBUS();
         VoucherBUS voucherBus = new VoucherBUS();
-        GiamGiaSPDAO giamGiaSP = new GiamGiaSPDAO();
+        GiamGiaSPDAO giamGiaSP = new GiamGiaSPDAO(GiamGiaSP.class);
         
         List<KhachHang> listKH = khBus.getAll();
         List<NhanVien> listNV = nvBus.getAll();
@@ -97,7 +97,7 @@ public class CodeTaoHoaDonMau {
     }
     
     public static void thayDoiMaHoaDon(List<ChiTietHoaDon> list, int maHD){
-        HoaDonDAO hdDao = new HoaDonDAO();
+        HoaDonDAO hdDao = new HoaDonDAO(HoaDon.class);
         for (ChiTietHoaDon i : list){
            i.setHoaDon(hdDao.select(maHD));
         }

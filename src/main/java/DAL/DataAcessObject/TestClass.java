@@ -25,7 +25,7 @@ public class TestClass {
     }
 
     public static void testHoaDon(){
-        HoaDonDAO hoaDonDAO = new HoaDonDAO();
+        HoaDonDAO hoaDonDAO = new HoaDonDAO(HoaDon.class);
 //        HoaDon hd = new HoaDon(1,new Timestamp(System.currentTimeMillis()),"Tien mat",1000,1,1,1,1,false);
 //        System.out.println(hd);
 //
@@ -108,7 +108,7 @@ public class TestClass {
 //    }
 
     public static void testLoaiSanPham(){
-        LoaiSanPhamDAO loaiSanPhamDAO = new LoaiSanPhamDAO();
+        LoaiSanPhamDAO loaiSanPhamDAO = new LoaiSanPhamDAO(LoaiSanPham.class);
         LoaiSanPham lsp = new LoaiSanPham(1,"Laptop","Laptop de nang cao",false);
         loaiSanPhamDAO.insert(lsp);
 //        System.out.println(lsp);

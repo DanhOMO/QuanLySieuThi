@@ -20,7 +20,7 @@ import java.util.List;
  * @author huykh
  */
 public class PhieuNhapBUS extends AbstractBUSAccessor<PhieuNhap, Integer, PhieuNhapDAO>{
-
+    private final PhieuNhapDAO dao = new PhieuNhapDAO(PhieuNhap.class);
 
     public List<PhieuNhap> getPhieuNhapInTime(String ngayBD, String ngayKT) {
         return dao.selectAndFilter("", "", ngayBD, ngayKT);
@@ -59,5 +59,9 @@ public class PhieuNhapBUS extends AbstractBUSAccessor<PhieuNhap, Integer, PhieuN
         return dao.selectAndFilter(maNV, maPN, ngayBD, ngayKT);
     }
 
+    public static void main(String[] args) {
+        PhieuNhapBUS phieuNhapBUS = new PhieuNhapBUS();
+        phieuNhapBUS.getAll().forEach(System.out::println);
+    }
     
 }

@@ -1,54 +1,105 @@
 package DAL.DataAcessObject;
 
 import Entity.HoaDon;
-
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.NoResultException;
 import java.util.List;
 
-public class HoaDonDAO extends GenericDao<HoaDon> implements ISimpleAccess<HoaDon,Integer> {
+public class HoaDonDAO extends GenericDao<HoaDon> implements ISimpleAccess<HoaDon, Integer> {
 
-    {
-        setClazz(HoaDon.class);
+    public HoaDonDAO(EntityManager em, Class<HoaDon> clazz) {
+        super(em, clazz);
+    }
+
+    public HoaDonDAO(Class<HoaDon> clazz) {
+        super(clazz);
     }
 
     @Override
     public boolean insert(HoaDon hoaDon) {
-        return executeUpdate("INSERT INTO HOADON (NGAYHD, HINHTHUC, TONGTIEN, TIENGIAM, MANV, MAKH, SOVOUCHER, IS_DELETED) " +
-                        "VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-                hoaDon.getNgayHD(), hoaDon.getHinhThuc(), hoaDon.getTongTien(), hoaDon.getTienGiam(),
-                hoaDon.getNhanVien().getMaNV(), hoaDon.getKhachHang().getMaKH(), hoaDon.getSoVoucher(), hoaDon.isDeleted());
+        EntityTransaction transaction = em.getTransaction();
+        try {
+            transaction.begin();
+            em.persist(hoaDon);
+            transaction.commit();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (transaction.isActive()) transaction.rollback();
+            return false;
+        }
     }
 
     @Override
     public boolean delete(Integer maHoaDon) {
-        return executeUpdate("UPDATE HOADON SET IS_DELETED = 1 WHERE MAHD = ?", maHoaDon);
+        EntityTransaction transaction = em.getTransaction();
+        try {
+            transaction.begin();
+            HoaDon hoaDon = em.find(HoaDon.class, maHoaDon);
+            if (hoaDon != null) {
+                hoaDon.setDeleted(true);
+                em.merge(hoaDon);
+            }
+            transaction.commit();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (transaction.isActive()) transaction.rollback();
+            return false;
+        }
     }
 
     @Override
     public boolean update(Integer maHoaDon, HoaDon hoaDon) {
-        return executeUpdate("UPDATE HOADON SET NGAYHD = ?, HINHTHUC = ?, TONGTIEN = ?, TIENGIAM = ?, " +
-                        "MANV = ?, MAKH = ?, SOVOUCHER = ?, IS_DELETED = ? WHERE MAHD = ?",
-                hoaDon.getNgayHD(), hoaDon.getHinhThuc(), hoaDon.getTongTien(), hoaDon.getTienGiam(),
-                hoaDon.getNhanVien().getMaNV(), hoaDon.getKhachHang().getMaKH(), hoaDon.getSoVoucher(), hoaDon.isDeleted(), maHoaDon);
+        EntityTransaction transaction = em.getTransaction();
+        try {
+            transaction.begin();
+            hoaDon.setMaHD(maHoaDon); // đảm bảo khóa chính đúng
+            em.merge(hoaDon);
+            transaction.commit();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (transaction.isActive()) transaction.rollback();
+            return false;
+        }
     }
 
     @Override
     public HoaDon select(Integer maHoaDon) {
-        return executeQuery("SELECT * FROM HOADON WHERE MAHD = ? AND IS_DELETED = 0", maHoaDon);
-    }
-
-    // Thay đổi cách lấy hóa đơn mới nhất
-    public HoaDon selectNewestBill(){
-        return executeQuery("SELECT TOP 1 * FROM HOADON ORDER BY MAHD DESC");
+        String jpql = "SELECT h FROM HoaDon h WHERE h.maHD = :maHD AND h.isDeleted = false";
+        try {
+            return em.createQuery(jpql, HoaDon.class)
+                    .setParameter("maHD", maHoaDon)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 
     @Override
     public List<HoaDon> selectAll() {
-        return executeQueryList("SELECT * FROM HOADON WHERE IS_DELETED = 0");
+        String jpql = "SELECT h FROM HoaDon h WHERE h.isDeleted = false";
+        return em.createQuery(jpql, HoaDon.class).getResultList();
     }
 
-    public List<HoaDon> selectHoaDonTrongKhoang(String startDay, String endDay){
-        return executeQueryList("SELECT * FROM HOADON WHERE NGAYHD BETWEEN ? AND ?", startDay, endDay);
+    public HoaDon selectNewestBill() {
+        String jpql = "SELECT h FROM HoaDon h ORDER BY h.maHD DESC";
+        try {
+            return em.createQuery(jpql, HoaDon.class)
+                    .setMaxResults(1)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 
-
+    public List<HoaDon> selectHoaDonTrongKhoang(String startDay, String endDay) {
+        String jpql = "SELECT h FROM HoaDon h WHERE h.ngayHD BETWEEN :startDay AND :endDay AND h.isDeleted = false";
+        return em.createQuery(jpql, HoaDon.class)
+                .setParameter("startDay", java.sql.Date.valueOf(startDay))
+                .setParameter("endDay", java.sql.Date.valueOf(endDay))
+                .getResultList();
+    }
 }

@@ -10,8 +10,8 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 public class JPAUtils {
-//    private static final String PERSISTENCE_UNIT_NAME = "mariadb-pu";
-    private static final String PERSISTENCE_UNIT_NAME = "mssql-pu";
+    private static final String PERSISTENCE_UNIT_NAME = "mariadb-pu";
+//    private static final String PERSISTENCE_UNIT_NAME = "mssql-pu";
 
     private static EntityManagerFactory entityManagerFactory;
 

@@ -53,7 +53,7 @@ public class SanPham implements Serializable {
     private List<GiamGiaSP> giamGiaSPs;
 
     public SanPham(String tenSanPham, String moTa, String url, Long aLong, int soLuong, int loai, int maNhaCC, boolean b) {
-        LoaiSanPhamDAO loaiSanPhamDAO = new LoaiSanPhamDAO();
+        LoaiSanPhamDAO loaiSanPhamDAO = new LoaiSanPhamDAO(LoaiSanPham.class);
         NhaCungCapDAO nhaCungCapDAO = new NhaCungCapDAO(NhaCungCap.class);
 
         this.tenSP = tenSanPham;

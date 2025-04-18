@@ -4,13 +4,14 @@ package BUS.SaleServices;
 import DAL.DataAcessObject.KhachHangDAO;
 import DAL.DataAcessObject.SanPhamDAO;
 import DAL.DataAcessObject.VoucherDAO;
+import Entity.KhachHang;
 import Entity.SanPham;
 import Entity.Voucher;
 
 
 public class CheckInfoSale {
     private final SanPhamDAO spDAO = new SanPhamDAO(SanPham.class);
-    private final KhachHangDAO khDAO = new KhachHangDAO();
+    private final KhachHangDAO khDAO = new KhachHangDAO(KhachHang.class);
     private final VoucherDAO voucherDAO = new VoucherDAO(Voucher.class);
 //    private KhachHang khachHang;
     

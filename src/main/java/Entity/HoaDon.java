@@ -67,7 +67,7 @@ public class HoaDon implements Serializable {
         this.isDeleted = b;
     }
     public HoaDon(int maHD, Timestamp ngayHD, String hinhThuc, long tongTien, long tienGiam, int maKH, int maNV, String soKM, boolean isDeleted) {
-        KhachHangDAO khachHangDAO = new KhachHangDAO();
+        KhachHangDAO khachHangDAO = new KhachHangDAO(KhachHang.class);
         NhanVienDAO nhanVienDAO = new NhanVienDAO(NhanVien.class);
         VoucherDAO voucherDAO = new VoucherDAO(Voucher.class);
         this.maHD = maHD;

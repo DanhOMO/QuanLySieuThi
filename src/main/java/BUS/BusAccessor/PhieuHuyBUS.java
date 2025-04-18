@@ -16,7 +16,7 @@ import java.util.List;
  * @author huykh
  */
 public class PhieuHuyBUS extends AbstractBUSAccessor<PhieuHuy, Integer, PhieuHuyDAO>{
-    
+    private final PhieuHuyDAO dao = new PhieuHuyDAO(PhieuHuy.class);
     public List<PhieuHuy> getFilter(String maNV, String maPN, String ngayBD, String ngayKT) {
         return dao.selectAndFilter(maNV, maPN, ngayBD, ngayKT);
     }

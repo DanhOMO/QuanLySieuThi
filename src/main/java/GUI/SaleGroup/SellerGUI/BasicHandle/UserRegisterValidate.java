@@ -5,6 +5,7 @@
 package GUI.SaleGroup.SellerGUI.BasicHandle;
 
 import DAL.DataAcessObject.KhachHangDAO;
+import Entity.KhachHang;
 
 /**
  *
@@ -15,7 +16,7 @@ public class UserRegisterValidate {
     private EmailExampleTest emailExampleTest;
 
     public UserRegisterValidate() {
-        this.khachHangDao = new KhachHangDAO();
+        this.khachHangDao = new KhachHangDAO(KhachHang.class);
         emailExampleTest = new EmailExampleTest();
     }
     
