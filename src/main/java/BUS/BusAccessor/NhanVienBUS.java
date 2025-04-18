@@ -14,40 +14,48 @@ import java.util.List;
  * @author tiend
  */
 public class NhanVienBUS implements IBussAccess<NhanVien, Integer>{
-    private final NhanVienDAO nhanVienDAO =new  NhanVienDAO();
+    private final NhanVienDAO nhanVienDAO =new  NhanVienDAO(NhanVien.class);
     
-    
-    public int getSoLuongHoaDon(int manhanvien){
-        HoaDonBUS hoadonBUS = new HoaDonBUS();
-        int count = 0;
-        List<HoaDon> listHoadon = hoadonBUS.getAll();
-        if ( listHoadon == null  ||  listHoadon.isEmpty()) {
-            return 0;
-        }
-        for (HoaDon hoadon : listHoadon) {
-            if (hoadon.getNhanVien().getMaNV() == manhanvien) {
-                count++;
-            }
-        }
-        return count;
-    }
-    
-    public long getDoanhThu (int manhanvien){
-        HoaDonBUS hoadonBUS = new HoaDonBUS();
-        long count = 0;
-        List<HoaDon> listHoadon = hoadonBUS.getAll();
-        if ( listHoadon == null  ||  listHoadon.isEmpty()) {
-            return 0;
-            
-        }
-         for (HoaDon hoadon : listHoadon) {
-            if (hoadon.getNhanVien().getMaNV() == manhanvien) {
-               count += hoadon.getTongTien() - hoadon.getTienGiam();
-            }
-        }
-        return count;
 
+    public int getSoLuongHoaDon(int manhanvien){
+        return nhanVienDAO.getSoLuongHoaDon(manhanvien);
     }
+
+//    public int getSoLuongHoaDon(int manhanvien){
+//        HoaDonBUS hoadonBUS = new HoaDonBUS();
+//        int count = 0;
+//        List<HoaDon> listHoadon = hoadonBUS.getAll();
+//        if ( listHoadon == null  ||  listHoadon.isEmpty()) {
+//            return 0;
+//        }
+//        for (HoaDon hoadon : listHoadon) {
+//            if (hoadon.getNhanVien().getMaNV() == manhanvien) {
+//                count++;
+//            }
+//        }
+//        return count;
+//    }
+
+    public long getDoanhThu (int manhanvien){
+        return nhanVienDAO.getDoanhThu(manhanvien);
+    }
+
+//    public long getDoanhThu (int manhanvien){
+//        HoaDonBUS hoadonBUS = new HoaDonBUS();
+//        long count = 0;
+//        List<HoaDon> listHoadon = hoadonBUS.getAll();
+//        if ( listHoadon == null  ||  listHoadon.isEmpty()) {
+//            return 0;
+//
+//        }
+//         for (HoaDon hoadon : listHoadon) {
+//            if (hoadon.getNhanVien().getMaNV() == manhanvien) {
+//               count += hoadon.getTongTien() - hoadon.getTienGiam();
+//            }
+//        }
+//        return count;
+//
+//    }
     
     
     
@@ -78,8 +86,7 @@ public class NhanVienBUS implements IBussAccess<NhanVien, Integer>{
 
     @Override
     public NhanVien getNewest() {
-       List<NhanVien> list=getAll();
-       return list== null ? null : list.get(list.size()-1);
+       return nhanVienDAO.selectNewest();
     }
     
 }

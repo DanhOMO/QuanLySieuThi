@@ -54,7 +54,7 @@ public class SanPham implements Serializable {
 
     public SanPham(String tenSanPham, String moTa, String url, Long aLong, int soLuong, int loai, int maNhaCC, boolean b) {
         LoaiSanPhamDAO loaiSanPhamDAO = new LoaiSanPhamDAO();
-        NhaCungCapDAO nhaCungCapDAO = new NhaCungCapDAO();
+        NhaCungCapDAO nhaCungCapDAO = new NhaCungCapDAO(NhaCungCap.class);
 
         this.tenSP = tenSanPham;
         this.moTa = moTa;

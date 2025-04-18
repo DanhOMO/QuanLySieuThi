@@ -38,7 +38,7 @@ public abstract class Phieu implements Serializable {
     }
 
     public Phieu(int i, Timestamp timestamp, int maNhanVien, boolean b) {
-        NhanVienDAO nhanVienDAO = new NhanVienDAO();
+        NhanVienDAO nhanVienDAO = new NhanVienDAO(NhanVien.class);
         this.maPhieu = i;
         this.ngayLap = timestamp;
         this.isDeleted = b;

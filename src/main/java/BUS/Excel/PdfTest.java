@@ -34,7 +34,7 @@ import java.util.logging.Logger;
 public class PdfTest {
     private static ChiTietHoaDonDAO cthoaDonDAO = new ChiTietHoaDonDAO(ChiTietHoaDon.class);
     private static HoaDonDAO hoaDonDAO = new HoaDonDAO();
-    private static NhanVienDAO nhanVienDAO = new NhanVienDAO();
+    private static NhanVienDAO nhanVienDAO = new NhanVienDAO(NhanVien.class);
     private static SanPhamDAO sanPhamDAO = new SanPhamDAO(SanPham.class);
     
 //     public static  Connection getConnecttion() throws Exception{

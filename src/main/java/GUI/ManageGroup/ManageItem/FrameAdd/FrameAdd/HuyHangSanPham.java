@@ -166,13 +166,13 @@ public class HuyHangSanPham extends javax.swing.JFrame {
     }
     
     public void addToDatabase(int maSP, int soLuong) {
-        PhieuHuyDAO phieuHuyDAO = new PhieuHuyDAO();
+        PhieuHuyDAO phieuHuyDAO = new PhieuHuyDAO(PhieuHuy.class);
         ChiTietPhieuHuy ctpn = new ChiTietPhieuHuy(phieuHuyDAO.select(this.maPhieuHuy), sanPhamDAO.select(maSP), soLuong);
         ctPhieuHuyBus.add(ctpn);
     }
     
     public void updateToDatabase(int maSP, int soLuong){
-        PhieuHuyDAO phieuHuyDAO = new PhieuHuyDAO();
+        PhieuHuyDAO phieuHuyDAO = new PhieuHuyDAO(PhieuHuy.class);
         ChiTietPhieuHuy ctpn = new ChiTietPhieuHuy(phieuHuyDAO.select(this.maPhieuHuy), sanPhamDAO.select(maSP), soLuong);
         ctPhieuHuyBus.edit(maPhieuHuy, maSP, ctpn);
     }
@@ -202,7 +202,7 @@ public class HuyHangSanPham extends javax.swing.JFrame {
                     return null;
                 }
             }
-            PhieuHuyDAO phieuHuyDAO = new PhieuHuyDAO();
+            PhieuHuyDAO phieuHuyDAO = new PhieuHuyDAO(PhieuHuy.class);
             ChiTietPhieuHuy ctpn1 = new ChiTietPhieuHuy(phieuHuyDAO.select(this.maPhieuHuy), sanPhamDAO.select(maSP), soLuong);
             listNhap.add(ctpn1);
         }

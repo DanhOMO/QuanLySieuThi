@@ -5,12 +5,8 @@
 package BUS.SaleServices;
 
 import DAL.DataAcessObject.*;
-import Entity.ChiTietHoaDon;
-import Entity.GiamGiaSP;
-import Entity.HoaDon;
-import Entity.KhachHang;
-import Entity.SanPham;
-import Entity.Voucher;
+import Entity.*;
+
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -138,7 +134,7 @@ public class PayActionBus {
         
         maKH = khachHang == null ? 0 : khachHang.getMaKH();
         KhachHangDAO khachHangDAO = new KhachHangDAO();
-        NhanVienDAO nhanVienDAO = new NhanVienDAO();
+        NhanVienDAO nhanVienDAO = new NhanVienDAO(NhanVien.class);
         VoucherDAO voucherDAO = new VoucherDAO(Voucher.class);
         hoaDon = new HoaDon(0,new Timestamp(System.currentTimeMillis()),hinhthuc,
                 total, disVoucher + disPoint, nhanVienDAO.select(maNV), khachHangDAO.select(maNV),voucherDAO.select(maVoucher) ,false);
