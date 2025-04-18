@@ -12,6 +12,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+
+import Entity.SanPham;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
@@ -82,7 +84,7 @@ public class GiamgiaSPexcel {
                  if(cell!=null) {
                     String value = fmt.formatCellValue(cell);
                     if (! value.trim().isEmpty()) {
-                        SanPhamDAO spdao= new SanPhamDAO();
+                        SanPhamDAO spdao= new SanPhamDAO(SanPham.class);
                         test1.setSanPham(spdao.select(Integer.parseInt(value)));
                     }
                  }

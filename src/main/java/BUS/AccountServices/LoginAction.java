@@ -27,13 +27,13 @@ public class LoginAction{
     private ManageFrame manager;
     
     public LoginAction() {
-        taiKhoanDAO = new TaiKhoanDAO();
+        taiKhoanDAO = new TaiKhoanDAO(TaiKhoan.class);
         loginDetailDAO = new LoginDetailDAO();
         nhanVienDAO = new NhanVienDAO();
     }
     
     public LoginAction(SellerMainFrame sell, ManageFrame manager){
-        taiKhoanDAO = new TaiKhoanDAO();
+        taiKhoanDAO = new TaiKhoanDAO(TaiKhoan.class);
         loginDetailDAO = new LoginDetailDAO();
         nhanVienDAO = new NhanVienDAO();
         this.sell = sell;
@@ -119,7 +119,7 @@ public class LoginAction{
 //    }
     
     protected void storeLoginAuth(boolean remember){
-            TaiKhoanDAO taiKhoanDAO = new TaiKhoanDAO();
+            TaiKhoanDAO taiKhoanDAO = new TaiKhoanDAO(TaiKhoan.class);
             TaiKhoan taiKhoan = taiKhoanDAO.select(soTK);
 
         if(remember){

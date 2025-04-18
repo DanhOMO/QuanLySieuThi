@@ -8,7 +8,7 @@ import Entity.SanPham;
 
 
 public class SanPhamToData {
-    SanPhamDAO spDao = new SanPhamDAO();
+    SanPhamDAO spDao = new SanPhamDAO(SanPham.class);
     LoaiSanPhamDAO lspDao = new LoaiSanPhamDAO();
     NhaCungCapDAO nccDao = new NhaCungCapDAO();
     public boolean AddSanPham (String Gia,String Ten,int nhaCungCap,int Loai,String Mota,String url)

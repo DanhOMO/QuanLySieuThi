@@ -35,7 +35,7 @@ public class PdfTest {
     private static ChiTietHoaDonDAO cthoaDonDAO = new ChiTietHoaDonDAO();
     private static HoaDonDAO hoaDonDAO = new HoaDonDAO();
     private static NhanVienDAO nhanVienDAO = new NhanVienDAO();
-    private static SanPhamDAO sanPhamDAO = new SanPhamDAO();
+    private static SanPhamDAO sanPhamDAO = new SanPhamDAO(SanPham.class);
     
 //     public static  Connection getConnecttion() throws Exception{
 //    Class.forName("com.mysql.jdbc.Driver");

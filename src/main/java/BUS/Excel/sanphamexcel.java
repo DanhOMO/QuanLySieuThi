@@ -32,7 +32,7 @@ public class sanphamexcel {
     private static List<SanPham> spList=new ArrayList<SanPham>();
     private static List<SanPham> spTuExcelList=new ArrayList<SanPham>();
     private static SanPhamBUS spBUS = new SanPhamBUS();
-    private static SanPhamDAO spDAO= new SanPhamDAO();
+    private static SanPhamDAO spDAO= new SanPhamDAO(SanPham.class   );
     private static SanPhamValidate spVali = new SanPhamValidate();
     public static void sanphamtuexcel(File f) {
         try {
