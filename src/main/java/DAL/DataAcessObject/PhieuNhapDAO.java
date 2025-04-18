@@ -7,7 +7,10 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
 
+import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Formatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -105,23 +108,27 @@ public class PhieuNhapDAO extends GenericDao<PhieuNhap> implements ISimpleAccess
         return result.isEmpty() ? null : result.get(0);
     }
 
-    public List<PhieuNhap> selectAndFilter(String maNV, String maPN, String ngayBD, String ngayKT){
+    public List<PhieuNhap> selectAndFilter(String maNV, String maPN, String ngayBD, String ngayKT) {
         StringBuilder jpql = new StringBuilder("SELECT p FROM PhieuNhap p WHERE p.isDeleted = false");
         Map<String, Object> params = new HashMap<>();
 
+        // Lọc theo khoảng ngày nếu có
+        if (ngayBD != null && !ngayBD.isEmpty() && ngayKT != null && !ngayKT.isEmpty()) {
+            LocalDate dateBD = LocalDate.parse(ngayBD);
+            LocalDate dateKT = LocalDate.parse(ngayKT);
+            params.put("ngayBD", Timestamp.valueOf(dateBD.atStartOfDay()));
+            params.put("ngayKT", Timestamp.valueOf(dateKT.atTime(23, 59, 59)));
+            jpql.append(" AND p.ngayLap BETWEEN :ngayBD AND :ngayKT");
+        }
 
-        jpql.append(" AND p.ngayLap >= :ngayBD AND p.ngayLap <= :ngayKT");
-        params.put("ngayBD", LocalDate.parse(ngayBD));
-        params.put("ngayKT", LocalDate.parse(ngayKT));
-
-
-        if (!maPN.isEmpty()) {
+        // Lọc theo mã phiếu
+        if (maPN != null && !maPN.isEmpty()) {
             jpql.append(" AND p.maPhieu = :maPN");
             params.put("maPN", maPN);
         }
 
-
-        if (!maNV.isEmpty()) {
+        // Lọc theo mã hoặc tên nhân viên
+        if (maNV != null && !maNV.isEmpty()) {
             try {
                 int maNVInt = Integer.parseInt(maNV);
                 jpql.append(" AND p.nhanVien.maNV = :maNV");

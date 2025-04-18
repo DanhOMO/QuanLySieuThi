@@ -105,30 +105,38 @@ public class PhieuHuyDAO extends GenericDao<PhieuHuy> implements ISimpleAccess<P
     }
 
 
-    public List<PhieuHuy> selectAndFilter(String maNV, String maPN, String ngayBD, String ngayKT){
+    public List<PhieuHuy> selectAndFilter(String maNV, String maPN, String ngayBD, String ngayKT) {
         StringBuilder jpql = new StringBuilder("SELECT ph FROM PhieuHuy ph WHERE ph.isDeleted = false");
         Map<String, Object> params = new HashMap<>();
 
-        jpql.append(" AND p.ngayLap >= :ngayBD AND p.ngayLap <= :ngayKT");
-        params.put("ngayBD", LocalDate.parse(ngayBD));
-        params.put("ngayKT", LocalDate.parse(ngayKT));
+        // Xử lý ngày nếu có nhập
+        if (ngayBD != null && !ngayBD.isEmpty() && ngayKT != null && !ngayKT.isEmpty()) {
+            LocalDate dateBD = LocalDate.parse(ngayBD);
+            LocalDate dateKT = LocalDate.parse(ngayKT);
+            params.put("ngayBD", java.sql.Timestamp.valueOf(dateBD.atStartOfDay()));
+            params.put("ngayKT", java.sql.Timestamp.valueOf(dateKT.atTime(23, 59, 59)));
+            jpql.append(" AND ph.ngayLap BETWEEN :ngayBD AND :ngayKT");
+        }
 
-        if (!maPN.isEmpty()) {
-            jpql.append(" AND p.maPhieu = :maPN");
+        // Lọc theo mã phiếu
+        if (maPN != null && !maPN.isEmpty()) {
+            jpql.append(" AND ph.maPhieu = :maPN");
             params.put("maPN", maPN);
         }
 
-        if (!maNV.isEmpty()) {
+        // Lọc theo nhân viên (mã hoặc tên)
+        if (maNV != null && !maNV.isEmpty()) {
             try {
-                int maNVConvert = Integer.parseInt(maNV);
-                jpql.append(" AND p.nhanVien.maNV = :maNV");
-                params.put("maNV", maNVConvert);
+                int maNVInt = Integer.parseInt(maNV);
+                jpql.append(" AND ph.nhanVien.maNV = :maNV");
+                params.put("maNV", maNVInt);
             } catch (NumberFormatException e) {
-                jpql.append(" AND LOWER(p.nhanVien.tenNV) LIKE :tenNV");
+                jpql.append(" AND LOWER(ph.nhanVien.tenNV) LIKE :tenNV");
                 params.put("tenNV", "%" + maNV.toLowerCase() + "%");
             }
         }
 
+        // Tạo query và truyền tham số
         TypedQuery<PhieuHuy> query = em.createQuery(jpql.toString(), PhieuHuy.class);
         for (Map.Entry<String, Object> entry : params.entrySet()) {
             query.setParameter(entry.getKey(), entry.getValue());
@@ -136,4 +144,5 @@ public class PhieuHuyDAO extends GenericDao<PhieuHuy> implements ISimpleAccess<P
 
         return query.getResultList();
     }
+
 }
