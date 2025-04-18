@@ -44,6 +44,7 @@ public class ChiTietHoaDon implements Serializable {
         this.hoaDon = hoaDonDAO.select(i);
         this.soLuong = soLuong;
         this.giaTien = giaTien;
+        this.id = new ChiTietHoaDonId(maSP, i);
     }
 
     @Override

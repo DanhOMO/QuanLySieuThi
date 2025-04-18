@@ -527,8 +527,8 @@ public class ThongKePanel extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         SelectedDate selectStart = startDay.getSelectedDate();
         SelectedDate selectEnd = endDay.getSelectedDate();
-        String bd = selectStart.getYear() +"-"+selectStart.getMonth()+"-"+selectStart.getDay();
-        String kt = selectEnd.getYear() +"-"+selectEnd.getMonth()+"-"+selectEnd.getDay();
+        String bd = String.format("%d-%02d-%02d", selectStart.getYear(), selectStart.getMonth(), selectStart.getDay());
+        String kt = String.format("%d-%02d-%02d", selectEnd.getYear(), selectEnd.getMonth(), selectEnd.getDay());
         Timestamp bdTs = Timestamp.valueOf(bd+" 00:00:00");
         Timestamp ktTs = Timestamp.valueOf(kt+" 00:00:00");
         if (bdTs.compareTo(ktTs)>0) JOptionPane.showMessageDialog(this, "Ngày kết thúc phải lớn hơn ngày bắt đầu","Thời gian lọc sai",JOptionPane.OK_OPTION);
