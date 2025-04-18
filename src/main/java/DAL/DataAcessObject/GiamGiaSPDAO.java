@@ -4,7 +4,7 @@ import Entity.GiamGiaSP;
 import java.util.List;
 
 
-public class GiamGiaSPDAO extends AbtractAccessDatabase<GiamGiaSP> implements ISimpleAccess<GiamGiaSP, Integer>{
+public class GiamGiaSPDAO extends GenericDao<GiamGiaSP> implements ISimpleAccess<GiamGiaSP, Integer>{
     
     {
         setClazz(GiamGiaSP.class);

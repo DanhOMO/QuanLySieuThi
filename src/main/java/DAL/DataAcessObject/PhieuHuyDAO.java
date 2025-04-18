@@ -3,7 +3,7 @@ package DAL.DataAcessObject;
 import Entity.PhieuHuy;
 import java.util.List;
 
-public class PhieuHuyDAO extends AbtractAccessDatabase<PhieuHuy> implements ISimpleAccess<PhieuHuy,Integer> {
+public class PhieuHuyDAO extends GenericDao<PhieuHuy> implements ISimpleAccess<PhieuHuy,Integer> {
     {
         setClazz(PhieuHuy.class);
     }

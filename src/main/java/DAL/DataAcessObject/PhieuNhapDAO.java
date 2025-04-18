@@ -4,7 +4,7 @@ import Entity.PhieuNhap;
 
 import java.util.List;
 
-public class PhieuNhapDAO extends AbtractAccessDatabase<PhieuNhap> implements ISimpleAccess<PhieuNhap,Integer> {
+public class PhieuNhapDAO extends GenericDao<PhieuNhap> implements ISimpleAccess<PhieuNhap,Integer> {
     {
         setClazz(PhieuNhap.class);
     }

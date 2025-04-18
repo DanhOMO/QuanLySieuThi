@@ -4,7 +4,7 @@ import Entity.TaiKhoan;
 
 import java.util.List;
 
-public class TaiKhoanDAO extends AbtractAccessDatabase<TaiKhoan> implements ISimpleAccess<TaiKhoan,Integer> {
+public class TaiKhoanDAO extends GenericDao<TaiKhoan> implements ISimpleAccess<TaiKhoan,Integer> {
     {
         setClazz(TaiKhoan.class);
     }

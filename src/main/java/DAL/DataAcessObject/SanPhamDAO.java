@@ -1,19 +1,22 @@
 package DAL.DataAcessObject;
 
 import Entity.SanPham;
+import jakarta.persistence.EntityManager;
 
 import java.util.List;
 
-public class SanPhamDAO extends AbtractAccessDatabase<SanPham> implements ISimpleAccess<SanPham, Integer> {
+public class SanPhamDAO extends GenericDao<SanPham> implements ISimpleAccess<SanPham, Integer> {
 
-    {
-        setClazz(SanPham.class);
+    public SanPhamDAO(EntityManager em, Class<SanPham> clazz) {
+        super(em, clazz);
+    }
+    public SanPhamDAO(Class<SanPham> clazz) {
+        super(clazz);
     }
 
     @Override
     public boolean insert(SanPham sanPham) {
-        return executeUpdate("INSERT INTO SanPham(TENSP, MOTA, SOLUONG, HINHANH, GIATIEN, MALOAI, MANCC, IS_DELETED) VALUES(?,?,?,?,?,?,?,?)",
-                sanPham.getTenSP(), sanPham.getMoTa(), sanPham.getSoLuong(), sanPham.getHinhAnh(), sanPham.getGiaTien(), sanPham.getLoaiSanPham().getMaLoai(), sanPham.getNhaCungCap().getMaNCC(), sanPham.isDeleted());
+        String sql  = "";
 
     }
 
@@ -35,12 +38,16 @@ public class SanPhamDAO extends AbtractAccessDatabase<SanPham> implements ISimpl
     
     // Dung cho panel nhap xuat san pham
     public SanPham selectHide(Integer maSanPham) {
-        return executeQuery("SELECT * FROM SanPham WHERE MASP = ? AND IS_DELETED = 0", maSanPham);
+        String sql = "SELECT S FROM SanPham S where S.maSP = :maSP and S.isDeleted = false";
+        return em.createQuery(sql, SanPham.class)
+                .setParameter("maSP", maSanPham)
+                .getSingleResult();
     }
 
     @Override
     public List<SanPham> selectAll() {
-        return executeQueryList("SELECT * FROM SanPham WHERE IS_DELETED = 0");
+        String sql = "SELECT S FROM SanPham S WHERE S.isDeleted = false";
+        return em.createQuery(sql, SanPham.class).getResultList();
     }
     public SanPham selectNewest(){
         return executeQuery("SELECT * FROM SANPHAM ORDER BY MASP DESC LIMIT 1");

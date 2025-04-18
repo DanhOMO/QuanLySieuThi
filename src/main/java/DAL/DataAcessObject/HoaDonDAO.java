@@ -1,13 +1,10 @@
 package DAL.DataAcessObject;
 
 import Entity.HoaDon;
-import Entity.KhachHang;
-import Entity.NhanVien;
 
-import java.sql.Timestamp;
 import java.util.List;
 
-public class HoaDonDAO extends AbtractAccessDatabase<HoaDon> implements ISimpleAccess<HoaDon,Integer> {
+public class HoaDonDAO extends GenericDao<HoaDon> implements ISimpleAccess<HoaDon,Integer> {
 
     {
         setClazz(HoaDon.class);
