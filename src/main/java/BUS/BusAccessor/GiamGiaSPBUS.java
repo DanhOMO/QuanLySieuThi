@@ -14,7 +14,7 @@ import java.util.List;
  * @author tiend
  */
 public class GiamGiaSPBUS implements IBussAccess<GiamGiaSP, Integer>{
-    private final GiamGiaSPDAO giamgiaSPDAO= new GiamGiaSPDAO();
+    private final GiamGiaSPDAO giamgiaSPDAO= new GiamGiaSPDAO(GiamGiaSP.class);
     @Override
     public GiamGiaSP get(Integer soPhieu) {
         return giamgiaSPDAO.select(soPhieu);

@@ -114,7 +114,7 @@ public class sanphamexcel {
                 if (row.getCell(6) != null) {
                     Cell cell = row.getCell(6);
                     if (cell != null) {
-                        LoaiSanPhamDAO loaiSPDAO = new LoaiSanPhamDAO();
+                        LoaiSanPhamDAO loaiSPDAO = new LoaiSanPhamDAO(LoaiSanPham.class);
 
                         String value = fmt.formatCellValue(cell);
                         if (!value.trim().isEmpty()) {

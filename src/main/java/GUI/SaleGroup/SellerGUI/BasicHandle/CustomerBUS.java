@@ -12,7 +12,7 @@ import Entity.KhachHang;
  * @author MY ACER
  */
 public class CustomerBUS {
-     KhachHangDAO khachHangDao = new KhachHangDAO();
+     KhachHangDAO khachHangDao = new KhachHangDAO(KhachHang.class);
 
    
 

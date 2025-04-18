@@ -28,13 +28,13 @@ public class LoginAction{
     
     public LoginAction() {
         taiKhoanDAO = new TaiKhoanDAO(TaiKhoan.class);
-        loginDetailDAO = new LoginDetailDAO();
+        loginDetailDAO = new LoginDetailDAO(LoginDetail.class);
         nhanVienDAO = new NhanVienDAO(NhanVien.class);
     }
     
     public LoginAction(SellerMainFrame sell, ManageFrame manager){
         taiKhoanDAO = new TaiKhoanDAO(TaiKhoan.class);
-        loginDetailDAO = new LoginDetailDAO();
+        loginDetailDAO = new LoginDetailDAO(LoginDetail.class);
         nhanVienDAO = new NhanVienDAO(NhanVien.class);
         this.sell = sell;
         this.manager = manager;

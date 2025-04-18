@@ -139,4 +139,9 @@ public class PhieuNhapDAO extends GenericDao<PhieuNhap> implements ISimpleAccess
 
         return query.getResultList();
     }
+
+    public static void main(String[] args) {
+        PhieuNhapDAO phieuNhapDAO = new PhieuNhapDAO(PhieuNhap.class);
+        phieuNhapDAO.selectAll().forEach(System.out::println);
+    }
 }

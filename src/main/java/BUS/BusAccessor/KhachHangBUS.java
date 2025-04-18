@@ -13,7 +13,7 @@ import java.util.List;
  * @author huykh
  */
 public class KhachHangBUS implements IBussAccess<KhachHang,Integer>{
-    private final KhachHangDAO khDAO = new KhachHangDAO();
+    private final KhachHangDAO khDAO = new KhachHangDAO(KhachHang.class);
     
     @Override
     public KhachHang get(Integer maKhachHang) {

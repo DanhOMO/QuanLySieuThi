@@ -10,6 +10,7 @@ import BUS.SaleServices.Money;
 import BUS.SaleServices.PayActionBus;
 import DAL.DataAcessObject.HoaDonDAO;
 import Entity.ChiTietHoaDon;
+import Entity.HoaDon;
 import Entity.SanPham;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -72,7 +73,7 @@ public class OrderItem extends RoundPanel{
     
     //Truyen ma hoa don bang ham
     public ChiTietHoaDon getChiTietHoaDon(int maHD){
-        HoaDonDAO hd = new HoaDonDAO();
+        HoaDonDAO hd = new HoaDonDAO(HoaDon.class);
         CTHD.setHoaDon(hd.select(maHD));
         return CTHD;
     }

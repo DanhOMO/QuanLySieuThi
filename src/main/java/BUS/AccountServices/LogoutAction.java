@@ -12,7 +12,7 @@ public class LogoutAction {
     
     //Hàm này được gọi để update logout Time của 1 login Detail
     public static void storeLogoutTime(LoginDetail loginDetail){
-        LoginDetailDAO lgDAO = new LoginDetailDAO();
+        LoginDetailDAO lgDAO = new LoginDetailDAO(LoginDetail.class);
         loginDetail.setLogoutTime(new Timestamp(System.currentTimeMillis()));
         lgDAO.update(loginDetail.getLoginId(), loginDetail);
     }

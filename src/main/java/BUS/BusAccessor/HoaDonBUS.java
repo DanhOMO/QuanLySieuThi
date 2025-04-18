@@ -13,7 +13,7 @@ import java.util.List;
  * @author tiend
  */
 public class HoaDonBUS implements IBussAccess<HoaDon, Integer>{
-    private final HoaDonDAO HoaDonDAO=new HoaDonDAO();
+    private final HoaDonDAO HoaDonDAO=new HoaDonDAO(HoaDon.class);
     @Override
     public HoaDon get(Integer maHoaDon) {
         return HoaDonDAO.select(maHoaDon);

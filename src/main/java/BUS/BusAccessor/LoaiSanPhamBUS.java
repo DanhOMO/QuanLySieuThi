@@ -13,6 +13,6 @@ import Entity.LoaiSanPham;
  */
 public class LoaiSanPhamBUS extends AbstractBUSAccessor<LoaiSanPham, Integer, LoaiSanPhamDAO>{
     public LoaiSanPhamBUS() {
-        this.setDao(new LoaiSanPhamDAO());
+        this.setDao(new LoaiSanPhamDAO(LoaiSanPham.class));
     }
 }

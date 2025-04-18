@@ -37,7 +37,7 @@ public class ChiTietHoaDon implements Serializable {
 
     public ChiTietHoaDon(int maSP, int i, Integer soLuong, long giaTien) {
         SanPhamDAO sanPhamDAO = new SanPhamDAO(SanPham.class);
-        HoaDonDAO hoaDonDAO = new HoaDonDAO();
+        HoaDonDAO hoaDonDAO = new HoaDonDAO(HoaDon.class);
 
         this.sanPham = sanPhamDAO.select(maSP);
 

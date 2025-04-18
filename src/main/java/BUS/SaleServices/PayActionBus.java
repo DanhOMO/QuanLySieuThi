@@ -15,12 +15,12 @@ import java.util.List;
  * @author TuanMinh
  */
 public class PayActionBus {
-    private final GiamGiaSPDAO giamGiaDAO = new GiamGiaSPDAO();
+    private final GiamGiaSPDAO giamGiaDAO = new GiamGiaSPDAO(GiamGiaSP.class);
     private final SanPhamDAO sanPhamDAO = new SanPhamDAO(SanPham.class);
-    private final HoaDonDAO hoaDonDAO = new HoaDonDAO();
+    private final HoaDonDAO hoaDonDAO = new HoaDonDAO(HoaDon.class);
     private final ChiTietHoaDonDAO CTHoaDonDAO = new ChiTietHoaDonDAO(ChiTietHoaDon.class);
     private final VoucherDAO voucherDAO = new VoucherDAO(Voucher.class);
-    private final KhachHangDAO khachHangDAO = new KhachHangDAO();
+    private final KhachHangDAO khachHangDAO = new KhachHangDAO(KhachHang.class);
     private final CheckInfoSale check = new CheckInfoSale();
     
     private HoaDon hoaDon;
@@ -133,7 +133,7 @@ public class PayActionBus {
         }    
         
         maKH = khachHang == null ? 0 : khachHang.getMaKH();
-        KhachHangDAO khachHangDAO = new KhachHangDAO();
+        KhachHangDAO khachHangDAO = new KhachHangDAO(KhachHang.class);
         NhanVienDAO nhanVienDAO = new NhanVienDAO(NhanVien.class);
         VoucherDAO voucherDAO = new VoucherDAO(Voucher.class);
         hoaDon = new HoaDon(0,new Timestamp(System.currentTimeMillis()),hinhthuc,
@@ -166,7 +166,7 @@ public class PayActionBus {
             sanPhamDAO.update(sanPham.getMaSP(), sanPham);
             
             item.setGiaTien((long)discountProductPrice(item.getSanPham().getMaSP()) * item.getSoLuong());
-            HoaDonDAO hoaDonDAO = new HoaDonDAO();
+            HoaDonDAO hoaDonDAO = new HoaDonDAO(HoaDon.class);
             item.setHoaDon(hoaDonDAO.select(maHD));
             flag = CTHoaDonDAO.insert(item);
         }
