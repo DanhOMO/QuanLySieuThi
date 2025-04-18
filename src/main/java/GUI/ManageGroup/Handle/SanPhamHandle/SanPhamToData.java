@@ -4,13 +4,14 @@ package GUI.ManageGroup.Handle.SanPhamHandle;
 import DAL.DataAcessObject.LoaiSanPhamDAO;
 import DAL.DataAcessObject.NhaCungCapDAO;
 import DAL.DataAcessObject.SanPhamDAO;
+import Entity.NhaCungCap;
 import Entity.SanPham;
 
 
 public class SanPhamToData {
     SanPhamDAO spDao = new SanPhamDAO(SanPham.class);
     LoaiSanPhamDAO lspDao = new LoaiSanPhamDAO();
-    NhaCungCapDAO nccDao = new NhaCungCapDAO();
+    NhaCungCapDAO nccDao = new NhaCungCapDAO(NhaCungCap.class);
     public boolean AddSanPham (String Gia,String Ten,int nhaCungCap,int Loai,String Mota,String url)
             {
                 SanPham sp =new SanPham();

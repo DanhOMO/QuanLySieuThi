@@ -8,6 +8,7 @@ import BUS.BusAccessor.SanPhamBUS;
 import DAL.DataAcessObject.LoaiSanPhamDAO;
 import DAL.DataAcessObject.NhaCungCapDAO;
 import Entity.LoaiSanPham;
+import Entity.NhaCungCap;
 import GUI.ManageGroup.Handle.SanPhamHandle.SanPhamValidate;
 import DAL.DataAcessObject.SanPhamDAO;
 import Entity.SanPham;
@@ -124,7 +125,7 @@ public class sanphamexcel {
                 if (row.getCell(7) != null) {
                     Cell cell = row.getCell(7);
                     if (cell != null) {
-                        NhaCungCapDAO nccDAO = new NhaCungCapDAO();
+                        NhaCungCapDAO nccDAO = new NhaCungCapDAO(NhaCungCap.class);
                         String value = fmt.formatCellValue(cell);
                         if (!value.trim().isEmpty()) {
                             sp1.setNhaCungCap(nccDAO.select(Integer.parseInt(value)));

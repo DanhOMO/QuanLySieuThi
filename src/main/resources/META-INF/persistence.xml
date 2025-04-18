@@ -48,6 +48,25 @@
 
     <persistence-unit name="mssql-pu">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>Entity.ChiTietHoaDon</class>
+        <class>Entity.ChiTietHoaDonId</class>
+        <class>Entity.ChiTietPhieuHuy</class>
+        <class>Entity.ChiTietPhieuNhap</class>
+        <class>Entity.ChiTietPhieuId</class>
+        <class>Entity.ChucVu</class>
+        <class>Entity.GiamGiaSP</class>
+        <class>Entity.HoaDon</class>
+        <class>Entity.KhachHang</class>
+        <class>Entity.LoaiSanPham</class>
+        <class>Entity.LoginDetail</class>
+        <class>Entity.NhaCungCap</class>
+        <class>Entity.NhanVien</class>
+        <class>Entity.Phieu</class>
+        <class>Entity.PhieuNhap</class>
+        <class>Entity.PhieuHuy</class>
+        <class>Entity.SanPham</class>
+        <class>Entity.TaiKhoan</class>
+        <class>Entity.Voucher</class>
 
         <properties>
             <property name="jakarta.persistence.jdbc.url"

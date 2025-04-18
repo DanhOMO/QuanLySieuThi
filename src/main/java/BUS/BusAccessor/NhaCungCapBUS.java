@@ -10,37 +10,37 @@ import java.util.List;
 
 
 public class NhaCungCapBUS implements IBussAccess<NhaCungCap, Integer>{
-    private final NhaCungCapDAO dao = new NhaCungCapDAO();
+    private final NhaCungCapDAO nhaCungCapDAO = new NhaCungCapDAO(NhaCungCap.class);
+
 
     @Override
     public NhaCungCap get(Integer maNCC) {
-        return dao.select(maNCC);
+        return nhaCungCapDAO.select(maNCC);
     }
 
     @Override
     public List<NhaCungCap> getAll() {
-        return dao.selectAll();
+        return nhaCungCapDAO.selectAll();
     }
 
     @Override
-    public boolean add(NhaCungCap data) {
-        return dao.insert(data);
+    public boolean add(NhaCungCap nhaCungCap) {
+        return nhaCungCapDAO.insert(nhaCungCap);
     }
 
     @Override
     public boolean edit(Integer maNhaCungCap, NhaCungCap ncc) {
-       return dao.update(maNhaCungCap, ncc);
+       return nhaCungCapDAO.update(maNhaCungCap, ncc);
     }
 
     @Override
-    public boolean remove(Integer key) {
-        return dao.delete(key);
+    public boolean remove(Integer maNhaCungCap) {
+        return nhaCungCapDAO.delete(maNhaCungCap);
     }
 
     @Override
     public NhaCungCap getNewest() {
-        List<NhaCungCap> list = dao.selectAll();
-        return list == null ? null:list.get(list.size()-1);
+        return nhaCungCapDAO.selectNewest();
     }
     
 }

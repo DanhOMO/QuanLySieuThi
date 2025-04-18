@@ -140,7 +140,7 @@ public class TestClass {
     }
 
     public static void testNhaCungCap(){
-        NhaCungCapDAO nhaCungCapDAO = new NhaCungCapDAO();
+        NhaCungCapDAO nhaCungCapDAO = new NhaCungCapDAO(NhaCungCap.class);
         NhaCungCap ncc = new NhaCungCap(1,"Duy","Ho Chi Minh","123","supply@gmail.com",false);
         System.out.println(ncc);
 
