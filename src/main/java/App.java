@@ -10,12 +10,15 @@ import com.formdev.flatlaf.FlatLightLaf;
 import jakarta.persistence.EntityManager;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class App {
     public static void main(String[] args) {
 //        EntityManager em = JPAUtils.getEntityManager();
         FlatLightLaf.setup();
         new LoginGui();
+
 //        SanPhamDAO sanPhamDAO = new SanPhamDAO(SanPham.class);
 //        sanPhamDAO.selectAll().forEach(System.out::println);
 //        HoaDonDAO hoaDonDAO = new HoaDonDAO();

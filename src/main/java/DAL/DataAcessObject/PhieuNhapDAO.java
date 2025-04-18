@@ -113,9 +113,12 @@ public class PhieuNhapDAO extends GenericDao<PhieuNhap> implements ISimpleAccess
         Map<String, Object> params = new HashMap<>();
 
         // Lọc theo khoảng ngày nếu có
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-M-d");
+
+
         if (ngayBD != null && !ngayBD.isEmpty() && ngayKT != null && !ngayKT.isEmpty()) {
-            LocalDate dateBD = LocalDate.parse(ngayBD);
-            LocalDate dateKT = LocalDate.parse(ngayKT);
+            LocalDate dateBD = LocalDate.parse(ngayBD , formatter);
+            LocalDate dateKT = LocalDate.parse(ngayKT, formatter);
             params.put("ngayBD", Timestamp.valueOf(dateBD.atStartOfDay()));
             params.put("ngayKT", Timestamp.valueOf(dateKT.atTime(23, 59, 59)));
             jpql.append(" AND p.ngayLap BETWEEN :ngayBD AND :ngayKT");

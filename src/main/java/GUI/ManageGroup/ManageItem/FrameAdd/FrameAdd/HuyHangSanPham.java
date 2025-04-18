@@ -13,6 +13,7 @@ import DAL.DataAcessObject.PhieuHuyDAO;
 import DAL.DataAcessObject.PhieuNhapDAO;
 import DAL.DataAcessObject.SanPhamDAO;
 import Entity.ChiTietPhieuHuy;
+import Entity.NhanVien;
 import Entity.PhieuHuy;
 import Entity.SanPham;
 import GUI.ManageGroup.Theme.NhapXuatTheme;
@@ -45,8 +46,8 @@ public class HuyHangSanPham extends javax.swing.JFrame {
     private final boolean isAdd;
     private int maPhieuHuy;
     private final int maNhanVien;
-    private SanPhamDAO sanPhamDAO;
-    private NhanVienDAO nhanVienDAO;
+    private SanPhamDAO sanPhamDAO = new SanPhamDAO(SanPham.class);
+    private NhanVienDAO nhanVienDAO = new NhanVienDAO(NhanVien.class);
 
     /**
      * Creates new form NhapHangSanPham

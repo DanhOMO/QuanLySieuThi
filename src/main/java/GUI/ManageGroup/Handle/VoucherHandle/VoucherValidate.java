@@ -21,11 +21,67 @@ public class VoucherValidate {
        validatedVoucher = new Voucher();
        checkInfoSale = new CheckInfoSale();
     }
-    
-    public boolean validateAll(String codeVoucher ,String minimizeVoucher, String maxmizeVoucher, String startDay, String endDay, String percent, String numberUser, String describe){
-        return checkCodeVoucher(codeVoucher) && checkHasVoucher(codeVoucher) && checkMinimizeVoucher(minimizeVoucher) &&checkMaxmizeVoucher(maxmizeVoucher) && isTimeStampValid(startDay) && isTimeStampValid(endDay) && isCheckPercent(percent) && isCheckNumberUser(numberUser) && isCheckDescribe(describe);
+
+    public boolean validateAll(String codeVoucher,
+                               String minimizeVoucher,
+                               String maxmizeVoucher,
+                               String startDay,
+                               String endDay,
+                               String percent,
+                               String numberUser,
+                               String describe) {
+
+        boolean isValid = true;
+
+        if (!checkCodeVoucher(codeVoucher)) {
+            System.out.println("❌ Mã voucher không hợp lệ");
+            isValid = false;
+        }
+
+        if (!checkHasVoucher(codeVoucher)) {
+            System.out.println("❌ Mã voucher đã tồn tại");
+            isValid = false;
+        }
+
+        if (!checkMinimizeVoucher(minimizeVoucher)) {
+            System.out.println("❌ Giá trị tối thiểu không hợp lệ");
+            isValid = false;
+        }
+
+        if (!checkMaxmizeVoucher(maxmizeVoucher)) {
+            System.out.println("❌ Giá trị tối đa không hợp lệ");
+            isValid = false;
+        }
+
+        if (!isTimeStampValid(startDay)) {
+            System.out.println("❌ Ngày bắt đầu không đúng định dạng Timestamp");
+            isValid = false;
+        }
+
+        if (!isTimeStampValid(endDay)) {
+            System.out.println("❌ Ngày kết thúc không đúng định dạng Timestamp");
+            isValid = false;
+        }
+
+        if (!isCheckPercent(percent)) {
+            System.out.println("❌ Phần trăm giảm giá không hợp lệ (0-100)");
+            isValid = false;
+        }
+
+        if (!isCheckNumberUser(numberUser)) {
+            System.out.println("❌ Số lượng người dùng không hợp lệ");
+            isValid = false;
+        }
+
+        if (!isCheckDescribe(describe)) {
+            System.out.println("❌ Mô tả không hợp lệ");
+            isValid = false;
+        }
+
+        return isValid;
     }
-    
+
+
     public boolean validateAllExpectCodeVoucher(String minimizeVoucher, String maxmizeVoucher, String startDay, String endDay, String percent, String numberUser, String describe){
         return checkMinimizeVoucher(minimizeVoucher) && checkMaxmizeVoucher(maxmizeVoucher) && isTimeStampValid(startDay) && isTimeStampValid(endDay) && isCheckPercent(percent) && isCheckNumberUser(numberUser) && isCheckDescribe(describe);
     }
@@ -66,6 +122,7 @@ public class VoucherValidate {
        format.parse(inputString);
        return true;
     }catch(ParseException e){
+        e.printStackTrace();
         return false;
     }
 }

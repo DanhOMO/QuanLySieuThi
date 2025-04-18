@@ -332,7 +332,7 @@ public class VoucherAdd extends javax.swing.JFrame {
         String percent = txtPtGiam.getText();
         String numberUse = txtSoLuotSD.getText();
         String describe =  txtaMoTa.getText();
-        
+        System.out.println("Is Insert : " + isInsert);
         if(isInsert){
             if (!voucherValidate.validateAll(codeVoucher , minimizeVoucher, maxmizeVoucher, startDay, endDay, percent, numberUse, describe)){
                 JOptionPane.showMessageDialog(this, "The voucher already exists or illegal");

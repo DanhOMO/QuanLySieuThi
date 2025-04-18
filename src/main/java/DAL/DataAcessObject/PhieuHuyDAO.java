@@ -7,6 +7,7 @@ import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -110,9 +111,11 @@ public class PhieuHuyDAO extends GenericDao<PhieuHuy> implements ISimpleAccess<P
         Map<String, Object> params = new HashMap<>();
 
         // Xử lý ngày nếu có nhập
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-M-d");
+
         if (ngayBD != null && !ngayBD.isEmpty() && ngayKT != null && !ngayKT.isEmpty()) {
-            LocalDate dateBD = LocalDate.parse(ngayBD);
-            LocalDate dateKT = LocalDate.parse(ngayKT);
+            LocalDate dateBD = LocalDate.parse(ngayBD , formatter);
+            LocalDate dateKT = LocalDate.parse(ngayKT , formatter);
             params.put("ngayBD", java.sql.Timestamp.valueOf(dateBD.atStartOfDay()));
             params.put("ngayKT", java.sql.Timestamp.valueOf(dateKT.atTime(23, 59, 59)));
             jpql.append(" AND ph.ngayLap BETWEEN :ngayBD AND :ngayKT");
