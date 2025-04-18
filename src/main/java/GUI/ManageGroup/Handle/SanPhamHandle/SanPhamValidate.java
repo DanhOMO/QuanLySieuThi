@@ -40,10 +40,32 @@ public class SanPhamValidate {
          return Mota.length()>20;
      }
 
-    public boolean AllValidate(String Gia,String Ten,String Mota,String url) {
-       return CheckGia(Gia)&&CheckTen(Ten)&&CheckMota(Mota)&&CheckHinhAnh(url);
+    public boolean AllValidate(String Gia, String Ten, String Mota, String url) {
+        boolean isValid = true;
+
+        if (!CheckGia(Gia)) {
+            System.out.println("❌ Giá không hợp lệ");
+            isValid = false;
+        }
+
+        if (!CheckTen(Ten)) {
+            System.out.println("❌ Tên sản phẩm không hợp lệ");
+            isValid = false;
+        }
+
+        if (!CheckMota(Mota)) {
+            System.out.println("❌ Mô tả không hợp lệ");
+            isValid = false;
+        }
+
+        if (!CheckHinhAnh(url)) {
+            System.out.println("❌ URL hình ảnh không hợp lệ");
+            isValid = false;
+        }
+
+        return isValid;
     }
 
-  
-             
+
+
 }

@@ -33,7 +33,7 @@ public class ChiTietPhieuNhap extends ChiTietPhieu {
         SanPhamDAO sanPhamDAO = new SanPhamDAO(SanPham.class);
         this.phieu  = phieuNhapDAO.select(maPhieuNhap);
         this.sanPham = sanPhamDAO.select(maSP);
-        this.chiTietPhieuId = new ChiTietPhieuId(phieu.getMaPhieu(), sanPham.getMaSP());
+        this.chiTietPhieuId = new ChiTietPhieuId(maPhieuNhap, maSP);
     }
     // Getters & Setters nếu không dùng Lombok
 }
