@@ -13,7 +13,7 @@ import java.util.List;
  * @author huykh
  */
 public class CTHoaDonBUS implements IBusAccessDetail<ChiTietHoaDon>{
-    private ChiTietHoaDonDAO dao = new ChiTietHoaDonDAO();
+    private final ChiTietHoaDonDAO dao = new ChiTietHoaDonDAO(ChiTietHoaDon.class);
     
     //Key 1 là mã hóa don, maSP là mã sp
     @Override

@@ -54,7 +54,7 @@ public class NhanVien implements Serializable
     private List<PhieuHuy> phieuHuys;
 
     public NhanVien(int maNV, String tenNhanVien, boolean gioiTinh, String cmnd, Date date, String soDienThoai, String email, String diachi, Date date1, int maChucVu, boolean b) {
-        ChucVuDAO chucVuDAO = new ChucVuDAO();
+        ChucVuDAO chucVuDAO = new ChucVuDAO(ChucVu.class);
         this.maNV = maNV;
         this.tenNV = tenNhanVien;
         this.gioiTinh = gioiTinh;

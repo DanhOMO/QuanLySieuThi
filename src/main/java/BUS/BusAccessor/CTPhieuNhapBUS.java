@@ -14,7 +14,7 @@ import java.util.List;
  * @author huykh
  */
 public class CTPhieuNhapBUS implements IBusAccessDetail<ChiTietPhieuNhap>{
-    private CTPhieuNhapDAO dao = new CTPhieuNhapDAO();
+    private CTPhieuNhapDAO dao = new CTPhieuNhapDAO(ChiTietPhieuNhap.class);
     private SanPhamBUS spBUS = new SanPhamBUS();
 
     @Override

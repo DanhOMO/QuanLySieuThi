@@ -13,7 +13,7 @@ import java.util.List;
  * @author huykh
  */
 public class CTPhieuHuyBUS implements IBusAccessDetail<ChiTietPhieuHuy>{
-    private CTPhieuHuyDAO dao = new CTPhieuHuyDAO();
+    private CTPhieuHuyDAO dao = new CTPhieuHuyDAO(ChiTietPhieuHuy.class);
     private SanPhamBUS spBUS = new SanPhamBUS();
     
     @Override

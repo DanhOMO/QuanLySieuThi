@@ -32,7 +32,7 @@ import java.util.logging.Logger;
  */
 
 public class PdfTest {
-    private static ChiTietHoaDonDAO cthoaDonDAO = new ChiTietHoaDonDAO();
+    private static ChiTietHoaDonDAO cthoaDonDAO = new ChiTietHoaDonDAO(ChiTietHoaDon.class);
     private static HoaDonDAO hoaDonDAO = new HoaDonDAO();
     private static NhanVienDAO nhanVienDAO = new NhanVienDAO();
     private static SanPhamDAO sanPhamDAO = new SanPhamDAO(SanPham.class);

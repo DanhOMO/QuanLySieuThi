@@ -22,7 +22,7 @@ public class PayActionBus {
     private final GiamGiaSPDAO giamGiaDAO = new GiamGiaSPDAO();
     private final SanPhamDAO sanPhamDAO = new SanPhamDAO(SanPham.class);
     private final HoaDonDAO hoaDonDAO = new HoaDonDAO();
-    private final ChiTietHoaDonDAO CTHoaDonDAO = new ChiTietHoaDonDAO();
+    private final ChiTietHoaDonDAO CTHoaDonDAO = new ChiTietHoaDonDAO(ChiTietHoaDon.class);
     private final VoucherDAO voucherDAO = new VoucherDAO(Voucher.class);
     private final KhachHangDAO khachHangDAO = new KhachHangDAO();
     private final CheckInfoSale check = new CheckInfoSale();
