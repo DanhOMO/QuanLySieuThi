@@ -4,7 +4,7 @@ import Entity.LoginDetail;
 
 import java.util.List;
 
-public class LoginDetailDAO extends AbtractAccessDatabase<LoginDetail> implements ISimpleAccess<LoginDetail,Integer> {
+public class LoginDetailDAO extends GenericDao<LoginDetail> implements ISimpleAccess<LoginDetail,Integer> {
     {
         setClazz(LoginDetail.class);
     }

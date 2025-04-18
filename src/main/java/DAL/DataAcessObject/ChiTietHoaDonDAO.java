@@ -4,7 +4,7 @@ import Entity.ChiTietHoaDon;
 
 import java.util.List;
 
-public class ChiTietHoaDonDAO extends AbtractAccessDatabase<ChiTietHoaDon> implements ISimpleAccessDetail<ChiTietHoaDon,Integer,Integer> {
+public class ChiTietHoaDonDAO extends GenericDao<ChiTietHoaDon> implements ISimpleAccessDetail<ChiTietHoaDon,Integer,Integer> {
 
     {
         setClazz(ChiTietHoaDon.class);

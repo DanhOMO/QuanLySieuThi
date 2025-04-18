@@ -4,7 +4,7 @@ import Entity.KhachHang;
 
 import java.util.List;
 
-public class KhachHangDAO extends AbtractAccessDatabase<KhachHang> implements ISimpleAccess<KhachHang,Integer> {
+public class KhachHangDAO extends GenericDao<KhachHang> implements ISimpleAccess<KhachHang,Integer> {
     {
         setClazz(KhachHang.class);
     }

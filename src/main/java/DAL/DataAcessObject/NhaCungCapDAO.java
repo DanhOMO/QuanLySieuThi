@@ -4,7 +4,7 @@ import Entity.NhaCungCap;
 
 import java.util.List;
 
-public class NhaCungCapDAO extends AbtractAccessDatabase<NhaCungCap> implements ISimpleAccess<NhaCungCap,Integer> {
+public class NhaCungCapDAO extends GenericDao<NhaCungCap> implements ISimpleAccess<NhaCungCap,Integer> {
 
     //Set class for DAO action
     {

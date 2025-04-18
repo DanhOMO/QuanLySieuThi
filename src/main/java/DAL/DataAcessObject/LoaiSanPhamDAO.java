@@ -4,7 +4,7 @@ import Entity.LoaiSanPham;
 
 import java.util.List;
 
-public class LoaiSanPhamDAO extends AbtractAccessDatabase<LoaiSanPham> implements ISimpleAccess<LoaiSanPham, Integer> {
+public class LoaiSanPhamDAO extends GenericDao<LoaiSanPham> implements ISimpleAccess<LoaiSanPham, Integer> {
 
     {
         setClazz(LoaiSanPham.class);

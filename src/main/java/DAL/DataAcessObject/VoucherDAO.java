@@ -4,7 +4,7 @@ import Entity.Voucher;
 
 import java.util.List;
 
-public class VoucherDAO extends AbtractAccessDatabase<Voucher> implements ISimpleAccess<Voucher,String> {
+public class VoucherDAO extends GenericDao<Voucher> implements ISimpleAccess<Voucher,String> {
     {
         setClazz(Voucher.class);
     }

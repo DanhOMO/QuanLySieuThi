@@ -4,7 +4,7 @@ import Entity.ChucVu;
 
 import java.util.List;
 
-public class ChucVuDAO extends AbtractAccessDatabase<ChucVu> implements ISimpleAccess<ChucVu,Integer> {
+public class ChucVuDAO extends GenericDao<ChucVu> implements ISimpleAccess<ChucVu,Integer> {
 
     {
         setClazz(ChucVu.class);

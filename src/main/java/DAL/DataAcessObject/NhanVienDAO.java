@@ -4,7 +4,7 @@ import Entity.NhanVien;
 
 import java.util.List;
 
-public class NhanVienDAO extends AbtractAccessDatabase<NhanVien> implements ISimpleAccess<NhanVien,Integer>{
+public class NhanVienDAO extends GenericDao<NhanVien> implements ISimpleAccess<NhanVien,Integer>{
     {
         setClazz(NhanVien.class);
     }
