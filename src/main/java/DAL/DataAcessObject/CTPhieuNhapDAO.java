@@ -1,48 +1,104 @@
 package DAL.DataAcessObject;
 
 import Entity.ChiTietPhieuNhap;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
 
 import java.util.List;
 
 public class CTPhieuNhapDAO extends GenericDao<ChiTietPhieuNhap> implements ISimpleAccessDetail<ChiTietPhieuNhap, Integer, Integer> {
-    {
-        setClazz(ChiTietPhieuNhap.class);
+
+    public CTPhieuNhapDAO(EntityManager em, Class<ChiTietPhieuNhap> clazz) {
+        super(em, clazz);
+    }
+
+    public CTPhieuNhapDAO(Class<ChiTietPhieuNhap> clazz) {
+        super(clazz);
     }
 
     @Override
     public ChiTietPhieuNhap select(Integer maPhieu, Integer maSP) {
-        return executeQuery("SELECT * FROM CTPHIEUNHAP WHERE MAPHIEU = ? AND MASP = ?", maPhieu,maSP);
+        String jpql = "SELECT c FROM ChiTietPhieuNhap c WHERE c.phieu.maPhieu = :maPhieu AND c.sanPham.maSP = :maSP";
+        return em.createQuery(jpql, ChiTietPhieuNhap.class)
+                .setParameter("maPhieu", maPhieu)
+                .setParameter("maSP", maSP)
+                .getSingleResult();
     }
 
     @Override
     public boolean insert(ChiTietPhieuNhap chiTietPhieuNhap) {
-        return executeUpdate("INSERT INTO CTPHIEUNHAP(MAPHIEU,MASP,SOLUONG) VALUES(?,?,?)",
-                chiTietPhieuNhap.getPhieu().getMaPhieu(),chiTietPhieuNhap.getSanPham().getMaSP(),chiTietPhieuNhap.getSoLuong());
-    }
-
-    @Override
-    public boolean update(Integer maPhieu, Integer maSP, ChiTietPhieuNhap chiTietPhieuNhap) {
-        return executeUpdate("UPDATE CTPHIEUNHAP SET MAPHIEU = ?, MASP = ?, SOLUONG = ? WHERE MAPHIEU = ? AND MASP = ?",
-                chiTietPhieuNhap.getPhieu().getMaPhieu(),chiTietPhieuNhap.getSanPham().getMaSP(),chiTietPhieuNhap.getSoLuong(),maPhieu,maSP);
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            em.persist(chiTietPhieuNhap);
+            tx.commit();
+            return true;
+        } catch (Exception e) {
+            if (tx.isActive()) tx.rollback();
+            e.printStackTrace();
+        }
+        return false;
     }
 
     @Override
     public boolean delete(Integer maPhieu, Integer maSP) {
-        return executeUpdate("DELETE FROM CTPHIEUNHAP WHERE MAPHIEU = ? AND MASP = ?", maPhieu,maSP);
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            ChiTietPhieuNhap ctpn = select(maPhieu, maSP);
+            if (ctpn != null) {
+                em.remove(em.contains(ctpn) ? ctpn : em.merge(ctpn));
+                tx.commit();
+                return true;
+            }
+        } catch (Exception e) {
+            if (tx.isActive()) tx.rollback();
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean update(Integer maPhieu, Integer maSP, ChiTietPhieuNhap chiTietPhieuNhap) {
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            ChiTietPhieuNhap existing = select(maPhieu, maSP);
+            if (existing != null) {
+                existing.setPhieu(chiTietPhieuNhap.getPhieu());
+                existing.setSanPham(chiTietPhieuNhap.getSanPham());
+                existing.setSoLuong(chiTietPhieuNhap.getSoLuong());
+                em.merge(existing);
+                tx.commit();
+                return true;
+            }
+        } catch (Exception e) {
+            if (tx.isActive()) tx.rollback();
+            e.printStackTrace();
+        }
+        return false;
     }
 
     @Override
     public List<ChiTietPhieuNhap> selectAllById1(Integer maPhieu) {
-        return executeQueryList("SELECT * FROM CTPHIEUNHAP WHERE MAPHIEU = ?", maPhieu);
+        String jpql = "SELECT c FROM ChiTietPhieuNhap c WHERE c.phieu.maPhieu = :maPhieu";
+        return em.createQuery(jpql, ChiTietPhieuNhap.class)
+                .setParameter("maPhieu", maPhieu)
+                .getResultList();
     }
 
     @Override
     public List<ChiTietPhieuNhap> selectAllById2(Integer maSP) {
-        return executeQueryList("SELECT * FROM CTPHIEUNHAP WHERE MASP = ?", maSP);
+        String jpql = "SELECT c FROM ChiTietPhieuNhap c WHERE c.sanPham.maSP = :maSP";
+        return em.createQuery(jpql, ChiTietPhieuNhap.class)
+                .setParameter("maSP", maSP)
+                .getResultList();
     }
 
     @Override
     public List<ChiTietPhieuNhap> selectAll() {
-        return executeQueryList("SELECT * FROM CTPHIEUNHAP");
+        String jpql = "SELECT c FROM ChiTietPhieuNhap c";
+        return em.createQuery(jpql, ChiTietPhieuNhap.class).getResultList();
     }
+    
 }

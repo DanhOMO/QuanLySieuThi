@@ -37,7 +37,7 @@ import javax.swing.JFrame;
  * @author ACER
  */
 public class HoaDonJPanel extends javax.swing.JPanel {
-    private final ChiTietHoaDonDAO cthoaDonDAO = new ChiTietHoaDonDAO();
+    private final ChiTietHoaDonDAO cthoaDonDAO = new ChiTietHoaDonDAO(ChiTietHoaDon.class);
     private final  HoaDonBUS hoaDonBUS =new HoaDonBUS();
     private final  NhanVienBUS nhanVienBUS=new NhanVienBUS();
     private final  KhachHangBUS khachHangBUS=new KhachHangBUS();

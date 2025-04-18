@@ -14,7 +14,7 @@ import Entity.ChucVu;
 public class ChucVuBUS extends AbstractBUSAccessor<ChucVu, Integer, ChucVuDAO>{
 
     public ChucVuBUS() {
-        setDao(new ChucVuDAO());
+        setDao(new ChucVuDAO(ChucVu.class));
     }
    
 }
