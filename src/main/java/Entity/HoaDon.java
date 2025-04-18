@@ -68,7 +68,7 @@ public class HoaDon implements Serializable {
     }
     public HoaDon(int maHD, Timestamp ngayHD, String hinhThuc, long tongTien, long tienGiam, int maKH, int maNV, String soKM, boolean isDeleted) {
         KhachHangDAO khachHangDAO = new KhachHangDAO();
-        NhanVienDAO nhanVienDAO = new NhanVienDAO();
+        NhanVienDAO nhanVienDAO = new NhanVienDAO(NhanVien.class);
         VoucherDAO voucherDAO = new VoucherDAO(Voucher.class);
         this.maHD = maHD;
         this.ngayHD = ngayHD;

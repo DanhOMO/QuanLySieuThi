@@ -61,7 +61,6 @@ public class NhaCungCapDAO extends GenericDao<NhaCungCap> implements ISimpleAcce
                 existing.setSdt(nhaCungCap.getSdt());
                 existing.setEmail(nhaCungCap.getEmail());
                 existing.setDeleted(nhaCungCap.isDeleted());
-                existing.setSanPhams(nhaCungCap.getSanPhams());
                 em.merge(existing);
                 tx.commit();
                 return true;
