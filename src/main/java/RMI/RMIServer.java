@@ -11,10 +11,13 @@ import service.impl.KhachHangServiceImpl;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.naming.NameClassPair;
+import javax.naming.NamingEnumeration;
 import java.rmi.registry.LocateRegistry;
 
 public class RMIServer {
     public static void main(String[] args) throws  Exception {
+        ClientRegistryServiceImpl clientServices = new ClientRegistryServiceImpl();
         Context context = new InitialContext();
 
         LocateRegistry.createRegistry(9090);
@@ -85,13 +88,13 @@ public class RMIServer {
         VoucherDAO voucherDAO = new VoucherDAO(Voucher.class);
         VoucherService voucherService = new VoucherServiceImpl(voucherDAO);
         context.bind("rmi://localhost:9090/VoucherService", voucherService);
-
-
-
+        // Bind the remote object in the registry
+        context.bind("rmi://localhost:9090/ClientRegistryService", clientServices);
 
 
 //        context.bind("rmi://localhost:9090/yourServiceName", yourRemoteObject);
         System.out.println("RMI Server is running...");
+
 
 
 

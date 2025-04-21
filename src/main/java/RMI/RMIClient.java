@@ -1,6 +1,8 @@
 package RMI;
 
 import Entity.*;
+import GUI.SaleGroup.LoginGui.LoginFrame.LoginGui;
+import com.formdev.flatlaf.FlatLightLaf;
 import service.*;
 import service.impl.*;
 import javax.naming.Context;
@@ -11,7 +13,7 @@ public class RMIClient {
     public static void main(String[] args) {
         try {
             Context context = new InitialContext();
-
+            ClientRegistryService clientRegistryService = (ClientRegistryService) context.lookup("rmi://localhost:9090/ClientRegistryService");
             KhachHangService khachHangService = (KhachHangService) context.lookup("rmi://localhost:9090/KhachHangService");
             ChiTietHoaDonService chiTietHoaDonService = (ChiTietHoaDonService) context.lookup("rmi://localhost:9090/ChiTietHoaDonService");
             ChucVuService chucVuService = (ChucVuService) context.lookup("rmi://localhost:9090/ChucVuService");
@@ -28,7 +30,7 @@ public class RMIClient {
             SanPhamService sanPhamService = (SanPhamService) context.lookup("rmi://localhost:9090/SanPhamService");
             TaiKhoanService taiKhoanService = (TaiKhoanService) context.lookup("rmi://localhost:9090/TaiKhoanService");
             VoucherService voucherService = (VoucherService) context.lookup("rmi://localhost:9090/VoucherService");
-
+            clientRegistryService.registerClient("Client_A");
 
             KhachHang khachHang = khachHangService.select(1);
             if (khachHang != null) {
@@ -95,7 +97,8 @@ public class RMIClient {
             for (NhaCungCap ncc : allNhaCungCap) {
                 System.out.println("NhaCungCap: " + ncc.getTenNCC());
             }
-
+            FlatLightLaf.setup();
+            new LoginGui();
         } catch (Exception e) {
             e.printStackTrace();
         }
