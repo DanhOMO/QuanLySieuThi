@@ -164,10 +164,13 @@ public class PayActionBus {
             SanPham sanPham = sanPhamDAO.select(item.getSanPham().getMaSP());
             sanPham.setSoLuong(sanPham.getSoLuong() - item.getSoLuong());
             sanPhamDAO.update(sanPham.getMaSP(), sanPham);
-            
+            item.setId(new ChiTietHoaDonId(item.getSanPham().getMaSP(), maHD));
             item.setGiaTien((long)discountProductPrice(item.getSanPham().getMaSP()) * item.getSoLuong());
             HoaDonDAO hoaDonDAO = new HoaDonDAO(HoaDon.class);
-            item.setHoaDon(hoaDonDAO.select(maHD));
+            HoaDon hoadon = hoaDonDAO.select(maHD);
+            item.setHoaDon(hoadon);
+            item.setSanPham(sanPham);
+            System.out.println("item:" + item);
             flag = CTHoaDonDAO.insert(item);
         }
         return flag;

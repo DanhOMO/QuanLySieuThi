@@ -2,6 +2,8 @@ package DAL.DataAcessObject;
 
 import Entity.ChiTietHoaDon;
 import Entity.ChiTietHoaDonId;
+import Entity.HoaDon;
+import Entity.SanPham;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 
@@ -28,6 +30,10 @@ public class ChiTietHoaDonDAO extends GenericDao<ChiTietHoaDon> implements ISimp
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
+            HoaDon hoaDon = em.merge(chiTietHoaDon.getHoaDon());
+            SanPham sanPham = em.merge(chiTietHoaDon.getSanPham());
+            chiTietHoaDon.setHoaDon(hoaDon);
+            chiTietHoaDon.setSanPham(sanPham);
             em.persist(chiTietHoaDon);
             tx.commit();
             return true;
@@ -97,5 +103,4 @@ public class ChiTietHoaDonDAO extends GenericDao<ChiTietHoaDon> implements ISimp
         String jpql = "SELECT c FROM ChiTietHoaDon c";
         return em.createQuery(jpql, ChiTietHoaDon.class).getResultList();
     }
-
 }

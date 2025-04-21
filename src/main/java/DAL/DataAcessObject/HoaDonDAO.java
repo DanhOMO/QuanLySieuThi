@@ -102,4 +102,9 @@ public class HoaDonDAO extends GenericDao<HoaDon> implements ISimpleAccess<HoaDo
                 .setParameter("endDay", java.sql.Date.valueOf(endDay))
                 .getResultList();
     }
+
+    public static void main(String[] args) {
+        HoaDonDAO hoaDonDAO = new HoaDonDAO(HoaDon.class);
+        hoaDonDAO.selectAll().forEach(System.out::println);
+    }
 }
