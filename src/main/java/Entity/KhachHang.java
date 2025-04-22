@@ -16,6 +16,7 @@ import java.util.List;
 public class KhachHang implements Serializable
 
 {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     @Column(name = "MAKH")
@@ -36,6 +37,17 @@ public class KhachHang implements Serializable
     private boolean isDeleted;
     @OneToMany(mappedBy = "khachHang")
     private List<HoaDon> hoaDons;
+
+    public KhachHang(String nguyenVanA, String number, String haNoi, String date, String nam, int i, int i1, int i2, int i3, int i4, int i5, int i6) {
+        this.tenKH = nguyenVanA;
+        this.soDienThoai = number;
+        this.diaChi = haNoi;
+        this.email = date;
+        this.diemThuong = i;
+        this.gioiTinh = true;
+        this.isDeleted = false;
+    }
+
     @Override
     public String toString() {
         return "KhachHang{" +

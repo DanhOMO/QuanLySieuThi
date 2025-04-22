@@ -15,6 +15,7 @@ import java.sql.Timestamp;
 @Table(name = "GIAMGIASP")
 public class GiamGiaSP implements Serializable
 {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     @Column(name = "SOPHIEU")

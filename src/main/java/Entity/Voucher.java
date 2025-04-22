@@ -15,6 +15,8 @@ import java.util.List;
 @Entity
 @Table(name = "VOUCHER")
 public class Voucher implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     @Column(name = "SOVOUCHER")

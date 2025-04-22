@@ -18,6 +18,7 @@ import java.util.List;
 @Entity
 @Table(name = "HOADON")
 public class HoaDon implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     @Column(name = "MAHD")
@@ -96,4 +97,6 @@ public class HoaDon implements Serializable {
                 ", isDeleted=" + isDeleted +
                 '}';
     }
+
+
 }

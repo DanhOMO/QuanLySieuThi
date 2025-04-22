@@ -14,6 +14,7 @@ import java.util.List;
 @Entity
 @Table(name = "CHUCVU")
 public class ChucVu implements Serializable {
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     @Column(name = "MACHUCVU")

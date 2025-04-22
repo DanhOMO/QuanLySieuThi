@@ -14,6 +14,8 @@ import java.sql.Timestamp;
 @Data
 @MappedSuperclass // <- thay vì @Entity
 public abstract class Phieu implements Serializable {
+    private static final long serialVersionUID = 1L;
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
