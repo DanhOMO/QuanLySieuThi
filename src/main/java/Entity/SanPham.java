@@ -18,6 +18,7 @@ import java.util.List;
 @Table(name = "SANPHAM")
 
 public class SanPham implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)

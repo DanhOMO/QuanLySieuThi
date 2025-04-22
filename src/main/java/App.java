@@ -1,8 +1,10 @@
 
 import BUS.AccountServices.LoginAction;
 import DAL.DataAcessObject.HoaDonDAO;
+import DAL.DataAcessObject.KhachHangDAO;
 import DAL.DataAcessObject.LoaiSanPhamDAO;
 import DAL.DataAcessObject.SanPhamDAO;
+import Entity.KhachHang;
 import Entity.SanPham;
 import GUI.SaleGroup.LoginGui.LoginFrame.LoginGui;
 import Utils.JPAUtils;
@@ -18,7 +20,6 @@ public class App {
 //        EntityManager em = JPAUtils.getEntityManager();
         FlatLightLaf.setup();
         new LoginGui();
-
 //        SanPhamDAO sanPhamDAO = new SanPhamDAO(SanPham.class);
 //        sanPhamDAO.selectAll().forEach(System.out::println);
 //        HoaDonDAO hoaDonDAO = new HoaDonDAO();
